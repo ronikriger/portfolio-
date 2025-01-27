@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Roni Kriger - Computer Science Student">
+    <title>Roni Kriger</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Dark background color */
+            color: #eee;
+            line-height: 1.6;
+            text-align: center;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        h1, h2 {
+            font-weight: 600;
+        }
+
+        /* Full-Screen Hero Section */
+        header {
+            height: 100vh;
+            padding: 0;
+            background-color: #121212; /* Dark background color */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 5em;
+            color: #64ffda;
+            letter-spacing: 5px;
+            animation: fadeIn 1s ease-out;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.5em;
+            color: #bbb;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            padding: 20px;
+            position: relative;
+            width: 100%;
+            color: #bbb;
+        }
+
+        footer p {
+            font-size: 1.1em;
+            color: #bbb;
+        }
+
+        footer a {
+            color: #64ffda;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Styling */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3.5em;
+            }
+
+            header p {
+                font-size: 1.2em;
+            }
+
+            footer p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Roni Kriger</h1>
+        <p>Computer Science Student</p>
+    </header>
+
+    <!-- Footer -->
+    <footer>
+        <p>Let's connect:</p>
+        <p>
+            <a href="https://linkedin.com/in/ronikriger" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/ronikriger" target="_blank">GitHub</a>
+        </p>
+    </footer>
+
+</body>
+</html>
+
