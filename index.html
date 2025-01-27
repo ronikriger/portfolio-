@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Roni Kriger - Computer Science Student">
+    <meta name="keywords" content="Roni Kriger, Computer Science Student, Portfolio, GitHub">
     <title>Roni Kriger</title>
     <style>
         /* Global Styles */
@@ -25,6 +26,34 @@
 
         h1, h2 {
             font-weight: 600;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            list-style: none;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #64ffda;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
         }
 
         /* Full-Screen Hero Section */
@@ -55,6 +84,45 @@
             margin-top: 20px;
         }
 
+        /* Portfolio Section */
+        #portfolio {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #portfolio h2 {
+            color: #64ffda;
+            margin-bottom: 20px;
+        }
+
+        #portfolio p {
+            color: #bbb;
+            margin: 20px 0;
+        }
+
+        .project-card {
+            width: 300px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            margin: 10px;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .project-card h3 {
+            color: #64ffda;
+        }
+
+        .project-card p {
+            color: #bbb;
+        }
+
+        .project-card a {
+            color: #64ffda;
+            text-decoration: none;
+        }
+
         /* Footer */
         footer {
             background-color: #1a1a1a;
@@ -78,6 +146,25 @@
 
         footer a:hover {
             color: #fff;
+        }
+
+        /* Back-to-Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #64ffda;
+            border: none;
+            border-radius: 50%;
+            color: #121212;
+            cursor: pointer;
+            font-size: 20px;
+            display: none; /* Hidden by default */
+        }
+
+        #back-to-top:hover {
+            background-color: #52d4b6;
         }
 
         /* Animations */
@@ -105,10 +192,33 @@
             footer p {
                 font-size: 0.9em;
             }
+
+            .project-card {
+                width: 90%;
+            }
         }
     </style>
+    <script>
+        // Show Back-to-Top Button
+        window.onscroll = function () {
+            const backToTop = document.getElementById("back-to-top");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTop.style.display = "block";
+            } else {
+                backToTop.style.display = "none";
+            }
+        };
+    </script>
 </head>
 <body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+    </nav>
 
     <!-- Header -->
     <header>
@@ -116,14 +226,34 @@
         <p>Computer Science Student</p>
     </header>
 
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <p>Check out some of my work:</p>
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>A brief description of Project 1 goes here.</p>
+            <a href="#">View on GitHub</a>
+        </div>
+        <div class="project-card">
+            <h3>Project 2</h3>
+            <p>A brief description of Project 2 goes here.</p>
+            <a href="#">View on GitHub</a>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer>
+    <footer id="footer">
         <p>Let's connect:</p>
         <p>
             <a href="https://linkedin.com/in/ronikriger" target="_blank">LinkedIn</a> |
             <a href="https://github.com/ronikriger" target="_blank">GitHub</a>
         </p>
+        <p>&copy; 2025 Roni Kriger. All rights reserved.</p>
     </footer>
+
+    <!-- Back-to-Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
 
 </body>
 </html>
