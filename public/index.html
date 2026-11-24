@@ -12,19 +12,33 @@
 <meta property="og:title" content="Roni Kriger · Software engineer">
 <meta property="og:description" content="Berkeley EECS graduate. Builder of Orbit, an iPhone app for long-distance couples, plus AI agent research, trading systems and more.">
 <meta property="og:url" content="https://www.ocf.berkeley.edu/~rkriger/">
-<meta property="og:image" content="https://www.ocf.berkeley.edu/~rkriger/og.png">
+<meta property="og:site_name" content="Roni Kriger">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.ocf.berkeley.edu/~rkriger/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Roni Kriger's site: his name beside a globe tracing São Paulo, Tel Aviv, Berkeley and New York.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Roni Kriger · Software engineer">
+<meta name="twitter:description" content="Berkeley EECS graduate. Builder of Orbit, an iPhone app for long-distance couples, plus AI agent research, trading systems and more.">
+<meta name="twitter:image" content="https://www.ocf.berkeley.edu/~rkriger/og.jpg">
+<meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F3F5F9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#070B17" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap">
+<link rel="icon" href="favicon.svg?v=a8f145a1" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png?v=ea898143" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=908a356a">
+<!--FONTLINKS-->
+<link rel="preload" href="fonts/archivo.woff2?v=dad1ef74" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist.woff2?v=d9e95a89" as="font" type="font/woff2" crossorigin>
+<!--/FONTLINKS-->
 <script>try{var t=localStorage.getItem("rk-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <style>
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 600 900; font-stretch: 100% 125%; font-display: swap; src: url(fonts/archivo.woff2?v=dad1ef74) format("woff2"); }
+@font-face { font-family: "Geist"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/geist.woff2?v=d9e95a89) format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 400 600; font-display: swap; src: url(fonts/geist-mono.woff2?v=1b3ec393) format("woff2"); }
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 300 500; font-display: swap; src: url(fonts/newsreader.woff2?v=6c83455a) format("woff2"); }
+@font-face { font-family: "Newsreader"; font-style: italic; font-weight: 300 500; font-display: swap; src: url(fonts/newsreader-italic.woff2?v=f8b26e4b) format("woff2"); }
 /* Layout: one 1120px column. The hero sets the name beside a globe of the cities on the résumé;
    Orbit gets a full-width panel in the app's own palette and typeface; other work sits in a 2-up grid;
    experience reads as a dated ledger. Berkeley navy for ink, California gold for marks. */
@@ -95,7 +109,7 @@ body::before {
   content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
   z-index: 30; background: var(--paper);
 }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
@@ -156,7 +170,17 @@ p { margin: 0; text-wrap: pretty; }
 .btn svg { width: 16px; height: 16px; flex: none; }
 .btn-primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .btn-sm { min-height: 40px; padding: 8px 14px; font-size: .875rem; }
-@media (max-width: 820px) { .nav { display: none; } }
+.menu-btn { display: none; }
+.menu-btn .icon-close { display: none; }
+.menu-btn[aria-expanded="true"] .icon-open { display: none; }
+.menu-btn[aria-expanded="true"] .icon-close { display: block; }
+.mobile-nav { border-top: 1px solid var(--line); padding-block: 8px 16px; }
+.mobile-nav ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.mobile-nav a { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 0 4px; font-family: var(--f-display); font-stretch: 110%; font-weight: 700; font-size: 1.25rem; letter-spacing: -.01em; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+.mobile-nav a::after { content: "→"; font: 500 1rem var(--f-mono); color: var(--gold-ink); }
+@media (max-width: 820px) { .nav { display: none; } .menu-btn { display: inline-grid; } }
+@media (min-width: 821px) { .mobile-nav { display: none; } }
+@media (max-width: 380px) { .bar > .btn-sm { display: none; } }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -185,12 +209,21 @@ p { margin: 0; text-wrap: pretty; }
 .globe-fig { margin: 0; display: grid; gap: 20px; justify-items: center; min-width: 0; }
 .globe-box { position: relative; width: 100%; max-width: 500px; aspect-ratio: 1; touch-action: pan-y; cursor: grab; }
 .globe-box:active { cursor: grabbing; }
+.globe-box:focus-visible { outline-offset: -6px; border-radius: 50%; }
 .globe-box canvas { width: 100%; height: 100%; display: block; }
 .stops {
   list-style: none; margin: 0; padding: 0; width: 100%; max-width: 500px;
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 24px;
 }
-.stops li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 0 10px; align-items: start; }
+.stops li { min-width: 0; }
+.stop {
+  display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 0 10px; align-items: start; width: 100%;
+  margin: 0; padding: 8px 10px; border: 1px solid transparent; border-radius: 12px; background: none;
+  color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.stop:hover { background: var(--surface); border-color: var(--line); }
+.stop[aria-pressed="true"] { background: var(--surface); border-color: var(--gold); }
+.stops { margin-inline: -10px; width: calc(100% + 20px); }
 .stops .n {
   grid-row: span 3; width: 24px; height: 24px; border-radius: 50%; background: var(--gold-soft); color: var(--gold-ink);
   font: 600 .75rem/24px var(--f-mono); text-align: center;
@@ -199,7 +232,7 @@ p { margin: 0; text-wrap: pretty; }
 .stops .place span { font: 400 .8125rem var(--f-mono); color: var(--muted); margin-left: 6px; }
 .stops .what { font-size: .875rem; color: var(--ink-2); line-height: 1.45; }
 .stops .coord { font: 400 .75rem/1.6 var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
-.globe-hint { font: 400 .75rem var(--f-mono); color: var(--muted); margin-top: -8px; }
+.globe-hint { font: 400 .75rem/1.5 var(--f-mono); color: var(--muted); margin-top: -10px; text-align: center; max-width: 500px; }
 @media (max-width: 420px) { .stops { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- Sections ---------- */
@@ -254,7 +287,10 @@ p { margin: 0; text-wrap: pretty; }
 }
 .orbit-shots figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
 .orbit-shots figure:nth-child(even) { transform: translateY(44px); }
-.orbit-shots img { width: 100%; height: auto; aspect-ratio: 480 / 1038; border-radius: 22px; border: 1px solid var(--orbit-line); background: var(--orbit-elev); }
+.shot { display: block; width: 100%; padding: 0; border: 0; border-radius: 22px; background: none; cursor: zoom-in; }
+.shot:focus-visible { outline: 2px solid var(--orbit-accent); outline-offset: 4px; }
+.orbit-shots img { width: 100%; height: auto; aspect-ratio: 300 / 650; border-radius: 22px; border: 1px solid var(--orbit-line); background: var(--orbit-elev); transition: transform .2s ease; }
+.shot:hover img { transform: translateY(-3px); }
 .orbit-shots figcaption { font: 400 .75rem var(--f-mono); letter-spacing: .06em; text-transform: lowercase; color: var(--orbit-mute); text-align: center; }
 @media (max-width: 1000px) {
   .orbit-shots { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; justify-content: flex-start; }
@@ -413,9 +449,49 @@ p { margin: 0; text-wrap: pretty; }
 
 .site-footer { border-top: 1px solid var(--line); padding-block: 28px calc(28px + env(safe-area-inset-bottom, 0px)); }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font: 400 .8125rem/1.6 var(--f-mono); color: var(--muted); }
+.site-footer .wrap > span { display: flex; flex-wrap: wrap; gap: 0 14px; }
 .site-footer a { color: inherit; }
 
-@media (prefers-reduced-motion: reduce) { .btn, .site-header { transition: none; } .btn:hover { transform: none; } }
+/* Screenshot viewer */
+.lightbox { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; overflow: hidden; }
+.lightbox::backdrop { background: rgba(10, 8, 6, .86); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.lightbox[open] { display: grid; place-items: center; }
+.lb-figure { margin: 0; display: grid; justify-items: center; gap: 12px; padding: calc(env(safe-area-inset-top, 0px) + 56px) 16px calc(env(safe-area-inset-bottom, 0px) + 24px); }
+.lb-figure img { width: auto; max-width: min(92vw, 420px); max-height: calc(100vh - 150px); border-radius: 28px; border: 1px solid var(--orbit-line); background: var(--orbit-elev); }
+.lb-figure figcaption { font: 400 .8125rem var(--f-mono); color: var(--orbit-ink); text-align: center; }
+.lb-btn {
+  position: fixed; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 999px;
+  border: 1px solid var(--orbit-line); background: rgba(37, 28, 20, .8); color: var(--orbit-ink); cursor: pointer; font: 400 1.5rem/1 var(--f-body);
+}
+.lb-btn:hover { background: var(--orbit-elev); }
+.lb-btn:focus-visible { outline: 2px solid var(--orbit-accent); outline-offset: 2px; }
+.lb-close { top: calc(env(safe-area-inset-top, 0px) + 14px); right: max(14px, env(safe-area-inset-right, 0px)); }
+.lb-prev { left: max(14px, env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); }
+.lb-next { right: max(14px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); }
+@media (max-width: 560px) { .lb-prev, .lb-next { top: auto; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); transform: none; } .lb-figure { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 84px); } .lb-figure img { max-height: calc(100vh - 200px); } }
+
+@media (prefers-reduced-motion: reduce) { .btn, .site-header, .orbit-shots img { transition: none; } .btn:hover, .shot:hover img { transform: none; } }
+
+/* Print: one clean column, light ink, links spelled out */
+@media print {
+  :root, :root[data-theme] { --paper: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --muted: #555; --line: #ccc; --line-strong: #999; --accent: #000; --gold: #a07000; --gold-ink: #7a5500; color-scheme: light; }
+  body { font-size: 10.5pt; }
+  body::before, .site-header, .skip, .globe-box, .globe-hint, .cta-row, .orbit-shots, .card-visual, .copy, .contact .row, .lightbox, .chips { display: none !important; }
+  .hero { display: block; padding-block: 0 12pt; }
+  .name { font-size: 40pt; margin: 6pt 0 10pt; }
+  .stops { margin: 10pt 0 0; width: 100%; }
+  .stop { padding: 2pt 0; }
+  .section { padding-block: 16pt; }
+  .orbit { display: block; background: #fff; color: #000; box-shadow: none; border: 1px solid #ccc; }
+  .orbit *, .orbit-features dt { color: #000 !important; }
+  .orbit-cta { padding: 0; background: none; }
+  .wide, .grid { display: block; }
+  .card, .xp > li, .courses li, .orbit-features div { break-inside: avoid; }
+  .section-head, h3 { break-after: avoid; }
+  .card { margin-top: 10pt; }
+  .wide .card-visual { display: none; }
+  main a[href^="http"]::after { content: " (" attr(href) ")"; font: 400 8pt var(--f-mono); color: #555; overflow-wrap: anywhere; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -424,9 +500,12 @@ p { margin: 0; text-wrap: pretty; }
   "name": "Roni Kriger",
   "jobTitle": "Software Engineer",
   "url": "https://www.ocf.berkeley.edu/~rkriger/",
+  "description": "Software engineer and UC Berkeley EECS graduate who builds iOS apps, AI tools and trading systems.",
+  "image": "https://www.ocf.berkeley.edu/~rkriger/og.jpg",
   "email": "mailto:krigerroni@gmail.com",
   "telephone": "+972-50-644-4947",
-  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of California, Berkeley" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of California, Berkeley", "sameAs": "https://www.berkeley.edu/" },
+  "knowsAbout": ["iOS development", "Swift", "SwiftUI", "Python", "Machine learning", "Quantitative trading", "AI agents"],
   "knowsLanguage": ["English", "Portuguese", "Hebrew", "Spanish"],
   "sameAs": ["https://www.linkedin.com/in/roni-kriger/", "https://github.com/ronikriger", "https://apps.apple.com/us/app/relationship-orbit/id6775461355"]
 }
@@ -453,8 +532,21 @@ p { margin: 0; text-wrap: pretty; }
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
     </button>
-    <a class="btn btn-sm" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    <a class="btn btn-sm" href="resume.pdf?v=fa05ed04" target="_blank" rel="noopener">Résumé</a>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
   </div>
+  <nav class="wrap mobile-nav" id="mobileNav" aria-label="Sections" hidden>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="resume.pdf?v=fa05ed04" target="_blank" rel="noopener">Résumé (PDF)</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main id="main">
@@ -470,7 +562,7 @@ p { margin: 0; text-wrap: pretty; }
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>
             Email me
           </a>
-          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+          <a class="btn" href="resume.pdf?v=fa05ed04" target="_blank" rel="noopener">Résumé (PDF)</a>
           <a class="btn" href="https://github.com/ronikriger" target="_blank" rel="noopener">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/roni-kriger/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
@@ -478,16 +570,16 @@ p { margin: 0; text-wrap: pretty; }
       </div>
 
       <figure class="globe-fig">
-        <div class="globe-box" id="globe">
+        <div class="globe-box" id="globe" tabindex="0" aria-describedby="globeHint">
           <canvas role="img" aria-label="A globe with arcs from São Paulo to Tel Aviv to Berkeley to New York, in the order listed below."></canvas>
         </div>
         <ol class="stops" aria-label="Where I have worked and studied, in order">
-          <li><span class="n" aria-hidden="true">1</span><span class="place">São Paulo <span>2019–22</span></span><span class="what">Volunteer math teacher</span><span class="coord">23.55° S, 46.63° W</span></li>
-          <li><span class="n" aria-hidden="true">2</span><span class="place">Tel Aviv <span>2023</span></span><span class="what">Lightrun, engineering intern</span><span class="coord">32.09° N, 34.78° E</span></li>
-          <li><span class="n" aria-hidden="true">3</span><span class="place">Berkeley <span>2023–26</span></span><span class="what">UC Berkeley EECS, Stylis AI</span><span class="coord">37.87° N, 122.27° W</span></li>
-          <li><span class="n" aria-hidden="true">4</span><span class="place">New York <span>2025</span></span><span class="what">AQCTech, engineering intern</span><span class="coord">40.71° N, 74.01° W</span></li>
+          <li><button class="stop" type="button" data-city="0" aria-pressed="false"><span class="n" aria-hidden="true">1</span><span class="place">São Paulo <span>2019–22</span></span><span class="what">Volunteer math teacher</span><span class="coord">23.55° S, 46.63° W</span></button></li>
+          <li><button class="stop" type="button" data-city="1" aria-pressed="false"><span class="n" aria-hidden="true">2</span><span class="place">Tel Aviv <span>2023</span></span><span class="what">Lightrun, engineering intern</span><span class="coord">32.09° N, 34.78° E</span></button></li>
+          <li><button class="stop" type="button" data-city="2" aria-pressed="false"><span class="n" aria-hidden="true">3</span><span class="place">Berkeley <span>2023–26</span></span><span class="what">UC Berkeley EECS, Stylis AI</span><span class="coord">37.87° N, 122.27° W</span></button></li>
+          <li><button class="stop" type="button" data-city="3" aria-pressed="false"><span class="n" aria-hidden="true">4</span><span class="place">New York <span>2025</span></span><span class="what">AQCTech, engineering intern</span><span class="coord">40.71° N, 74.01° W</span></button></li>
         </ol>
-        <figcaption class="globe-hint">Drag the globe to turn it</figcaption>
+        <figcaption class="globe-hint" id="globeHint">Pick a place to fly there. Drag the globe, or focus it and use the arrow keys, to turn it.</figcaption>
       </figure>
     </section>
   </div>
@@ -502,7 +594,7 @@ p { margin: 0; text-wrap: pretty; }
       <article class="orbit" id="orbit" aria-labelledby="orbit-title">
         <div class="orbit-copy">
           <div class="orbit-id">
-            <img src="assets/orbit-icon.png" width="56" height="56" alt="Orbit app icon">
+            <img src="assets/orbit-icon.webp?v=b2345121" width="56" height="56" alt="Orbit app icon">
             <div class="k">iOS app<br><span class="live">Live on the App Store</span></div>
           </div>
           <div>
@@ -530,11 +622,11 @@ p { margin: 0; text-wrap: pretty; }
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
         </div>
-        <div class="orbit-shots" tabindex="0" aria-label="Orbit screenshots">
-          <figure><img src="assets/orbit-globe.jpg" width="480" height="1038" decoding="async" alt="Orbit's globe screen, showing your people as points on a dotted globe."><figcaption>orbit</figcaption></figure>
-          <figure><img src="assets/orbit-today.jpg" width="480" height="1038" decoding="async" alt="The Today screen with a daily question to answer together."><figcaption>today</figcaption></figure>
-          <figure><img src="assets/orbit-trail.jpg" width="480" height="1038" decoding="async" alt="The Trail screen, a shared timeline of texts, voice memos and photos."><figcaption>trail</figcaption></figure>
-          <figure><img src="assets/orbit-horizon.jpg" width="480" height="1038" decoding="async" alt="The Horizon screen counting down months, days, hours and minutes to the next visit."><figcaption>horizon</figcaption></figure>
+        <div class="orbit-shots" role="group" aria-label="Orbit screenshots">
+          <figure><button class="shot" type="button" data-shot="0" aria-label="Enlarge the orbit screenshot"><img src="assets/orbit-globe-300.webp?v=ec886f64" srcset="assets/orbit-globe-300.webp?v=ec886f64 300w, assets/orbit-globe-450.webp?v=b7bcb47c 450w, assets/orbit-globe-600.webp?v=ef479730 600w" sizes="(max-width: 560px) 46vw, (max-width: 1000px) 30vw, 220px" width="300" height="650" decoding="async" data-full="assets/orbit-globe-600.webp?v=ef479730" alt="Orbit's globe screen, showing your people as points on a dotted globe."></button><figcaption>orbit</figcaption></figure>
+          <figure><button class="shot" type="button" data-shot="1" aria-label="Enlarge the today screenshot"><img src="assets/orbit-today-300.webp?v=a4469f84" srcset="assets/orbit-today-300.webp?v=a4469f84 300w, assets/orbit-today-450.webp?v=18e0f09c 450w, assets/orbit-today-600.webp?v=88274255 600w" sizes="(max-width: 560px) 46vw, (max-width: 1000px) 30vw, 220px" width="300" height="650" decoding="async" data-full="assets/orbit-today-600.webp?v=88274255" alt="The Today screen with a daily question to answer together."></button><figcaption>today</figcaption></figure>
+          <figure><button class="shot" type="button" data-shot="2" aria-label="Enlarge the trail screenshot"><img src="assets/orbit-trail-300.webp?v=2b86d040" srcset="assets/orbit-trail-300.webp?v=2b86d040 300w, assets/orbit-trail-450.webp?v=59bd0623 450w, assets/orbit-trail-600.webp?v=55cb1953 600w" sizes="(max-width: 560px) 46vw, (max-width: 1000px) 30vw, 220px" width="300" height="650" decoding="async" data-full="assets/orbit-trail-600.webp?v=55cb1953" alt="The Trail screen, a shared timeline of texts, voice memos and photos."></button><figcaption>trail</figcaption></figure>
+          <figure><button class="shot" type="button" data-shot="3" aria-label="Enlarge the horizon screenshot"><img src="assets/orbit-horizon-300.webp?v=cc6e1eda" srcset="assets/orbit-horizon-300.webp?v=cc6e1eda 300w, assets/orbit-horizon-450.webp?v=12ebae9b 450w, assets/orbit-horizon-600.webp?v=7444eea4 600w" sizes="(max-width: 560px) 46vw, (max-width: 1000px) 30vw, 220px" width="300" height="650" decoding="async" data-full="assets/orbit-horizon-600.webp?v=7444eea4" alt="The Horizon screen counting down months, days, hours and minutes to the next visit."></button><figcaption>horizon</figcaption></figure>
         </div>
       </article>
 
@@ -571,7 +663,7 @@ p { margin: 0; text-wrap: pretty; }
       <div class="grid">
         <article class="card" aria-labelledby="bjc-title">
           <div class="card-visual">
-            <pre class="code" aria-label="Excerpt from school_datatable.rb"><code><span class="k">class</span> <span class="c">SchoolDatatable</span> &lt; <span class="c">AjaxDatatablesRails</span>::<span class="c">ActiveRecord</span>
+            <pre class="code" tabindex="0" aria-label="Excerpt from school_datatable.rb, the server-side table code"><code><span class="k">class</span> <span class="c">SchoolDatatable</span> &lt; <span class="c">AjaxDatatablesRails</span>::<span class="c">ActiveRecord</span>
   <span class="c">DEFAULT_PAGE_LENGTH</span> = <span class="n">100</span>
   <span class="c">MAX_PAGE_LENGTH</span> = <span class="n">1000</span>
   <span class="c">SEARCHABLE_COLUMNS</span> = <span class="s">%w[name city state country website]</span>
@@ -590,7 +682,7 @@ p { margin: 0; text-wrap: pretty; }
             <p>The new endpoint escapes every user-submitted field before it reaches the table. I also made a teacher's personal website a required field, with RSpec and Cucumber tests for each change.</p>
             <ul class="facts"><li>merged into a production app</li><li>RSpec</li><li>Cucumber</li><li>RuboCop CI</li></ul>
             <div class="card-links">
-              <a href="https://github.com/cs169/BJC-Teacher-Tracker" target="_blank" rel="noopener">Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <a href="https://github.com/cs169/BJC-Teacher-Tracker" target="_blank" rel="noopener" aria-label="BJC Teacher Tracker code on GitHub">Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
             </div>
           </div>
         </article>
@@ -636,15 +728,15 @@ p { margin: 0; text-wrap: pretty; }
             <p>The sharpest finding was a measurement bug. The benchmark counted zero skill uses in all 51 with-skill runs, while the agents' own trajectories showed them reading skills.</p>
             <ul class="facts"><li>102 paired runs</li><li>2 model families</li><li>bootstrap confidence intervals</li></ul>
             <div class="card-links">
-              <a href="https://github.com/ronikriger/skill-lift" target="_blank" rel="noopener">Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-              <a href="https://github.com/ronikriger/skill-lift/blob/main/01-WRITEUP-track1.md" target="_blank" rel="noopener">Write-up <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <a href="https://github.com/ronikriger/skill-lift" target="_blank" rel="noopener" aria-label="skill-lift code on GitHub">Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <a href="https://github.com/ronikriger/skill-lift/blob/main/01-WRITEUP-track1.md" target="_blank" rel="noopener" aria-label="skill-lift write-up on GitHub">Write-up <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
             </div>
           </div>
         </article>
 
         <article class="card" aria-labelledby="limud-title">
           <div class="card-visual">
-            <div class="peek"><img src="assets/limud.jpg" width="600" height="1021" decoding="async" alt="Limud's setup screen: Shas Mishnah in a year, with a start date, a Shabbat pace of 3.5 times a weekday, and a projected finish date."></div>
+            <div class="peek"><img src="assets/limud.webp?v=647e052f" width="480" height="817" loading="lazy" decoding="async" alt="Limud's setup screen: Shas Mishnah in a year, with a start date, a Shabbat pace of 3.5 times a weekday, and a projected finish date."></div>
           </div>
           <div class="card-body">
             <p class="label">Web app · Works offline</p>
@@ -652,8 +744,8 @@ p { margin: 0; text-wrap: pretty; }
             <p>A daily plan for learning all 4,192 mishnayot of the Mishnah in one year. It paces weekdays and Shabbat differently, re-flows the plan around days off, and never changes a day you've already learned.</p>
             <ul class="facts"><li>installable PWA</li><li>service worker</li><li>Hebrew calendar</li><li>no account needed</li></ul>
             <div class="card-links">
-              <a href="https://ronikriger.github.io/repo1/" target="_blank" rel="noopener">Open the app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-              <a href="https://github.com/ronikriger/repo1" target="_blank" rel="noopener">Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <a href="https://ronikriger.github.io/repo1/" target="_blank" rel="noopener" aria-label="Open the app: Limud">Open the app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <a href="https://github.com/ronikriger/repo1" target="_blank" rel="noopener" aria-label="Limud code on GitHub">Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
             </div>
           </div>
         </article>
@@ -664,12 +756,12 @@ p { margin: 0; text-wrap: pretty; }
         <li>
           <span class="t">Bank Statement Analyzer<span>2025</span></span>
           <p>Reads PDF bank statements, flags unusual transactions with an Isolation Forest, and forecasts cash flow with Holt-Winters smoothing in a Streamlit dashboard.</p>
-          <span class="l"><a href="https://github.com/ronikriger/bank-statement-analyzer" target="_blank" rel="noopener">Code ↗</a></span>
+          <span class="l"><a href="https://github.com/ronikriger/bank-statement-analyzer" target="_blank" rel="noopener" aria-label="Bank Statement Analyzer code on GitHub">Code ↗</a></span>
         </li>
         <li>
           <span class="t">RepRight<span>2025</span></span>
           <p>Workout form feedback from your phone's camera: an Expo app running TensorFlow.js pose detection, with a FastAPI and SQLAlchemy backend.</p>
-          <span class="l"><a href="https://github.com/ronikriger/workout" target="_blank" rel="noopener">Code ↗</a></span>
+          <span class="l"><a href="https://github.com/ronikriger/workout" target="_blank" rel="noopener" aria-label="RepRight code on GitHub">Code ↗</a></span>
         </li>
         <li>
           <span class="t">JobFlow<span>2026</span></span>
@@ -791,7 +883,7 @@ p { margin: 0; text-wrap: pretty; }
           <a class="big-email" href="mailto:krigerroni@gmail.com" id="emailText">krigerroni@gmail.com</a>
           <div class="row">
             <button class="btn" type="button" data-copy="krigerroni@gmail.com" id="copyEmail">Copy email address</button>
-            <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+            <a class="btn" href="resume.pdf?v=fa05ed04" target="_blank" rel="noopener">Résumé (PDF)</a>
           </div>
         </div>
         <dl class="channels">
@@ -811,12 +903,19 @@ p { margin: 0; text-wrap: pretty; }
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>© <span id="year">2026</span> Roni Kriger</span>
-    <span>Hosted by the <a href="https://www.ocf.berkeley.edu/" target="_blank" rel="noopener">Open Computing Facility</a> at UC Berkeley</span>
+    <span><span>© <span id="year">2026</span> Roni Kriger</span><span>Updated November 2026</span></span>
+    <span><span>Hosted by the <a href="https://www.ocf.berkeley.edu/" target="_blank" rel="noopener">Open Computing Facility</a> at UC Berkeley</span><a href="https://github.com/ronikriger/portfolio-/tree/ocf-site" target="_blank" rel="noopener">Source</a></span>
   </div>
 </footer>
 
 <p class="visually-hidden" aria-live="polite" id="live"></p>
+
+<dialog class="lightbox" id="lightbox" aria-label="Orbit screenshot">
+  <figure class="lb-figure"><img id="lbImg" src="data:," alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="lb-btn lb-close" type="button" id="lbClose" aria-label="Close">×</button>
+  <button class="lb-btn lb-prev" type="button" id="lbPrev" aria-label="Previous screenshot">‹</button>
+  <button class="lb-btn lb-next" type="button" id="lbNext" aria-label="Next screenshot">›</button>
+</dialog>
 
 <script>
 (function () {
@@ -879,6 +978,40 @@ p { margin: 0; text-wrap: pretty; }
     });
   });
 
+  /* ---------- Phone menu ---------- */
+  var menuBtn = document.getElementById("menuBtn"), mobileNav = document.getElementById("mobileNav");
+  function setMenu(open) { menuBtn.setAttribute("aria-expanded", open ? "true" : "false"); mobileNav.hidden = !open; }
+  menuBtn.addEventListener("click", function () { setMenu(menuBtn.getAttribute("aria-expanded") !== "true"); });
+  mobileNav.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !mobileNav.hidden) { setMenu(false); menuBtn.focus(); } });
+
+  /* ---------- Screenshot viewer ---------- */
+  var lb = document.getElementById("lightbox"), lbImg = document.getElementById("lbImg"), lbCap = document.getElementById("lbCap");
+  var shotBtns = Array.prototype.slice.call(document.querySelectorAll(".shot")), lbIndex = 0;
+  function showShot(i) {
+    lbIndex = (i + shotBtns.length) % shotBtns.length;
+    var img = shotBtns[lbIndex].querySelector("img");
+    lbImg.src = img.getAttribute("data-full"); lbImg.alt = img.alt;
+    lbCap.textContent = shotBtns[lbIndex].parentNode.querySelector("figcaption").textContent + " · " + (lbIndex + 1) + " of " + shotBtns.length;
+  }
+  shotBtns.forEach(function (b, i) {
+    b.addEventListener("click", function () {
+      if (lb && typeof lb.showModal === "function") { showShot(i); lb.showModal(); }
+      else window.open(b.querySelector("img").getAttribute("data-full"), "_blank", "noopener");
+    });
+  });
+  if (lb) {
+    document.getElementById("lbClose").addEventListener("click", function () { lb.close(); });
+    document.getElementById("lbPrev").addEventListener("click", function () { showShot(lbIndex - 1); });
+    document.getElementById("lbNext").addEventListener("click", function () { showShot(lbIndex + 1); });
+    lb.addEventListener("click", function (e) { if (e.target === lb || e.target.classList.contains("lb-figure")) lb.close(); });
+    lb.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); showShot(lbIndex - 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); showShot(lbIndex + 1); }
+    });
+    lb.addEventListener("close", function () { var b = shotBtns[lbIndex]; if (b) b.focus(); });
+  }
+
   var y = document.getElementById("year");
   if (y) y.textContent = String(new Date().getFullYear());
 
@@ -935,7 +1068,7 @@ p { margin: 0; text-wrap: pretty; }
   var colors = {};
   function readColors() {
     var cs = getComputedStyle(root);
-    ["--globe-dot", "--globe-fill", "--globe-rim", "--gold", "--gold-ink", "--ink", "--paper"].forEach(function (k) { colors[k] = cs.getPropertyValue(k).trim(); });
+    ["--globe-dot", "--globe-fill", "--globe-rim", "--gold", "--gold-ink", "--gold-soft", "--ink", "--paper"].forEach(function (k) { colors[k] = cs.getPropertyValue(k).trim(); });
   }
   readColors();
 
@@ -946,12 +1079,19 @@ p { margin: 0; text-wrap: pretty; }
     W = Math.max(1, Math.round(rect.width)); H = Math.max(1, Math.round(rect.height));
     canvas.width = W * dpr; canvas.height = H * dpr;
     R = Math.min(W, H) * 0.4; cx = W / 2; cy = H / 2;
-    draw();
+    redraw();
   }
 
-  // View: lon0/lat0 is the point facing the viewer.
-  var baseLon = -44, baseLat = 16, userLon = 0, userLat = 0, velLon = 0;
-  var lon0 = baseLon, lat0 = baseLat, cosL, sinL, cosP, sinP;
+  // View: viewLon/viewLat is the point facing the viewer. A gentle sway rides on top
+  // until someone takes control by dragging, pressing a key or picking a place.
+  var HOME_LON = -44, HOME_LAT = 16;
+  var viewLon = HOME_LON, viewLat = HOME_LAT, velLon = 0;
+  var swayOn = !reduceMotion.matches, swayT0 = performance.now();
+  var lon0 = viewLon, lat0 = viewLat, cosL, sinL, cosP, sinP;
+  var fly = null, active = -1, hover = -1;
+  function clampLat(v) { return Math.max(-60, Math.min(70, v)); }
+  function swayAt(now) { return swayOn ? 26 * Math.sin((now - swayT0) / 9000) : 0; }
+  function takeControl(now) { if (swayOn) { viewLon += swayAt(now); swayOn = false; } fly = null; }
   function setView() {
     cosL = Math.cos(lon0 * DEG); sinL = Math.sin(lon0 * DEG);
     cosP = Math.cos(lat0 * DEG); sinP = Math.sin(lat0 * DEG);
@@ -963,7 +1103,7 @@ p { margin: 0; text-wrap: pretty; }
     return out;
   }
 
-  var start = performance.now(), progress = [0, 0, 0];
+  var start = 0, progress = reduceMotion.matches ? [1, 1, 1] : [0, 0, 0];
   function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
   var tmp = [0, 0, 0, 0];
 
@@ -1015,21 +1155,23 @@ p { margin: 0; text-wrap: pretty; }
       }
     }
 
-    // Cities
+    // Cities; the one picked or hovered in the list gets a halo
     var fs = Math.max(11, Math.min(13, R / 17));
-    ctx.font = "500 " + fs + "px 'Geist Mono', ui-monospace, Menlo, monospace";
     ctx.textBaseline = "middle";
     for (var c = 0; c < cities.length; c++) {
-      var city = cities[c];
-      var reached = c === 0 ? progress[0] > 0 || reduceMotion.matches : progress[c - 1] >= 1;
+      var city = cities[c], lit = c === active || c === hover;
+      var reached = c === 0 ? progress[0] > 0 : progress[c - 1] >= 1;
       project(city.v[0], city.v[1], city.v[2], tmp);
-      if (tmp[2] <= 0.04) continue;
+      city.sx = tmp[0]; city.sy = tmp[1]; city.front = tmp[2] > 0.04;
+      if (!city.front) continue;
       var x = tmp[0], yv = tmp[1], fade = Math.min(1, (tmp[2] - 0.04) / 0.2);
-      ctx.globalAlpha = fade * (reached ? 1 : 0.55);
+      ctx.globalAlpha = fade * (reached || lit ? 1 : 0.55);
+      if (lit) { ctx.beginPath(); ctx.arc(x, yv, 14, 0, Math.PI * 2); ctx.fillStyle = colors["--gold-soft"]; ctx.fill(); }
       ctx.beginPath(); ctx.arc(x, yv, 7, 0, Math.PI * 2); ctx.fillStyle = colors["--paper"]; ctx.fill();
       ctx.lineWidth = 2; ctx.strokeStyle = colors["--gold"]; ctx.stroke();
       ctx.beginPath(); ctx.arc(x, yv, 3, 0, Math.PI * 2); ctx.fillStyle = colors["--gold"]; ctx.fill();
-      var label = city.n + " " + city.name, lx = x + city.dx, ly = yv + city.dy;
+      var label = city.n + " " + city.name, lx = x + city.dx * (lit ? 1.4 : 1), ly = yv + city.dy * (lit ? 1.4 : 1);
+      ctx.font = (lit ? "600 " : "500 ") + fs + "px 'Geist Mono', ui-monospace, Menlo, monospace";
       ctx.textAlign = city.align;
       ctx.lineWidth = 4; ctx.strokeStyle = colors["--paper"]; ctx.strokeText(label, lx, ly);
       ctx.fillStyle = colors["--ink"]; ctx.fillText(label, lx, ly);
@@ -1037,59 +1179,118 @@ p { margin: 0; text-wrap: pretty; }
     ctx.globalAlpha = 1;
   }
 
-  // Animation loop: arcs draw in once, then the globe sways gently.
-  var running = false, visibleOnScreen = true, dragging = false, lastT = performance.now();
+  // Animation loop. Arcs draw in once after the page loads, the globe sways at 30 fps,
+  // and the loop stops entirely once nothing is moving.
+  var running = false, started = false, visibleOnScreen = true, dragging = false, lastT = 0, lastDraw = 0;
   function frame(now) {
     running = false;
-    var dt = Math.min(64, now - lastT); lastT = now;
-    var el = now - start;
-    if (reduceMotion.matches) { progress = [1, 1, 1]; }
-    else {
-      for (var q = 0; q < 3; q++) progress[q] = ease(Math.min(1, Math.max(0, (el - 500 - q * 950) / 1100)));
-      if (!dragging) {
-        userLon += velLon * dt; velLon *= Math.pow(0.94, dt / 16);
-        baseLon = -44 + 26 * Math.sin(el / 9000);
-      }
+    var dt = lastT ? Math.min(64, now - lastT) : 16; lastT = now;
+    if (!reduceMotion.matches) {
+      for (var q = 0; q < 3; q++) progress[q] = ease(Math.min(1, Math.max(0, (now - start - 250 - q * 950) / 1100)));
     }
-    lon0 = baseLon + userLon; lat0 = Math.max(-60, Math.min(70, baseLat + userLat));
-    draw();
-    if (!reduceMotion.matches && visibleOnScreen && !document.hidden) schedule();
+    var arcsDone = progress[2] >= 1;
+    if (fly) {
+      var t = Math.min(1, (now - fly.t0) / fly.dur), e = ease(t);
+      viewLon = fly.lon + fly.dLon * e; viewLat = fly.lat + fly.dLat * e;
+      if (t >= 1) fly = null;
+    } else if (!dragging && velLon) {
+      viewLon += velLon * dt; velLon *= Math.pow(0.94, dt / 16);
+      if (Math.abs(velLon) < 0.0004) velLon = 0;
+    }
+    var busy = dragging || !!fly || velLon !== 0 || !arcsDone;
+    lon0 = viewLon + swayAt(now); lat0 = clampLat(viewLat);
+    if (busy || now - lastDraw > 32) { draw(); lastDraw = now; }
+    if (visibleOnScreen && !document.hidden && (busy || swayOn)) schedule();
   }
-  function schedule() { if (!running) { running = true; requestAnimationFrame(frame); } }
+  function schedule() { if (started && !running) { running = true; lastT = 0; requestAnimationFrame(frame); } }
+  function redraw() { lon0 = viewLon + swayAt(performance.now()); lat0 = clampLat(viewLat); draw(); }
 
-  // Drag to turn
-  var lastX = 0, lastY = 0, lastMoveT = 0;
+  // Pick a place: fly the globe to it
+  var stopBtns = Array.prototype.slice.call(document.querySelectorAll(".stop"));
+  function setActive(i) {
+    active = i;
+    stopBtns.forEach(function (b, j) { b.setAttribute("aria-pressed", j === i ? "true" : "false"); });
+    if (i >= 0) live.textContent = "Showing " + cities[i].name + " on the globe";
+  }
+  function flyTo(i) {
+    var c = cities[i], now = performance.now();
+    takeControl(now); velLon = 0; setActive(i);
+    var dLon = ((c.lon - viewLon) % 360 + 540) % 360 - 180, dLat = clampLat(c.lat) - viewLat;
+    if (reduceMotion.matches || !started) { viewLon += dLon; viewLat += dLat; redraw(); return; }
+    fly = { lon: viewLon, lat: viewLat, dLon: dLon, dLat: dLat, t0: now, dur: 950 };
+    schedule();
+  }
+  stopBtns.forEach(function (b) {
+    var i = +b.getAttribute("data-city");
+    b.addEventListener("click", function () { flyTo(i); });
+    b.addEventListener("mouseenter", function () { hover = i; redraw(); });
+    b.addEventListener("mouseleave", function () { hover = -1; redraw(); });
+    b.addEventListener("focus", function () { hover = i; redraw(); });
+    b.addEventListener("blur", function () { hover = -1; redraw(); });
+  });
+
+  // Drag to turn; a tap on a city flies to it
+  var lastX = 0, lastY = 0, lastMoveT = 0, downX = 0, downY = 0;
   box.addEventListener("pointerdown", function (e) {
-    dragging = true; lastX = e.clientX; lastY = e.clientY; lastMoveT = performance.now(); velLon = 0;
+    dragging = true; lastX = downX = e.clientX; lastY = downY = e.clientY; lastMoveT = performance.now(); velLon = 0;
+    takeControl(lastMoveT);
     box.setPointerCapture(e.pointerId);
+    schedule();
   });
   box.addEventListener("pointermove", function (e) {
     if (!dragging) return;
     var k = 180 / (Math.PI * R), now = performance.now();
     var dLon = -(e.clientX - lastX) * k, dLat = (e.clientY - lastY) * k;
-    userLon += dLon; userLat += dLat;
-    velLon = dLon / Math.max(8, now - lastMoveT);
+    viewLon += dLon; viewLat = clampLat(viewLat + dLat);
+    velLon = reduceMotion.matches ? 0 : dLon / Math.max(8, now - lastMoveT);
     lastX = e.clientX; lastY = e.clientY; lastMoveT = now;
-    if (reduceMotion.matches) { lon0 = baseLon + userLon; lat0 = Math.max(-60, Math.min(70, baseLat + userLat)); draw(); }
-    else schedule();
+    if (reduceMotion.matches || !started) redraw(); else schedule();
   });
-  function endDrag() { dragging = false; if (reduceMotion.matches) velLon = 0; schedule(); }
+  function endDrag(e) {
+    dragging = false;
+    if (e && e.type === "pointerup" && Math.abs(e.clientX - downX) + Math.abs(e.clientY - downY) < 6) {
+      var rect = box.getBoundingClientRect(), px = e.clientX - rect.left, py = e.clientY - rect.top;
+      for (var i = 0; i < cities.length; i++) {
+        var c = cities[i];
+        if (c.front && Math.hypot(c.sx - px, c.sy - py) < 16) { flyTo(i); return; }
+      }
+    }
+    if (performance.now() - lastMoveT > 80) velLon = 0;
+    schedule();
+  }
   box.addEventListener("pointerup", endDrag);
   box.addEventListener("pointercancel", endDrag);
 
+  // Keyboard: arrows turn the globe (Shift for bigger steps), Home goes back to the start view
+  box.addEventListener("keydown", function (e) {
+    var step = e.shiftKey ? 30 : 12, now = performance.now();
+    var d = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] }[e.key];
+    if (e.key === "Home") { d = [HOME_LON - viewLon, HOME_LAT - viewLat]; setActive(-1); live.textContent = "Back to the starting view"; }
+    if (!d) return;
+    e.preventDefault(); takeControl(now); velLon = 0;
+    viewLon += d[0]; viewLat = clampLat(viewLat + d[1]);
+    redraw();
+  });
+
   if ("IntersectionObserver" in window) {
-    new IntersectionObserver(function (en) { visibleOnScreen = en[0].isIntersecting; if (visibleOnScreen) { lastT = performance.now(); schedule(); } }).observe(box);
+    new IntersectionObserver(function (en) { visibleOnScreen = en[0].isIntersecting; if (visibleOnScreen) schedule(); }).observe(box);
   }
-  document.addEventListener("visibilitychange", function () { if (!document.hidden) { lastT = performance.now(); schedule(); } });
-  function retheme() { readColors(); draw(); }
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) schedule(); });
+  function retheme() { readColors(); redraw(); }
   if (darkMQ.addEventListener) darkMQ.addEventListener("change", retheme);
   new MutationObserver(retheme).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
-  if (reduceMotion.addEventListener) reduceMotion.addEventListener("change", function () { schedule(); draw(); });
+  if (reduceMotion.addEventListener) reduceMotion.addEventListener("change", function () {
+    if (reduceMotion.matches) { takeControl(performance.now()); progress = [1, 1, 1]; }
+    redraw();
+  });
   if ("ResizeObserver" in window) new ResizeObserver(resize).observe(box); else window.addEventListener("resize", resize);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
-  if (reduceMotion.matches) progress = [1, 1, 1];
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(redraw);
   resize();
-  schedule();
+
+  // Start animating once the page has loaded, so the globe never competes with the first paint.
+  function begin() { if (started) return; started = true; start = swayT0 = performance.now(); schedule(); }
+  if (document.readyState === "complete") setTimeout(begin, 120);
+  else window.addEventListener("load", function () { setTimeout(begin, 120); });
 })();
 </script>
 </body>

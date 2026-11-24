@@ -1,4 +1,4 @@
-// Renders resume.pdf, og.png (link preview) and apple-touch-icon.png into public/.
+// Renders resume.pdf, og.jpg (link preview), apple-touch-icon.png and favicon-32.png into public/.
 //   node tools/render.js
 const { chromium } = require('playwright');
 const path = require('path');
@@ -22,8 +22,8 @@ const fs = require('fs');
   await page.goto('file://' + path.join(pub, 'index.html'), { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
   await page.addStyleTag({ content: '.site-header{display:none}.hero{padding-block:56px 40px!important}.globe-fig .stops,.globe-hint,.langs{display:none}.globe-box{max-width:520px}' });
-  await page.waitForTimeout(500);
-  await page.screenshot({ path: path.join(pub, 'og.png'), clip: { x: 0, y: 0, width: 1200, height: 630 } });
+  await page.waitForTimeout(900);
+  await page.screenshot({ path: path.join(pub, 'og.jpg'), type: 'jpeg', quality: 88, clip: { x: 0, y: 0, width: 1200, height: 630 } });
   await ctx.close();
 
   // Home-screen icon
@@ -32,6 +32,11 @@ const fs = require('fs');
   const svg = fs.readFileSync(path.join(pub, 'favicon.svg'), 'utf8').replace('rx="14"', 'rx="0"');
   await page.setContent(`<style>html,body{margin:0}svg{width:180px;height:180px;display:block}</style>${svg}`);
   await page.screenshot({ path: path.join(pub, 'apple-touch-icon.png'), clip: { x: 0, y: 0, width: 180, height: 180 } });
+  await ctx.close();
+  ctx = await browser.newContext({ viewport: { width: 32, height: 32 }, deviceScaleFactor: 1 });
+  page = await ctx.newPage();
+  await page.setContent(`<style>html,body{margin:0;background:transparent}svg{width:32px;height:32px;display:block}</style>${fs.readFileSync(path.join(pub, 'favicon.svg'), 'utf8')}`);
+  await page.screenshot({ path: path.join(pub, 'favicon-32.png'), omitBackground: true, clip: { x: 0, y: 0, width: 32, height: 32 } });
   await browser.close();
-  console.log('rendered resume.pdf, og.png, apple-touch-icon.png');
+  console.log('rendered resume.pdf, og.jpg, apple-touch-icon.png, favicon-32.png');
 })().catch(e => { console.error(e); process.exit(1); });
