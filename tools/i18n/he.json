@@ -1,0 +1,869 @@
+{
+ "language": "he",
+ "note": "Pairs are exact substrings of tools/template.html. build.py applies them longest first and fails if one is missing or found a different number of times than the optional third value.",
+ "pairs": [
+  [
+   "<html lang=\"en\">",
+   "<html lang=\"he\" dir=\"rtl\">"
+  ],
+  [
+   "<meta property=\"og:url\" content=\"https://www.ocf.berkeley.edu/~rkriger/\">",
+   "<meta property=\"og:url\" content=\"https://www.ocf.berkeley.edu/~rkriger/he/\">"
+  ],
+  [
+   "<link rel=\"canonical\" href=\"https://www.ocf.berkeley.edu/~rkriger/\">",
+   "<link rel=\"canonical\" href=\"https://www.ocf.berkeley.edu/~rkriger/he/\">"
+  ],
+  [
+   "<meta property=\"og:locale\" content=\"en_US\">",
+   "<meta property=\"og:locale\" content=\"he_IL\">"
+  ],
+  [
+   "content=\"Roni Kriger is a software engineer and UC Berkeley EECS graduate who designs, builds and ships iOS apps, AI tools and trading systems.\"",
+   "content=\"Roni Kriger: הנדסת תוכנה, תואר B.S. ב-EECS מ-UC Berkeley. עיצוב, פיתוח והשקה של אפליקציות iOS, כלי AI ומערכות מסחר.\""
+  ],
+  [
+   "content=\"Roni Kriger · Software engineer\"",
+   "content=\"Roni Kriger · הנדסת תוכנה\"",
+   2
+  ],
+  [
+   "content=\"Berkeley EECS graduate. Builder of Orbit, an iPhone app for long-distance couples, plus AI agent research, trading systems and more.\"",
+   "content=\"תואר ב-EECS מ-Berkeley. פיתוח של Orbit, אפליקציית iPhone לזוגות בקשר רחוק, לצד מחקר על סוכני AI, מערכות מסחר ועוד.\"",
+   2
+  ],
+  [
+   "content=\"Roni Kriger's portfolio: the name in large type beside a globe tracing São Paulo, Tel Aviv, Berkeley and New York.\"",
+   "content=\"תיק העבודות של Roni Kriger: השם באותיות גדולות לצד גלובוס שמחבר בין סאו פאולו, תל אביב, ברקלי וניו יורק.\""
+  ],
+  [
+   ">Skip to content</a>",
+   ">דילוג לתוכן</a>"
+  ],
+  [
+   "aria-label=\"Roni Kriger, back to top\"",
+   "aria-label=\"Roni Kriger, חזרה לראש העמוד\""
+  ],
+  [
+   "aria-label=\"Sections\"",
+   "aria-label=\"חלקי העמוד\"",
+   2
+  ],
+  [
+   "<li><a href=\"#work\">Work</a></li>",
+   "<li><a href=\"#work\">עבודות</a></li>",
+   2
+  ],
+  [
+   "<li><a href=\"#experience\">Experience</a></li>",
+   "<li><a href=\"#experience\">ניסיון</a></li>",
+   2
+  ],
+  [
+   "<li><a href=\"#education\">Education</a></li>",
+   "<li><a href=\"#education\">השכלה</a></li>",
+   2
+  ],
+  [
+   "<li><a href=\"#contact\">Contact</a></li>",
+   "<li><a href=\"#contact\">יצירת קשר</a></li>",
+   2
+  ],
+  [
+   "<a class=\"lang-link\" href=\"he/\" hreflang=\"he\" lang=\"he\" title=\"Hebrew version\">עברית</a>",
+   "<a class=\"lang-link\" href=\"../\" hreflang=\"en\" lang=\"en\" title=\"English version\">English</a>"
+  ],
+  [
+   "<li><a href=\"he/\" hreflang=\"he\" lang=\"he\">עברית</a></li>",
+   "<li><a href=\"../\" hreflang=\"en\" lang=\"en\">English</a></li>"
+  ],
+  [
+   "aria-label=\"Switch between light and dark theme\"",
+   "aria-label=\"מעבר בין מצב בהיר למצב כהה\""
+  ],
+  [
+   "rel=\"noopener\">Résumé</a>",
+   "rel=\"noopener\">קורות חיים</a>"
+  ],
+  [
+   "aria-label=\"Menu\"",
+   "aria-label=\"תפריט\""
+  ],
+  [
+   "Résumé (PDF)",
+   "קורות חיים (PDF, באנגלית)",
+   3
+  ],
+  [
+   ">Software engineer · B.S. EECS, UC Berkeley</p>",
+   ">הנדסת תוכנה · B.S. EECS, UC Berkeley</p>"
+  ],
+  [
+   "I build software people use, from the first sketch to the App Store. My latest is <a href=\"#orbit\">Orbit</a>, an iPhone app for long-distance couples that I designed, built and launched on my own.",
+   "אני בונה תוכנה שאנשים משתמשים בה, מהסקיצה הראשונה ועד ה-App Store. הפרויקט האחרון שלי הוא <a href=\"#orbit\">Orbit</a>, אפליקציית iPhone לזוגות בקשר רחוק, שעיצבתי, בניתי והשקתי לבד."
+  ],
+  [
+   "Before that I built automated trading systems at AQCTech in New York, recommendation models at the startup Stylis AI, and debugging tools at Lightrun in Tel Aviv.",
+   "לפני כן בניתי מערכות מסחר אוטומטיות ב-AQCTech בניו יורק, מודלי המלצה בסטארט-אפ Stylis AI, וכלי דיבאגינג ב-Lightrun בתל אביב."
+  ],
+  [
+   "Email me",
+   "שליחת מייל",
+   2
+  ],
+  [
+   "<b>Languages</b> <span>English</span> <span>Português</span> <span lang=\"he\" dir=\"rtl\">עברית</span> <span lang=\"es\">Español</span>",
+   "<b>שפות</b> <span>עברית</span> <span lang=\"en\">English</span> <span lang=\"pt\">Português</span> <span lang=\"es\">Español</span>"
+  ],
+  [
+   "aria-label=\"A globe with arcs from São Paulo to Tel Aviv to Berkeley to New York, in the order listed below.\"",
+   "aria-label=\"גלובוס עם קשתות מסאו פאולו לתל אביב, לברקלי ולניו יורק, לפי הסדר שברשימה למטה.\""
+  ],
+  [
+   "aria-label=\"Where I have worked and studied, in order\"",
+   "aria-label=\"איפה עבדתי ולמדתי, לפי הסדר\""
+  ],
+  [
+   "<span class=\"place\">São Paulo <span",
+   "<span class=\"place\">סאו פאולו <span"
+  ],
+  [
+   "<span class=\"place\">Tel Aviv <span",
+   "<span class=\"place\">תל אביב <span"
+  ],
+  [
+   "<span class=\"place\">Berkeley <span",
+   "<span class=\"place\">ברקלי <span"
+  ],
+  [
+   "<span class=\"place\">New York <span",
+   "<span class=\"place\">ניו יורק <span"
+  ],
+  [
+   "<span class=\"what\">Volunteer math teacher</span>",
+   "<span class=\"what\">הוראת מתמטיקה בהתנדבות</span>"
+  ],
+  [
+   "<span class=\"what\">Lightrun, engineering intern</span>",
+   "<span class=\"what\">Lightrun, התמחות בהנדסה</span>"
+  ],
+  [
+   "<span class=\"what\">UC Berkeley EECS, Stylis AI</span>",
+   "<span class=\"what\">UC Berkeley EECS, Stylis AI</span>"
+  ],
+  [
+   "<span class=\"what\">AQCTech, engineering intern</span>",
+   "<span class=\"what\">AQCTech, התמחות בהנדסה</span>"
+  ],
+  [
+   "Pick a place to fly there. Drag the globe, or focus it and use the arrow keys, to turn it.",
+   "בחרו מקום כדי לעוף אליו. כדי לסובב את הגלובוס אפשר לגרור אותו, או להתמקד בו ולהשתמש במקשי החצים."
+  ],
+  [
+   "name: \"São Paulo\"",
+   "name: \"סאו פאולו\""
+  ],
+  [
+   "name: \"Tel Aviv\"",
+   "name: \"תל אביב\""
+  ],
+  [
+   "name: \"Berkeley\"",
+   "name: \"ברקלי\""
+  ],
+  [
+   "name: \"New York\"",
+   "name: \"ניו יורק\""
+  ],
+  [
+   "live.textContent = \"Showing \" + cities[i].name + \" on the globe\";",
+   "live.textContent = \"על הגלובוס: \" + cities[i].name;"
+  ],
+  [
+   "live.textContent = \"Back to the starting view\";",
+   "live.textContent = \"חזרה לתצוגת הפתיחה\";"
+  ],
+  [
+   "<h2 id=\"work-title\">Selected work</h2>",
+   "<h2 id=\"work-title\">עבודות נבחרות</h2>"
+  ],
+  [
+   "Apps, tools and research I designed and built, most of them on my own.",
+   "אפליקציות, כלים ומחקר שעיצבתי ובניתי, רובם לבד."
+  ],
+  [
+   "aria-label=\"Projects on this page\"",
+   "aria-label=\"הפרויקטים בעמוד\""
+  ],
+  [
+   ">Kalshi weather arbitrage<",
+   ">ארביטראז' מזג אוויר ב-Kalshi<",
+   2
+  ],
+  [
+   ">More work<",
+   ">עוד עבודות<",
+   2
+  ],
+  [
+   "alt=\"Orbit app icon\"",
+   "alt=\"האייקון של Orbit\""
+  ],
+  [
+   "iOS app<br><span class=\"live\">Live on the App Store</span>",
+   "אפליקציית iOS<br><span class=\"live\">זמינה ב-App Store</span>"
+  ],
+  [
+   "One place for presence, memory, and the countdown to being together again.",
+   "מקום אחד לנוכחות, לזיכרונות ולספירה לאחור עד שתהיו שוב יחד."
+  ],
+  [
+   "Orbit is for couples and close friends who live far apart. I built all of it alone: the product design, the SwiftUI app and its widget, the Supabase backend, and every App Store release.",
+   "Orbit נועדה לזוגות ולחברים קרובים שגרים רחוק זה מזה. בניתי את כולה לבד: עיצוב המוצר, אפליקציית ה-SwiftUI והווידג׳ט שלה, ה-backend ב-Supabase וכל גרסה שעלתה ל-App Store."
+  ],
+  [
+   "<dd>Your people on a living globe, with their local time and weather.</dd>",
+   "<dd>האנשים שלכם על גלובוס חי, עם השעה ומזג האוויר אצלם.</dd>"
+  ],
+  [
+   "<dd>One shared question a day. Answer to see theirs and keep your streak.</dd>",
+   "<dd>שאלה משותפת אחת ביום. עונים כדי לראות את התשובה של הצד השני ולשמור על הרצף.</dd>"
+  ],
+  [
+   "<dd>A shared timeline of notes, voice memos and photos.</dd>",
+   "<dd>ציר זמן משותף של הודעות, הקלטות קוליות ותמונות.</dd>"
+  ],
+  [
+   "<dd>Plan the next visit and count down to it together.</dd>",
+   "<dd>מתכננים את הביקור הבא וסופרים אליו לאחור ביחד.</dd>"
+  ],
+  [
+   "aria-label=\"Orbit by the numbers\"",
+   "aria-label=\"Orbit במספרים\""
+  ],
+  [
+   "<span>lines of Swift</span>",
+   "<span>שורות Swift</span>"
+  ],
+  [
+   "<span>Swift source files</span>",
+   "<span>קובצי קוד Swift</span>"
+  ],
+  [
+   "<span>Postgres migrations</span>",
+   "<span>מיגרציות Postgres</span>"
+  ],
+  [
+   "<span>current release</span>",
+   "<span>גרסה נוכחית</span>"
+  ],
+  [
+   "aria-label=\"Built with\"",
+   "aria-label=\"נבנה עם\"",
+   2
+  ],
+  [
+   "See it on the App Store",
+   "לצפייה ב-App Store"
+  ],
+  [
+   "aria-label=\"Orbit screenshots\"",
+   "aria-label=\"צילומי מסך של Orbit\""
+  ],
+  [
+   "aria-label=\"Enlarge the orbit screenshot\"",
+   "aria-label=\"הגדלת צילום המסך: orbit\""
+  ],
+  [
+   "aria-label=\"Enlarge the today screenshot\"",
+   "aria-label=\"הגדלת צילום המסך: today\""
+  ],
+  [
+   "aria-label=\"Enlarge the trail screenshot\"",
+   "aria-label=\"הגדלת צילום המסך: trail\""
+  ],
+  [
+   "aria-label=\"Enlarge the horizon screenshot\"",
+   "aria-label=\"הגדלת צילום המסך: horizon\""
+  ],
+  [
+   "alt=\"Orbit's globe screen, showing your people as points on a dotted globe.\"",
+   "alt=\"מסך הגלובוס של Orbit: האנשים שלכם כנקודות על גלובוס מנוקד.\""
+  ],
+  [
+   "alt=\"The Today screen with a daily question to answer together.\"",
+   "alt=\"מסך Today עם שאלה יומית שעונים עליה ביחד.\""
+  ],
+  [
+   "alt=\"The Trail screen, a shared timeline of texts, voice memos and photos.\"",
+   "alt=\"מסך Trail: ציר זמן משותף של הודעות, הקלטות קוליות ותמונות.\""
+  ],
+  [
+   "alt=\"The Horizon screen counting down months, days, hours and minutes to the next visit.\"",
+   "alt=\"מסך Horizon שסופר לאחור חודשים, ימים, שעות ודקות עד הביקור הבא.\""
+  ],
+  [
+   ">Quant research · Built with a partner · 2026</p>",
+   ">מחקר כמותי · פרויקט משותף · 2026</p>"
+  ],
+  [
+   "An algorithm that trades Kalshi's daily high-temperature markets. It turns National Weather Service forecasts into a probability for every temperature bracket, corrects each station's bias against its official ASOS airport readings, and bids only when its fair price beats the market's ask by a set margin.",
+   "אלגוריתם שסוחר בשווקים של Kalshi על הטמפרטורה המקסימלית היומית. הוא הופך תחזיות של שירות מזג האוויר האמריקאי (NWS) להסתברות לכל טווח טמפרטורות, מתקן את ההטיה של כל תחנה מול קריאות ה-ASOS הרשמיות בשדה התעופה, ומגיש הצעה רק כשהמחיר ההוגן שלו עדיף על מחיר המכירה בשוק בפער שנקבע מראש."
+  ],
+  [
+   "We tested it the way a trading desk would: pass and fail rules written down in advance, then a two-week forward paper-trading run. The forecasts were well calibrated (KS test p = 0.70), but the edge did not survive fees, so the rules halted the strategy and we published a full postmortem.",
+   "בדקנו אותו כמו שדסק מסחר היה בודק: כללי הצלחה וכישלון שנכתבו מראש, ואחריהם שבועיים של מסחר על הנייר בזמן אמת. התחזיות היו מכוילות היטב (מבחן KS, p = 0.70), אבל היתרון לא שרד את העמלות, ולכן הכללים עצרו את האסטרטגיה ופרסמנו ניתוח מסכם מלא."
+  ],
+  [
+   "<li>18.5k lines of Python</li><li>238 tests</li><li>6 GitHub Actions jobs</li><li>20 stations mapped</li><li>kill switch and bankroll floor</li>",
+   "<li>18.5k שורות Python</li><li>238 בדיקות</li><li>6 משימות GitHub Actions</li><li>20 תחנות ממופות</li><li>מתג השבתה ורצפת הון</li>"
+  ],
+  [
+   "<span class=\"private\">Private repository · write-up on request</span>",
+   "<span class=\"private\">מאגר פרטי · ניתוח מלא לפי בקשה</span>"
+  ],
+  [
+   "aria-label=\"How a trade decision is made, in order\"",
+   "aria-label=\"איך מתקבלת החלטת מסחר, לפי הסדר\""
+  ],
+  [
+   "<li><b>Forecast</b><span>NWS NDFD</span></li>",
+   "<li><b>תחזית</b><span>NWS NDFD</span></li>"
+  ],
+  [
+   "<li><b>Correct bias</b><span>per station vs ASOS</span></li>",
+   "<li><b>תיקון הטיה</b><span>לכל תחנה מול ASOS</span></li>"
+  ],
+  [
+   "<li><b>Price brackets</b><span>Normal(μ, σ)</span></li>",
+   "<li><b>תמחור טווחים</b><span dir=\"ltr\">Normal(μ, σ)</span></li>"
+  ],
+  [
+   "<li><b>Compare</b><span>Kalshi ask + fees</span></li>",
+   "<li><b>השוואה</b><span>מחיר ב-Kalshi + עמלות</span></li>"
+  ],
+  [
+   "<li><b>Trade</b><span>edge gate, kill switch</span></li>",
+   "<li><b>מסחר</b><span>סף יתרון, מתג השבתה</span></li>"
+  ],
+  [
+   "<li><b>Settle</b><span>NWS climate report</span></li>",
+   "<li><b>סגירה</b><span>דוח האקלים של NWS</span></li>"
+  ],
+  [
+   "<dt>Halt rule, fixed before the run</dt>",
+   "<dt dir=\"rtl\">כלל עצירה, נקבע לפני הריצה</dt>"
+  ],
+  [
+   "<dt>Result, May 4–17, 2026</dt>",
+   "<dt dir=\"rtl\">תוצאה, <bdi dir=\"ltr\">4–17</bdi> במאי 2026</dt>"
+  ],
+  [
+   "P&amp;L &lt; 0 after fees <span class=\"halt\">→ halted</span>",
+   "P&amp;L &lt; 0 after fees <span class=\"halt\">→ halted (נעצר)</span>"
+  ],
+  [
+   "<h4 id=\"play-title\">Try the pricing model</h4>",
+   "<h4 id=\"play-title\">נסו את מודל התמחור</h4>"
+  ],
+  [
+   "<p>The same math the bot runs: a normal distribution around the bias-corrected forecast, priced bracket by bracket against an example order book.</p>",
+   "<p>אותה מתמטיקה שהבוט מריץ: התפלגות נורמלית סביב התחזית המתוקנת, מתומחרת טווח אחר טווח מול ספר פקודות לדוגמה.</p>"
+  ],
+  [
+   "<legend>Station, with its calibrated σ</legend>",
+   "<legend>תחנה, עם ה-σ המכויל שלה</legend>"
+  ],
+  [
+   "aria-pressed=\"true\">New York <span",
+   "aria-pressed=\"true\">ניו יורק <span"
+  ],
+  [
+   "aria-pressed=\"false\">Boston <span",
+   "aria-pressed=\"false\">בוסטון <span"
+  ],
+  [
+   "aria-pressed=\"false\">Las Vegas <span",
+   "aria-pressed=\"false\">לאס וגאס <span"
+  ],
+  [
+   "aria-pressed=\"false\">Phoenix <span",
+   "aria-pressed=\"false\">פיניקס <span"
+  ],
+  [
+   "<label for=\"pFc\">NWS forecast high</label>",
+   "<label for=\"pFc\">תחזית המקסימום של NWS</label>"
+  ],
+  [
+   "<label for=\"pSig\">Forecast uncertainty (σ)</label>",
+   "<label for=\"pSig\">אי-ודאות התחזית (σ)</label>"
+  ],
+  [
+   "<label for=\"pMkt\">Market expects</label>",
+   "<label for=\"pMkt\">ציפיית השוק</label>"
+  ],
+  [
+   "</span>Model probability <span",
+   "</span>הסתברות המודל <span"
+  ],
+  [
+   "</span>Market YES ask</p>",
+   "</span>מחיר YES בשוק</p>"
+  ],
+  [
+   "Each bracket's model probability, the market's YES ask, the better side's edge, and what the bot would do",
+   "לכל טווח: הסתברות המודל, מחיר ה-YES בשוק, היתרון בצד העדיף ומה הבוט היה עושה"
+  ],
+  [
+   "<th scope=\"col\">Bracket</th>",
+   "<th scope=\"col\">טווח</th>"
+  ],
+  [
+   "<th scope=\"col\">Model vs market</th>",
+   "<th scope=\"col\">מודל מול שוק</th>"
+  ],
+  [
+   "<th scope=\"col\">Best edge</th>",
+   "<th scope=\"col\">היתרון הטוב ביותר</th>"
+  ],
+  [
+   "<span class=\"th-long\">Bot's call</span><span class=\"th-short\" aria-hidden=\"true\">Call</span>",
+   "<span class=\"th-long\">ההחלטה של הבוט</span><span class=\"th-short\" aria-hidden=\"true\">החלטה</span>"
+  ],
+  [
+   "The bot trades only when the edge is at least 12¢, the conservative setting from the May 2026 run. Fee per contract is the larger of 1¢ or 7% of the price. The example book prices each bracket as if traders expect the \"market expects\" value with σ = 2.5°F, plus a 2¢ spread. Like the bot, the two end brackets use their threshold as written, so the six probabilities can add up to slightly more than 100%.",
+   "הבוט סוחר רק כשהיתרון הוא לפחות 12¢, ההגדרה השמרנית מהריצה של מאי 2026. העמלה לחוזה היא הגבוהה מבין 1¢ לבין 7% מהמחיר. ספר הפקודות לדוגמה מתמחר כל טווח כאילו הסוחרים מצפים לערך של \"ציפיית השוק\" עם σ = 2.5°F, ועוד מרווח של 2¢. כמו בבוט, שני טווחי הקצה משתמשים בסף כפי שהוא כתוב, ולכן סכום שש ההסתברויות יכול לעלות מעט על 100%."
+  ],
+  [
+   "below: \"below {t}°\",",
+   "below: \"מתחת ל-{t}°\","
+  ],
+  [
+   "above: \"above {t}°\",",
+   "above: \"מעל {t}°\","
+  ],
+  [
+   "buyYes: \"Buy YES\",",
+   "buyYes: \"קנייה: YES\","
+  ],
+  [
+   "buyNo: \"Buy NO\",",
+   "buyNo: \"קנייה: NO\","
+  ],
+  [
+   "pass: \"Pass\",",
+   "pass: \"דילוג\","
+  ],
+  [
+   "vals: \"model {p}% · ask {a}¢\",",
+   "vals: \"מודל {p}% · מחיר {a}¢\","
+  ],
+  [
+   "net: \"after fee {n}\",",
+   "net: \"אחרי עמלה {n}\","
+  ],
+  [
+   "mu: \"Bias-corrected forecast: μ = {mu}°F (calibrated bias {b})\",",
+   "mu: \"תחזית מתוקנת: μ = {mu}°F (הטיה מכוילת {b})\","
+  ],
+  [
+   "none: \"No bracket clears the 12¢ edge gate, so the bot would sit this day out.\",",
+   "none: \"אף טווח לא עובר את סף היתרון של 12¢, אז הבוט היה מוותר על היום הזה.\","
+  ],
+  [
+   "one: \"1 of 6 brackets clears the 12¢ edge gate. Expected value after fees: {ev} per contract.\",",
+   "one: \"טווח אחד מתוך 6 עובר את סף היתרון של 12¢. תוחלת אחרי עמלות: {ev} לחוזה.\","
+  ],
+  [
+   "some: \"{n} of 6 brackets clear the 12¢ edge gate. Expected value after fees: {ev} per contract, summed across them.\"",
+   "some: \"{n} מתוך 6 טווחים עוברים את סף היתרון של 12¢. תוחלת אחרי עמלות: {ev} לחוזה, בסך הכול.\""
+  ],
+  [
+   "aria-label=\"Excerpt from school_datatable.rb, the server-side table code\"",
+   "aria-label=\"קטע מהקובץ school_datatable.rb, הקוד של הטבלה בצד השרת\""
+  ],
+  [
+   ">Open source · Ruby on Rails · CS 169L</p>",
+   ">קוד פתוח · Ruby on Rails · CS 169L</p>"
+  ],
+  [
+   "The Rails app that Berkeley's Beauty and Joy of Computing team uses to manage the teachers and schools teaching its curriculum. I moved the schools directory to server-side search, sorting and pagination, so the page stops loading every school at once.",
+   "אפליקציית ה-Rails שבה צוות Beauty and Joy of Computing של ברקלי מנהל את המורים ובתי הספר שמלמדים את תוכנית הלימודים שלו. העברתי את רשימת בתי הספר לחיפוש, מיון ודפדוף בצד השרת, כך שהעמוד כבר לא טוען את כל בתי הספר בבת אחת."
+  ],
+  [
+   "The new endpoint escapes every user-submitted field before it reaches the table. I also made a teacher's personal website a required field, with RSpec and Cucumber tests for each change.",
+   "נקודת הקצה החדשה מבצעת escaping לכל שדה שמשתמשים שולחים לפני שהוא מגיע לטבלה. בנוסף הפכתי את האתר האישי של המורה לשדה חובה, עם בדיקות RSpec ו-Cucumber לכל שינוי."
+  ],
+  [
+   "<li>merged into a production app</li>",
+   "<li>מוזג לאפליקציה בפרודקשן</li>"
+  ],
+  [
+   "aria-label=\"BJC Teacher Tracker code on GitHub\"",
+   "aria-label=\"הקוד של BJC Teacher Tracker ב-GitHub\""
+  ],
+  [
+   ">Code <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg>",
+   ">קוד <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg>",
+   3
+  ],
+  [
+   ">Python · Learning ranker · Runs daily</p>",
+   ">Python · דירוג לומד · רץ כל יום</p>"
+  ],
+  [
+   "A morning news digest that learns what I want to read. At 06:23 a GitHub Actions job pulls RSS feeds, Hacker News and CISA's list of actively exploited vulnerabilities, removes duplicates, ranks the stories and emails the digest. One tap on Up or Down records a vote.",
+   "תקציר חדשות בוקר שלומד מה אני רוצה לקרוא. ב-06:23 משימת GitHub Actions מושכת פידים של RSS, את Hacker News ואת הרשימה של CISA של חולשות שמנוצלות בפועל, מסירה כפילויות, מדרגת את הכתבות ושולחת את התקציר במייל. נגיעה אחת על Up או Down רושמת הצבעה."
+  ],
+  [
+   "The ranker scores each story by its similarity to ones I voted on, holds back new per-source weights until enough votes arrive, and saves a few slots for stories unlike anything rated so far.",
+   "המדרג נותן לכל כתבה ציון לפי הדמיון שלה לכתבות שהצבעתי עליהן, מעכב משקלים חדשים לכל מקור עד שמצטברות מספיק הצבעות, ושומר כמה מקומות לכתבות ששונות מכל מה שדורג עד עכשיו."
+  ],
+  [
+   "<li>38.6k lines of Python</li><li>762 tests</li><li>Supabase</li><li>costs $0 to run</li>",
+   "<li>38.6k שורות Python</li><li>762 בדיקות</li><li>Supabase</li><li>עלות הפעלה: $0</li>"
+  ],
+  [
+   "<span class=\"private\">Private repository</span>",
+   "<span class=\"private\">מאגר פרטי</span>"
+  ],
+  [
+   ">Runs where the agent actually read a skill<",
+   ">ריצות שבהן הסוכן באמת קרא skill<"
+  ],
+  [
+   "<small>7 of 18</small>",
+   "<small>7 מתוך 18</small>"
+  ],
+  [
+   "<small>7 of 33</small>",
+   "<small>7 מתוך 33</small>"
+  ],
+  [
+   "<small>0 of 51</small>",
+   "<small>0 מתוך 51</small>"
+  ],
+  [
+   ">Benchmark's own skill counter<",
+   ">המונה של הבנצ'מרק עצמו<"
+  ],
+  [
+   ">AI agents · Hackathon research</p>",
+   ">סוכני AI · מחקר בהאקתון</p>"
+  ],
+  [
+   "My SkillsBench hackathon entry: five procedural skills for AI agents, plus three meta-skills for writing, validating and safety-reviewing new ones, measured in a paired sweep across two model families.",
+   "ההגשה שלי להאקתון SkillsBench: חמישה skills פרוצדורליים לסוכני AI, ועוד שלושה meta-skills לכתיבה, לאימות ולסקירת בטיחות של skills חדשים, שנמדדו בהשוואה מזווגת על פני שתי משפחות מודלים."
+  ],
+  [
+   "The sharpest finding was a measurement bug. The benchmark counted zero skill uses in all 51 with-skill runs, while the agents' own trajectories showed them reading skills.",
+   "הממצא החד ביותר היה באג מדידה. הבנצ'מרק ספר אפס שימושים ב-skills בכל 51 הריצות עם skills, בזמן שהמסלולים של הסוכנים עצמם הראו שהם כן קוראים אותם."
+  ],
+  [
+   "<li>102 paired runs</li><li>2 model families</li><li>bootstrap confidence intervals</li>",
+   "<li>102 ריצות מזווגות</li><li>2 משפחות מודלים</li><li>רווחי סמך ב-bootstrap</li>"
+  ],
+  [
+   "aria-label=\"skill-lift code on GitHub\"",
+   "aria-label=\"הקוד של skill-lift ב-GitHub\""
+  ],
+  [
+   "aria-label=\"skill-lift write-up on GitHub\"",
+   "aria-label=\"הניתוח של skill-lift ב-GitHub\""
+  ],
+  [
+   ">Write-up <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg>",
+   ">הניתוח <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg>"
+  ],
+  [
+   "alt=\"Limud's setup screen: Shas Mishnah in a year, with a start date, a Shabbat pace of 3.5 times a weekday, and a projected finish date.\"",
+   "alt=\"מסך ההגדרה של Limud: ש״ס משניות בשנה, עם תאריך התחלה, קצב שבת של פי 3.5 מיום חול ותאריך סיום משוער.\""
+  ],
+  [
+   ">Web app · Works offline</p>",
+   ">אפליקציית ווב · עובדת בלי חיבור</p>"
+  ],
+  [
+   "A daily plan for learning all 4,192 mishnayot of the Mishnah in one year. It paces weekdays and Shabbat differently, re-flows the plan around days off, and never changes a day you've already learned.",
+   "תוכנית יומית ללימוד כל 4,192 המשניות בשנה אחת. היא קובעת קצב שונה לימי חול ולשבת, מסדרת מחדש את התוכנית סביב ימי חופש, ולעולם לא משנה יום שכבר למדתם."
+  ],
+  [
+   "<li>installable PWA</li><li>service worker</li><li>Hebrew calendar</li><li>no account needed</li>",
+   "<li>PWA שאפשר להתקין</li><li>service worker</li><li>לוח שנה עברי</li><li>בלי צורך בחשבון</li>"
+  ],
+  [
+   "aria-label=\"Open the app: Limud\">Open the app <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg>",
+   "aria-label=\"פתיחת האפליקציה: Limud\">פתיחת האפליקציה <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg>"
+  ],
+  [
+   "aria-label=\"Limud code on GitHub\"",
+   "aria-label=\"הקוד של Limud ב-GitHub\""
+  ],
+  [
+   "<p>Reads PDF bank statements, flags unusual transactions with an Isolation Forest, and forecasts cash flow with Holt-Winters smoothing in a Streamlit dashboard.</p>",
+   "<p>קורא דפי חשבון בנק ב-PDF, מסמן עסקאות חריגות בעזרת Isolation Forest, וחוזה תזרים מזומנים בהחלקת Holt-Winters בדשבורד של Streamlit.</p>"
+  ],
+  [
+   "aria-label=\"Bank Statement Analyzer code on GitHub\"",
+   "aria-label=\"הקוד של Bank Statement Analyzer ב-GitHub\""
+  ],
+  [
+   ">Code ↗</a>",
+   ">קוד ↗</a>",
+   2
+  ],
+  [
+   "<p>Workout form feedback from your phone's camera: an Expo app running TensorFlow.js pose detection, with a FastAPI and SQLAlchemy backend.</p>",
+   "<p>משוב על טכניקת אימון ממצלמת הטלפון: אפליקציית Expo שמריצה זיהוי תנוחה ב-TensorFlow.js, עם backend ב-FastAPI ו-SQLAlchemy.</p>"
+  ],
+  [
+   "aria-label=\"RepRight code on GitHub\"",
+   "aria-label=\"הקוד של RepRight ב-GitHub\""
+  ],
+  [
+   "<p>A local-first job application tracker: Next.js 15 and TypeScript, a drag-and-drop pipeline board, and analytics on response and interview rates, with all data kept in the browser.</p>",
+   "<p>מעקב אחרי הגשות מועמדות שעובד מקומית: Next.js 15 ו-TypeScript, לוח שלבים עם גרירה ושחרור, וניתוח של שיעורי התגובה והראיונות, כשכל המידע נשמר בדפדפן.</p>"
+  ],
+  [
+   "<span class=\"private\">Private</span>",
+   "<span class=\"private\">פרטי</span>"
+  ],
+  [
+   "<h2 id=\"xp-title\">Experience</h2>",
+   "<h2 id=\"xp-title\">ניסיון</h2>"
+  ],
+  [
+   "Internships, a startup, and four years of teaching.",
+   "התמחויות, סטארט-אפ וארבע שנים של הוראה."
+  ],
+  [
+   "<p class=\"when\">Summer 2025<span>New York</span></p>",
+   "<p class=\"when\">קיץ 2025<span>ניו יורק</span></p>"
+  ],
+  [
+   "<p class=\"when\">Fall 2023 – Spring 2024<span>Berkeley</span></p>",
+   "<p class=\"when\">סתיו 2023 – אביב 2024<span>ברקלי</span></p>"
+  ],
+  [
+   "<p class=\"when\">Spring – Fall 2023<span>Tel Aviv</span></p>",
+   "<p class=\"when\">אביב – סתיו 2023<span>תל אביב</span></p>"
+  ],
+  [
+   "<span>São Paulo</span></p>",
+   "<span>סאו פאולו</span></p>"
+  ],
+  [
+   "<li>Built automated trading algorithms and deployed them across several crypto exchanges, averaging about 1.5% daily returns over several months of live trading.</li>",
+   "<li>בניתי אלגוריתמי מסחר אוטומטיים והפעלתי אותם בכמה בורסות קריפטו, עם תשואה יומית ממוצעת של כ-1.5% לאורך כמה חודשים של מסחר אמיתי.</li>"
+  ],
+  [
+   "<li>Designed hedging strategies that held target exposure to core positions.</li>",
+   "<li>תכננתי אסטרטגיות גידור ששמרו על חשיפת היעד לפוזיציות הליבה.</li>"
+  ],
+  [
+   "<li>Worked on cross-exchange funding-rate strategies for perpetual futures, with WebSocket and REST failover, stale order-book detection and circuit breakers.</li>",
+   "<li>עבדתי על אסטרטגיות funding rate בין בורסות בחוזים עתידיים פרפטואליים, עם מעבר אוטומטי בין WebSocket ל-REST, זיהוי ספרי פקודות לא מעודכנים ומפסקי זרם.</li>"
+  ],
+  [
+   "aria-label=\"Tools\"",
+   "aria-label=\"כלים\"",
+   2
+  ],
+  [
+   "<p class=\"org\">Stylis AI, startup</p>",
+   "<p class=\"org\">Stylis AI, סטארט-אפ</p>"
+  ],
+  [
+   "<li>Helped design, build, test and launch the MVP.</li>",
+   "<li>עזרתי לעצב, לבנות, לבדוק ולהשיק את ה-MVP.</li>"
+  ],
+  [
+   "<li>Built and tuned machine learning models for personalized outfit recommendations, reaching over 85% accuracy in user surveys.</li>",
+   "<li>בניתי וכיווננתי מודלים של למידת מכונה להמלצות לבוש אישיות, עם דיוק של יותר מ-85% בסקרי משתמשים.</li>"
+  ],
+  [
+   "<li>Worked in a fast, agile team and picked up new technologies quickly.</li>",
+   "<li>עבדתי בצוות מהיר ואג׳ילי ולמדתי טכנולוגיות חדשות במהירות.</li>"
+  ],
+  [
+   "<li>Machine learning</li>",
+   "<li>למידת מכונה</li>"
+  ],
+  [
+   "<li>Contributed to open-source projects for debugging and performance analysis.</li>",
+   "<li>תרמתי לפרויקטי קוד פתוח לדיבאגינג ולניתוח ביצועים.</li>"
+  ],
+  [
+   "<li>Shipped a feature that cut debugging time by about 3%.</li>",
+   "<li>השקתי פיצ׳ר שקיצר את זמן הדיבאגינג בכ-3%.</li>"
+  ],
+  [
+   "<h3>Volunteer Teaching Assistant</h3>",
+   "<h3>התנדבות בהוראה</h3>"
+  ],
+  [
+   "<p class=\"org\">Education for young adults</p>",
+   "<p class=\"org\">חינוך למבוגרים צעירים</p>"
+  ],
+  [
+   "<li>Ran bi-weekly classes for groups of 20 to 25 adult students from underprivileged backgrounds.</li>",
+   "<li>העברתי מפגשים דו-שבועיים לקבוצות של 20 עד 25 תלמידים מבוגרים מרקע מוחלש.</li>"
+  ],
+  [
+   "<li>Tutored students one on one in math, with support targeted to each person.</li>",
+   "<li>נתתי שיעורים פרטיים במתמטיקה, עם תמיכה מותאמת לכל אחד ואחת.</li>"
+  ],
+  [
+   "<h2 id=\"edu-title\">Education</h2>",
+   "<h2 id=\"edu-title\">השכלה</h2>"
+  ],
+  [
+   "<p>B.S. in Electrical Engineering and Computer Sciences, College of Engineering</p>",
+   "<p>B.S. בהנדסת חשמל ומדעי המחשב, הפקולטה להנדסה</p>"
+  ],
+  [
+   "<p class=\"when\">Graduated May 2026</p>",
+   "<p class=\"when\">סיום הלימודים: מאי 2026</p>"
+  ],
+  [
+   ">Selected coursework</p>",
+   ">קורסים נבחרים</p>"
+  ],
+  [
+   "</code><span>Structure and Interpretation of Computer Programs</span>",
+   "</code><span>מבנה ופרשנות של תוכניות מחשב</span>"
+  ],
+  [
+   "</code><span>Data Structures</span>",
+   "</code><span>מבני נתונים</span>"
+  ],
+  [
+   "</code><span>Machine Structures</span>",
+   "</code><span>מבנה המחשב</span>"
+  ],
+  [
+   "</code><span>Discrete Mathematics and Probability</span>",
+   "</code><span>מתמטיקה בדידה והסתברות</span>"
+  ],
+  [
+   "</code><span>Computer Security</span>",
+   "</code><span>אבטחת מחשבים</span>"
+  ],
+  [
+   "</code><span>Programming Languages and Compilers</span>",
+   "</code><span>שפות תכנות וקומפיילרים</span>"
+  ],
+  [
+   "</code><span>Software Engineering</span>",
+   "</code><span>הנדסת תוכנה</span>"
+  ],
+  [
+   "</code><span>Software Engineering Project</span>",
+   "</code><span>פרויקט בהנדסת תוכנה</span>"
+  ],
+  [
+   "</code><span>Artificial Intelligence</span>",
+   "</code><span>בינה מלאכותית</span>"
+  ],
+  [
+   "</code><span>Designing Information Devices and Systems</span>",
+   "</code><span>תכנון התקנים ומערכות מידע</span>"
+  ],
+  [
+   "</code><span>Computer Simulations with Jupyter</span>",
+   "</code><span>סימולציות מחשב ב-Jupyter</span>"
+  ],
+  [
+   "</code><span>Multivariable Calculus</span>",
+   "</code><span>חשבון דיפרנציאלי ואינטגרלי רב-משתני</span>"
+  ],
+  [
+   "aria-label=\"Skills\"",
+   "aria-label=\"מיומנויות\""
+  ],
+  [
+   "<dt>Languages</dt>",
+   "<dt>שפות תכנות</dt>"
+  ],
+  [
+   "<dt>Apple platforms</dt>",
+   "<dt>פלטפורמות Apple</dt>"
+  ],
+  [
+   "<dt>Web and backend</dt>",
+   "<dt>ווב ו-backend</dt>"
+  ],
+  [
+   "<dt>Data and ML</dt>",
+   "<dt>דאטה ולמידת מכונה</dt>"
+  ],
+  [
+   "<dt>Tools</dt>",
+   "<dt>כלים</dt>"
+  ],
+  [
+   "<dt>Spoken</dt><dd>English (native), Portuguese (native), Hebrew (proficient), Spanish (conversational)</dd>",
+   "<dt>שפות מדוברות</dt><dd>אנגלית (שפת אם), פורטוגזית (שפת אם), עברית (שליטה טובה), ספרדית (שיחה)</dd>"
+  ],
+  [
+   "<h2 id=\"contact-title\">Get in touch</h2>",
+   "<h2 id=\"contact-title\">יצירת קשר</h2>"
+  ],
+  [
+   "Email is the fastest way to reach me.",
+   "הדרך המהירה ביותר להשיג אותי היא במייל."
+  ],
+  [
+   ">Copy email address</button>",
+   ">העתקת כתובת המייל</button>"
+  ],
+  [
+   "<dt>Phone</dt>",
+   "<dt>טלפון</dt>"
+  ],
+  [
+   ">Copy</button>",
+   ">העתקה</button>"
+  ],
+  [
+   "done(\"Copied\")",
+   "done(\"הועתק\")"
+  ],
+  [
+   "done(\"Selected. Press Ctrl+C or ⌘C\")",
+   "done(\"נבחר. אפשר להעתיק עם Ctrl+C או ⌘C\")"
+  ],
+  [
+   "<span>Updated %%UPDATED%%</span>",
+   "<span>עודכן ב%%UPDATED_HE%%</span>"
+  ],
+  [
+   "Hosted by the <a href=\"https://www.ocf.berkeley.edu/\" target=\"_blank\" rel=\"noopener\">Open Computing Facility</a> at UC Berkeley",
+   "האתר מתארח ב-<a href=\"https://www.ocf.berkeley.edu/\" target=\"_blank\" rel=\"noopener\">Open Computing Facility</a> של UC Berkeley"
+  ],
+  [
+   "rel=\"noopener\">Source</a>",
+   "rel=\"noopener\">קוד המקור</a>"
+  ],
+  [
+   "aria-label=\"Orbit screenshot\"",
+   "aria-label=\"צילום מסך של Orbit\""
+  ],
+  [
+   "aria-label=\"Close\"",
+   "aria-label=\"סגירה\""
+  ],
+  [
+   "aria-label=\"Previous screenshot\"",
+   "aria-label=\"צילום המסך הקודם\""
+  ],
+  [
+   "aria-label=\"Next screenshot\"",
+   "aria-label=\"צילום המסך הבא\""
+  ],
+  [
+   "\" of \" + shotBtns.length",
+   "\" מתוך \" + shotBtns.length"
+  ]
+ ]
+}

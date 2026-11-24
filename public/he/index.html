@@ -1,0 +1,1608 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roni Kriger</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Roni Kriger: הנדסת תוכנה, תואר B.S. ב‑EECS מ‑UC Berkeley. עיצוב, פיתוח והשקה של אפליקציות iOS, כלי AI ומערכות מסחר.">
+<meta name="author" content="Roni Kriger">
+<link rel="canonical" href="https://www.ocf.berkeley.edu/~rkriger/he/">
+<link rel="alternate" hreflang="en" href="https://www.ocf.berkeley.edu/~rkriger/">
+<link rel="alternate" hreflang="he" href="https://www.ocf.berkeley.edu/~rkriger/he/">
+<link rel="alternate" hreflang="x-default" href="https://www.ocf.berkeley.edu/~rkriger/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Roni Kriger · הנדסת תוכנה">
+<meta property="og:description" content="תואר ב‑EECS מ‑Berkeley. פיתוח של Orbit, אפליקציית iPhone לזוגות בקשר רחוק, לצד מחקר על סוכני AI, מערכות מסחר ועוד.">
+<meta property="og:url" content="https://www.ocf.berkeley.edu/~rkriger/he/">
+<meta property="og:site_name" content="Roni Kriger">
+<meta property="og:locale" content="he_IL">
+<meta property="og:image" content="https://www.ocf.berkeley.edu/~rkriger/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="תיק העבודות של Roni Kriger: השם באותיות גדולות לצד גלובוס שמחבר בין סאו פאולו, תל אביב, ברקלי וניו יורק.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Roni Kriger · הנדסת תוכנה">
+<meta name="twitter:description" content="תואר ב‑EECS מ‑Berkeley. פיתוח של Orbit, אפליקציית iPhone לזוגות בקשר רחוק, לצד מחקר על סוכני AI, מערכות מסחר ועוד.">
+<meta name="twitter:image" content="https://www.ocf.berkeley.edu/~rkriger/og.jpg">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F3F5F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070B17" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg?v=a8f145a1" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png?v=ea898143" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png?v=908a356a">
+<!--FONTLINKS-->
+<link rel="preload" href="../fonts/archivo.woff2?v=dad1ef74" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/geist.woff2?v=d9e95a89" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/heebo-hebrew.woff2?v=85a40404" as="font" type="font/woff2" crossorigin>
+<!--/FONTLINKS-->
+<script>try{var t=localStorage.getItem("rk-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<style>
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 600 900; font-stretch: 100% 125%; font-display: swap; src: url(../fonts/archivo.woff2?v=dad1ef74) format("woff2"); }
+@font-face { font-family: "Geist"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../fonts/geist.woff2?v=d9e95a89) format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 400 600; font-display: swap; src: url(../fonts/geist-mono.woff2?v=1b3ec393) format("woff2"); }
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 300 500; font-display: swap; src: url(../fonts/newsreader.woff2?v=6c83455a) format("woff2"); }
+@font-face { font-family: "Newsreader"; font-style: italic; font-weight: 300 500; font-display: swap; src: url(../fonts/newsreader-italic.woff2?v=f8b26e4b) format("woff2"); }
+@font-face { font-family: 'Heebo'; font-style: normal; font-weight: 400 800; font-display: swap; src: url(../fonts/heebo-hebrew.woff2?v=85a40404) format('woff2'); unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+@font-face { font-family: 'Frank Ruhl Libre'; font-style: normal; font-weight: 300 500; font-display: swap; src: url(../fonts/frank-ruhl-libre-hebrew.woff2?v=a1240334) format('woff2'); unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+:root:lang(he) {  /* outranks the base :root tokens wherever it sits */
+  --f-display: "Archivo", "Heebo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Geist", "Heebo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "Geist Mono", "Heebo", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --f-orbit: "Newsreader", "Frank Ruhl Libre", ui-serif, "New York", Georgia, serif;
+}
+/* Layout: one 1120px column. The hero sets the name beside a globe of the cities on the résumé;
+   Orbit gets a full-width panel in the app's own palette and typeface; other work sits in a 2-up grid;
+   experience reads as a dated ledger. Berkeley navy for ink, California gold for marks. */
+:root {
+  --paper: #F3F5F9;
+  --surface: #FFFFFF;
+  --ink: #0B1530;
+  --ink-2: #36415C;
+  --muted: #5A6580;
+  --line: #D7DDE8;
+  --line-strong: #B9C2D4;
+  --accent: #1F3FBF;
+  --gold: #E9A100;
+  --gold-ink: #8A5B00;
+  --gold-soft: rgba(233, 161, 0, .16);
+  --globe-dot: #8592B0;
+  --globe-fill: #E7EBF3;
+  --globe-rim: #C8D0E0;
+  --bar: #1F3FBF;
+  --series-model: #1F3FBF;   /* validated pair, light: L-band, CVD and contrast pass */
+  --series-market: #B57A00;
+  --globe-halo: rgba(31, 63, 191, .10);
+  --globe-shade: #D9DFEB;
+  --band-bg: #0B1530; --band-fg: #F3F5F9; --band-muted: #A9B3CB; --band-line: rgba(243, 245, 249, .16); --band-link: #FDB515;
+  --fwd: "→"; --back: "←"; --prev-glyph: "‹"; --next-glyph: "›";
+
+  /* Fixed looks that belong to the projects themselves, the same in both themes */
+  --term-bg: #0A0E0B;
+  --term-ink: #D3E6D7;
+  --term-dim: #7C9383;
+  --term-green: #4ADE80;
+  --orbit-bg: #1A1410;
+  --orbit-elev: #251C14;
+  --orbit-ink: #F4EAD4;
+  --orbit-mute: rgba(244, 234, 212, .68);
+  --orbit-line: rgba(244, 234, 212, .14);
+  --orbit-accent: #E08664;
+
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --f-orbit: "Newsreader", ui-serif, "New York", Georgia, serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #070B17; --surface: #0E1426; --ink: #E8EDF8; --ink-2: #C0C9DC; --muted: #8F9AB4;
+    --line: #1D2740; --line-strong: #2E3A5A; --accent: #9DB4FF; --gold: #FDB515; --gold-ink: #FDB515;
+    --gold-soft: rgba(253, 181, 21, .16); --globe-dot: #5C6C9E; --globe-fill: #0C1428; --globe-rim: #25314F;
+    --bar: #7F9BFF; --series-model: #6E8BF7; --series-market: #BC8500;
+    --globe-halo: rgba(127, 155, 255, .13); --globe-shade: #060B19;
+    --band-bg: #101935; --band-fg: #E8EDF8; --band-muted: #9AA5BF; --band-line: rgba(232, 237, 248, .14); --band-link: #FDB515;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #070B17; --surface: #0E1426; --ink: #E8EDF8; --ink-2: #C0C9DC; --muted: #8F9AB4;
+  --line: #1D2740; --line-strong: #2E3A5A; --accent: #9DB4FF; --gold: #FDB515; --gold-ink: #FDB515;
+  --gold-soft: rgba(253, 181, 21, .16); --globe-dot: #5C6C9E; --globe-fill: #0C1428; --globe-rim: #25314F;
+  --bar: #7F9BFF; --series-model: #6E8BF7; --series-market: #BC8500;
+  --globe-halo: rgba(127, 155, 255, .13); --globe-shade: #060B19;
+  --band-bg: #101935; --band-fg: #E8EDF8; --band-muted: #9AA5BF; --band-line: rgba(232, 237, 248, .14); --band-link: #FDB515;
+  color-scheme: dark;
+}
+[dir="rtl"] { --fwd: "←"; --back: "→"; --prev-glyph: "›"; --next-glyph: "‹"; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 80px); -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 30; background: var(--paper);
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.wrap {
+  max-width: 1160px; margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.skip { position: absolute; inset-inline-start: 12px; top: -60px; z-index: 50; background: var(--ink); color: var(--paper); padding: 10px 14px; border-radius: 8px; }
+.skip:focus { top: calc(env(safe-area-inset-top, 0px) + 12px); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid transparent; transition: border-color .2s ease;
+}
+.site-header.scrolled { border-bottom-color: var(--line); }
+.bar { display: flex; align-items: center; gap: 12px; min-height: 64px; }
+.brand {
+  display: flex; align-items: center; gap: 10px; margin-inline-end: auto;
+  font-family: var(--f-display); font-stretch: 125%; font-weight: 800; font-size: 1.0625rem;
+  letter-spacing: -.01em; color: var(--ink); text-decoration: none; white-space: nowrap;
+}
+.brand svg { width: 24px; height: 24px; flex: none; }
+.nav ul { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; }
+.nav a {
+  display: block; padding: 8px 12px; border-radius: 999px; font-size: .9375rem; font-weight: 500;
+  color: var(--ink-2); text-decoration: none;
+}
+.nav a:hover { color: var(--ink); background: var(--surface); }
+.nav a[aria-current="true"] { color: var(--ink); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.icon-btn {
+  display: inline-grid; place-items: center; width: 40px; height: 40px; flex: none;
+  border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer;
+}
+.icon-btn:hover { background: var(--surface); }
+.icon-btn svg { width: 18px; height: 18px; }
+.icon-sun { display: none; }
+:root[data-theme="dark"] .icon-sun { display: block; }
+:root[data-theme="dark"] .icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .icon-moon { display: none; }
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px;
+  padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line-strong);
+  background: var(--surface); color: var(--ink); text-decoration: none; cursor: pointer;
+  font: 600 .9375rem/1 var(--f-body); white-space: nowrap; transition: transform .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-1px); text-decoration: none; }
+.btn svg { width: 16px; height: 16px; flex: none; }
+.btn-primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn-sm { min-height: 40px; padding: 8px 14px; font-size: .875rem; }
+.menu-btn { display: none; }
+.menu-btn .icon-close { display: none; }
+.menu-btn[aria-expanded="true"] .icon-open { display: none; }
+.menu-btn[aria-expanded="true"] .icon-close { display: block; }
+.mobile-nav { border-top: 1px solid var(--line); padding-block: 8px 16px; }
+.mobile-nav ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.mobile-nav a { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 0 4px; font-family: var(--f-display); font-stretch: 110%; font-weight: 700; font-size: 1.25rem; letter-spacing: -.01em; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+.mobile-nav a::after { content: var(--fwd); font: 500 1rem var(--f-mono); color: var(--gold-ink); }
+@media (max-width: 820px) { .nav { display: none; } .menu-btn { display: inline-grid; } }
+@media (min-width: 821px) { .mobile-nav { display: none; } }
+@media (max-width: 380px) { .bar > .btn-sm { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(28px, 5vw, 72px); align-items: center;
+  padding-block: clamp(36px, 6vw, 80px) clamp(56px, 7vw, 96px);
+}
+@media (max-width: 920px) { .hero { grid-template-columns: minmax(0, 1fr); } }
+.eyebrow {
+  font: 500 .8125rem/1.4 var(--f-mono); letter-spacing: .07em; text-transform: uppercase; color: var(--muted);
+}
+.name {
+  font-family: var(--f-display); font-stretch: 125%; font-weight: 850;
+  font-size: clamp(3.4rem, 10vw, 7.25rem); line-height: .86; letter-spacing: -.04em;
+  margin: 16px 0 28px; color: var(--ink);
+}
+.name span { display: block; }
+.lede { font-size: clamp(1.15rem, 1.7vw, 1.35rem); line-height: 1.5; color: var(--ink); max-width: 31em; }
+.lede a { color: inherit; text-decoration-color: var(--gold); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+.lede a:hover { text-decoration-thickness: 4px; }
+.hero-sub { margin-top: 14px; color: var(--ink-2); max-width: 34em; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.langs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-top: 30px; font: 400 .8125rem/1.4 var(--f-mono); color: var(--muted); }
+.langs b { font-weight: 500; color: var(--ink-2); }
+
+.globe-fig { margin: 0; display: grid; gap: 20px; justify-items: center; min-width: 0; }
+.globe-box { position: relative; width: 100%; max-width: 500px; aspect-ratio: 1; touch-action: pan-y; cursor: grab; }
+.globe-box:active { cursor: grabbing; }
+.globe-box:focus-visible { outline-offset: -6px; border-radius: 50%; }
+.globe-box canvas { width: 100%; height: 100%; display: block; }
+.stops {
+  list-style: none; margin: 0; padding: 0; width: 100%; max-width: 500px;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 24px;
+}
+.stops li { min-width: 0; }
+.stop {
+  display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 0 10px; align-items: start; width: 100%;
+  margin: 0; padding: 8px 10px; border: 1px solid transparent; border-radius: 12px; background: none;
+  color: inherit; font: inherit; text-align: start; cursor: pointer;
+}
+.stop:hover { background: var(--surface); border-color: var(--line); }
+.stop[aria-pressed="true"] { background: var(--surface); border-color: var(--gold); }
+.stops { margin-inline: -10px; width: calc(100% + 20px); }
+.stops .n {
+  grid-row: span 3; width: 24px; height: 24px; border-radius: 50%; background: var(--gold-soft); color: var(--gold-ink);
+  font: 600 .75rem/24px var(--f-mono); text-align: center;
+}
+.stops .place { font-weight: 600; font-size: .9375rem; line-height: 1.5; }
+.stops .place span { font: 400 .8125rem var(--f-mono); color: var(--muted); margin-inline-start: 6px; }
+.stops .what { font-size: .875rem; color: var(--ink-2); line-height: 1.45; }
+.stops .coord { font: 400 .75rem/1.6 var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.globe-hint { font: 400 .75rem/1.5 var(--f-mono); color: var(--muted); margin-top: -10px; text-align: center; max-width: 500px; }
+@media (max-width: 420px) { .stops { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Sections ---------- */
+.section { padding-block: clamp(56px, 8vw, 104px); border-top: 1px solid var(--line); }
+.section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 32px; margin-bottom: clamp(28px, 4vw, 44px); }
+.section-head h2 {
+  margin: 0; font-family: var(--f-display); font-stretch: 112%; font-weight: 800;
+  font-size: clamp(2rem, 3.8vw, 2.875rem); line-height: 1.04; letter-spacing: -.03em;
+}
+.section-note { color: var(--muted); max-width: 30em; font-size: .9375rem; }
+.label { font: 500 .75rem/1.4 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+
+/* ---------- Orbit feature (in Orbit's own palette) ---------- */
+.orbit {
+  display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  background: var(--orbit-bg); color: var(--orbit-ink); border-radius: 24px; overflow: hidden;
+  box-shadow: 0 30px 60px -30px rgba(26, 20, 16, .55);
+}
+@media (max-width: 1000px) { .orbit { grid-template-columns: minmax(0, 1fr); } }
+.orbit-copy { display: flex; flex-direction: column; gap: 22px; padding: clamp(24px, 4vw, 48px); min-width: 0; }
+.orbit-id { display: flex; align-items: center; gap: 14px; }
+.orbit-id img { width: 56px; height: 56px; border-radius: 13px; }
+.orbit-id .k { font: 500 .75rem/1.5 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--orbit-mute); }
+.orbit-id .live { display: inline-flex; align-items: center; gap: 7px; color: var(--orbit-ink); }
+.orbit-id .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #7BD88F; box-shadow: 0 0 0 3px rgba(123, 216, 143, .18); }
+.orbit h3 { margin: 0; font-family: var(--f-orbit); font-weight: 400; font-size: clamp(2.75rem, 5vw, 3.75rem); line-height: 1; letter-spacing: -.015em; }
+.orbit .tagline { font-family: var(--f-orbit); font-style: italic; font-weight: 300; font-size: clamp(1.2rem, 1.8vw, 1.4rem); line-height: 1.35; color: var(--orbit-ink); margin-top: -8px; }
+.orbit p.body { color: var(--orbit-mute); }
+.orbit-features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 22px; margin: 0; }
+.orbit-features div { border-top: 1px solid var(--orbit-line); padding-top: 10px; }
+.orbit-features dt { font-family: var(--f-orbit); font-size: 1.125rem; font-style: italic; color: var(--orbit-accent); }
+.orbit-features dd { margin: 2px 0 0; font-size: .9rem; line-height: 1.45; color: var(--orbit-mute); }
+.orbit-stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.orbit-stats li { display: flex; flex-direction: column; gap: 2px; }
+.orbit-stats b { font: 500 1.5rem/1.1 var(--f-mono); font-variant-numeric: tabular-nums; letter-spacing: -.02em; color: var(--orbit-ink); }
+.orbit-stats span { font-size: .78rem; line-height: 1.35; color: var(--orbit-mute); }
+@media (max-width: 520px) { .orbit-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .orbit-features { grid-template-columns: minmax(0, 1fr); } }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.chips li { font: 400 .78rem/1 var(--f-mono); padding: 7px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-2); background: var(--surface); }
+.orbit .chips li { border-color: var(--orbit-line); color: var(--orbit-mute); background: var(--orbit-elev); }
+.orbit-cta {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 18px;
+  border-radius: 999px; background: var(--orbit-accent); color: #1A1410; font-weight: 600; text-decoration: none;
+}
+.orbit-cta:hover { text-decoration: none; filter: brightness(1.06); }
+.orbit-cta svg { width: 16px; height: 16px; }
+.orbit-shots {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 220px)); justify-content: center; align-content: center;
+  gap: 18px 22px; min-width: 0; padding: clamp(24px, 4vw, 48px) clamp(20px, 3vw, 40px);
+  background: radial-gradient(120% 80% at 50% 110%, rgba(224, 134, 100, .22), transparent 60%), var(--orbit-bg);
+  scrollbar-width: thin; scrollbar-color: var(--orbit-line) transparent;
+}
+.orbit-shots figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
+.orbit-shots figure:nth-child(even) { transform: translateY(44px); }
+.shot { display: block; width: 100%; padding: 0; border: 0; border-radius: 22px; background: none; cursor: zoom-in; }
+.shot:focus-visible { outline: 2px solid var(--orbit-accent); outline-offset: 4px; }
+.orbit-shots img { width: 100%; height: auto; aspect-ratio: 300 / 650; border-radius: 22px; border: 1px solid var(--orbit-line); background: var(--orbit-elev); transition: transform .2s ease; }
+.shot:hover img { transform: translateY(-3px); }
+.orbit-shots figcaption { font: 400 .75rem var(--f-mono); letter-spacing: .06em; text-transform: lowercase; color: var(--orbit-mute); text-align: center; }
+@media (max-width: 1000px) {
+  .orbit-shots { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; justify-content: flex-start; }
+  .orbit-shots figure { flex: 0 0 34%; scroll-snap-align: start; }
+  .orbit-shots figure:nth-child(even) { transform: none; margin-top: 28px; }
+}
+@media (max-width: 560px) { .orbit-shots figure { flex: 0 0 56%; } }
+
+/* ---------- Project grid ---------- */
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 20px; }
+@media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.card { display: flex; flex-direction: column; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+.card-visual { height: 236px; border-bottom: 1px solid var(--line); overflow: hidden; position: relative; }
+.card-body { display: flex; flex-direction: column; gap: 12px; flex: 1; padding: 22px 24px 24px; }
+.card h3 { margin: 0; font-family: var(--f-display); font-stretch: 108%; font-weight: 750; font-size: 1.5rem; line-height: 1.15; letter-spacing: -.02em; }
+.card p { color: var(--ink-2); font-size: 1rem; }
+.facts { display: flex; flex-wrap: wrap; gap: 4px 0; list-style: none; margin: 0; padding: 0; font: 400 .8125rem/1.5 var(--f-mono); color: var(--muted); }
+.facts li:not(:last-child)::after { content: "·"; margin: 0 8px; color: var(--line-strong); }
+.card-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: auto; padding-top: 8px; font-weight: 600; font-size: .9375rem; }
+.card-links a { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+.card-links a:hover { text-decoration: underline; }
+.card-links svg { width: 14px; height: 14px; }
+.card-links .private { font: 400 .8125rem var(--f-mono); color: var(--muted); }
+
+/* Wide feature card (Kalshi) */
+.wide-visual { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 28px 28px; background: var(--paper); min-width: 0; }
+.rule { margin: 0; border: 1px dashed var(--line-strong); border-radius: 12px; padding: 14px 16px; background: var(--surface); display: grid; gap: 2px; }
+.rule dt { font: 500 .6875rem/1.5 var(--f-mono); letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.rule dd { margin: 0 0 8px; font: 400 .8125rem/1.5 var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+.rule dd:last-child { margin-bottom: 0; }
+.rule .halt { color: var(--gold-ink); font-weight: 600; white-space: nowrap; }
+.wide { flex-direction: row; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); margin-top: 20px; }
+.wide .card-visual { height: auto; min-height: 260px; border-bottom: 0; border-inline-start: 1px solid var(--line); display: flex; }
+
+@media (max-width: 860px) { .wide { grid-template-columns: minmax(0, 1fr); } .wide .card-visual { order: -1; border-inline-start: 0; border-bottom: 1px solid var(--line); min-height: 236px; } }
+
+/* BJC: an excerpt of the real code */
+.code { margin: 0; height: 100%; overflow: auto; padding: 20px 22px; white-space: pre; background: var(--paper); font: 400 .75rem/1.65 var(--f-mono); color: var(--ink-2); tab-size: 2; }
+.code .k { color: var(--accent); font-weight: 500; }
+.code .c { color: var(--ink); font-weight: 500; }
+.code .n { color: var(--gold-ink); }
+.code .s { color: var(--gold-ink); }
+.code .m { color: var(--muted); font-style: italic; }
+@media (max-width: 560px) { .code { font-size: .6875rem; padding: 16px; } }
+
+/* Daily Briefing: what lands in the inbox */
+.mail { height: 100%; display: grid; place-items: center; padding: 20px; background: var(--paper); }
+.mail-card { width: min(380px, 100%); background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; display: grid; gap: 10px; box-shadow: 0 16px 36px -22px rgba(11, 21, 48, .35); }
+.mail-top { display: flex; justify-content: space-between; font: 500 .75rem var(--f-mono); color: var(--muted); }
+.mail-from { color: var(--ink); }
+.mail-subject { font-weight: 600; font-size: .9375rem; line-height: 1.3; color: var(--ink); }
+.mail-row { display: grid; grid-template-columns: 6.4rem minmax(0, 1fr) auto auto; gap: 8px; align-items: center; }
+.mail-tag { font: 500 .6875rem var(--f-mono); color: var(--gold-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mail-line { height: 8px; border-radius: 4px; background: var(--line); }
+.mail-vote { font-size: .625rem; line-height: 1; padding: 5px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+
+/* skill-lift: a small bar chart, drawn to scale */
+.chart { margin: 0; height: 100%; padding: 22px 24px 18px; display: flex; flex-direction: column; gap: 12px; background: var(--paper); }
+.chart-title { font-size: .875rem; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.chart-rows { display: grid; gap: 12px; }
+.chart-row { display: grid; grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr) 4.6em; gap: 10px; align-items: center; font-size: .8125rem; }
+.chart-row .who { color: var(--ink-2); line-height: 1.25; }
+.chart-row .track { position: relative; height: 14px; border-inline-start: 1px solid var(--line-strong); background-image: linear-gradient(to right, transparent calc(50% - .5px), var(--line) calc(50% - .5px), var(--line) calc(50% + .5px), transparent calc(50% + .5px)); }
+.chart-row .fill { position: absolute; inset-block: 0; inset-inline-start: 0; background: var(--bar); border-start-end-radius: 4px; border-end-end-radius: 4px; }
+.chart-row .zero { position: absolute; inset-inline-start: -1px; top: -3px; bottom: -3px; width: 3px; background: var(--gold); border-radius: 2px; }
+.chart-row .val { font: 500 .8125rem var(--f-mono); color: var(--ink); text-align: end; font-variant-numeric: tabular-nums; }
+.chart-row .val small { display: block; font-size: .6875rem; font-weight: 400; color: var(--muted); }
+.chart-axis { display: grid; grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr) 4.6em; gap: 10px; font: 400 .6875rem var(--f-mono); color: var(--muted); }
+.chart-axis .ticks { display: flex; justify-content: space-between; }
+
+/* Limud: the live app peeking up from the bottom edge */
+.peek { height: 100%; display: flex; justify-content: center; align-items: flex-start; padding-top: 22px; background: linear-gradient(180deg, var(--paper), var(--surface)); }
+.peek img { width: min(240px, 70%); border-radius: 26px 26px 0 0; border: 1px solid var(--line); border-bottom: 0; box-shadow: 0 18px 40px -18px rgba(11, 21, 48, .35); }
+
+/* Kalshi: the real decision pipeline */
+.pipe { padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 22px 26px; list-style: none; margin: 0; }
+.pipe li { position: relative; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--surface); padding: 10px 12px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.pipe li b { font-size: .8125rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.pipe li span { font: 400 .72rem/1.35 var(--f-mono); color: var(--muted); }
+.pipe li:not(:nth-child(3n)):not(:last-child)::after { content: var(--fwd); position: absolute; inset-inline-end: -20px; top: 50%; transform: translateY(-50%); color: var(--gold-ink); font: 500 .9rem var(--f-mono); }
+.pipe li:nth-child(3)::before { content: "↓"; position: absolute; left: 50%; bottom: -19px; transform: translateX(-50%); color: var(--gold-ink); font: 500 .9rem var(--f-mono); }
+.pipe li:nth-child(4)::after, .pipe li:nth-child(5)::after { content: var(--back); position: absolute; inset-inline-end: auto; inset-inline-start: -20px; top: 50%; transform: translateY(-50%); color: var(--gold-ink); font: 500 .9rem var(--f-mono); }
+.pipe li:nth-child(4) { grid-column: 3; grid-row: 2; }
+.pipe li:nth-child(5) { grid-column: 2; grid-row: 2; }
+.pipe li:nth-child(6) { grid-column: 1; grid-row: 2; }
+@media (max-width: 420px) { .pipe { padding: 16px; gap: 10px 20px; } .pipe li { padding: 8px; } .pipe li b { font-size: .75rem; } .pipe li span { font-size: .66rem; } .pipe li:not(:nth-child(3n)):not(:last-child)::after, .pipe li:nth-child(4)::after, .pipe li:nth-child(5)::after { font-size: .8rem; } }
+
+/* More work */
+.more-head { margin-top: clamp(44px, 6vw, 64px); }
+.more { list-style: none; margin: 14px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.more li { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) minmax(0, 6rem); gap: 6px 28px; padding-block: 18px; border-bottom: 1px solid var(--line); align-items: baseline; }
+.more .t { font-weight: 600; }
+.more .t span { display: block; font: 400 .8125rem var(--f-mono); color: var(--muted); }
+.more p { color: var(--ink-2); font-size: .9688rem; }
+.more .l { text-align: end; font-size: .9375rem; font-weight: 600; }
+.more .l a { text-decoration: none; }
+.more .l a:hover { text-decoration: underline; }
+.more .l .private { font: 400 .8125rem var(--f-mono); color: var(--muted); font-weight: 400; }
+@media (max-width: 680px) { .more li { grid-template-columns: minmax(0, 1fr); } .more .l { text-align: start; } }
+
+/* ---------- Experience ---------- */
+.xp { list-style: none; margin: 0; padding: 0; }
+.xp > li { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 8px 40px; padding-block: 30px; border-top: 1px solid var(--line); }
+.xp > li:last-child { border-bottom: 1px solid var(--line); }
+.when { font: 400 .875rem/1.6 var(--f-mono); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.when span { display: block; color: var(--muted); }
+.role h3 { margin: 0; font-family: var(--f-display); font-stretch: 108%; font-weight: 750; font-size: 1.375rem; line-height: 1.2; letter-spacing: -.015em; }
+.role .org { color: var(--ink-2); margin-top: 2px; }
+.role .bullets { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; max-width: 64ch; }
+.role .bullets li { position: relative; padding-inline-start: 20px; color: var(--ink-2); }
+.role .bullets li::before { content: ""; position: absolute; inset-inline-start: 0; top: .78em; width: 9px; height: 2px; background: var(--gold); }
+.role .chips { margin-top: 16px; }
+@media (max-width: 700px) { .xp > li { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Education & skills ---------- */
+.edu { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 28px 56px; }
+@media (max-width: 860px) { .edu { grid-template-columns: minmax(0, 1fr); } }
+.school h3 { margin: 0; font-family: var(--f-display); font-stretch: 108%; font-weight: 750; font-size: 1.5rem; line-height: 1.2; letter-spacing: -.015em; }
+.school p { color: var(--ink-2); margin-top: 6px; }
+.school .when { margin-top: 12px; }
+.courses { list-style: none; margin: 10px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
+.courses li { display: grid; grid-template-columns: 5.6rem minmax(0, 1fr); gap: 10px; padding-block: 10px; border-bottom: 1px solid var(--line); font-size: .9375rem; line-height: 1.4; }
+.courses code { font: 500 .8125rem/1.6 var(--f-mono); color: var(--gold-ink); }
+@media (max-width: 600px) { .courses { grid-template-columns: minmax(0, 1fr); } }
+.skills { margin: clamp(44px, 6vw, 64px) 0 0; display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); border-top: 1px solid var(--line); }
+.skills dt, .skills dd { padding-block: 14px; border-bottom: 1px solid var(--line); margin: 0; }
+.skills dt { font: 500 .8125rem/1.6 var(--f-mono); letter-spacing: .04em; color: var(--muted); }
+.skills dd { color: var(--ink); }
+@media (max-width: 600px) { .skills { grid-template-columns: minmax(0, 1fr); } .skills dt { border-bottom: 0; padding-bottom: 0; } .skills dd { padding-top: 4px; } }
+
+/* ---------- Contact ---------- */
+.contact { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 32px 56px; align-items: start; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } }
+.big-email {
+  display: inline-block; font-family: var(--f-display); font-stretch: 110%; font-weight: 800;
+  font-size: clamp(1.6rem, 4.8vw, 3.25rem); line-height: 1.05; letter-spacing: -.03em; color: var(--ink);
+  text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: .08em; text-underline-offset: .14em;
+  overflow-wrap: anywhere;
+}
+.contact .row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.contact-intro { color: var(--ink-2); margin-bottom: 18px; max-width: 30em; }
+.channels { margin: 0; display: grid; grid-template-columns: minmax(0, 6.5rem) minmax(0, 1fr); border-top: 1px solid var(--line); }
+.channels dt, .channels dd { margin: 0; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.channels dt { font: 500 .8125rem/1.7 var(--f-mono); color: var(--muted); }
+.channels dd { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; }
+.channels dd a { font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+.channels dd a:hover { text-decoration: underline; }
+.copy {
+  font: 500 .75rem/1 var(--f-mono); padding: 7px 10px; border-radius: 999px; border: 1px solid var(--line);
+  background: transparent; color: var(--ink-2); cursor: pointer;
+}
+.copy:hover { background: var(--surface); color: var(--ink); }
+.copy[data-done] { color: var(--gold-ink); border-color: var(--gold); }
+
+.site-footer { border-top: 1px solid var(--line); padding-block: 28px calc(28px + env(safe-area-inset-bottom, 0px)); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font: 400 .8125rem/1.6 var(--f-mono); color: var(--muted); }
+.site-footer .wrap > span { display: flex; flex-wrap: wrap; gap: 0 14px; }
+.site-footer a { color: inherit; }
+
+/* Language switch */
+.lang-link {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 12px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: .9375rem; font-weight: 600; white-space: nowrap;
+}
+.lang-link:hover { background: var(--surface); }
+@media (max-width: 560px) { .bar > .btn-sm { display: none; } }
+
+/* Project jump links */
+.jump { display: flex; flex-wrap: wrap; gap: 8px; margin: -12px 0 28px; }
+.jump a {
+  display: inline-flex; align-items: center; min-height: 36px; padding: 6px 14px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); text-decoration: none; font-size: .875rem; font-weight: 500;
+}
+.jump a:hover { color: var(--ink); border-color: var(--line-strong); }
+@media (max-width: 640px) {
+  .jump { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(-1 * max(20px, env(safe-area-inset-left, 0px))); padding-inline: max(20px, env(safe-area-inset-left, 0px)); padding-block: 2px 6px; scrollbar-width: none; }
+  .jump::-webkit-scrollbar { display: none; }
+  .jump a { flex: none; }
+}
+
+/* Cards respond to the pointer; links get full-size tap targets */
+.card { transition: border-color .2s ease, box-shadow .2s ease; scroll-margin-top: 96px; }
+.card:hover { border-color: var(--line-strong); box-shadow: 0 22px 44px -30px rgba(11, 21, 48, .35); }
+.card-links a { min-height: 44px; }
+#orbit, #more-work { scroll-margin-top: 96px; }
+
+/* Kalshi playground */
+.wide .play { grid-column: 1 / -1; }
+.play { display: grid; gap: 18px; padding: clamp(20px, 3vw, 28px); border-top: 1px solid var(--line); background: var(--surface); min-width: 0; }
+.play-head h4 { margin: 0; font-family: var(--f-display); font-stretch: 108%; font-weight: 750; font-size: 1.25rem; line-height: 1.2; letter-spacing: -.015em; }
+.play-head p { margin-top: 4px; color: var(--ink-2); font-size: .9375rem; max-width: 62ch; }
+.play-controls { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 18px 24px; align-items: end; }
+@media (max-width: 1080px) { .play-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); } .play-stations { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .play-controls { grid-template-columns: minmax(0, 1fr); } }
+.play-stations { border: 0; margin: 0; padding: 0; min-width: 0; }
+.play-stations legend { padding: 0; margin-bottom: 8px; font-size: .8125rem; color: var(--ink-2); }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg-btn {
+  min-height: 38px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--paper);
+  color: var(--ink-2); font: 500 .8125rem/1 var(--f-body); cursor: pointer;
+}
+.seg-btn span { font-family: var(--f-mono); color: var(--muted); margin-inline-start: 4px; }
+.seg-btn[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.seg-btn[aria-pressed="true"] span { color: inherit; opacity: .75; }
+.play-slider { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; align-items: baseline; min-width: 0; }
+.play-slider label { font-size: .8125rem; color: var(--ink-2); }
+.play-slider output { font: 600 .9375rem var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+.play-slider input { grid-column: 1 / -1; width: 100%; margin: 4px 0 0; accent-color: var(--series-model); min-height: 28px; }
+.play-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; align-items: baseline; }
+.play-mu { font: 400 .8125rem/1.5 var(--f-mono); color: var(--ink-2); }
+.play-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: .8125rem; color: var(--ink-2); }
+.lg { display: inline-block; vertical-align: middle; }
+.lg-model { width: 18px; height: 8px; background: var(--series-model); border-start-end-radius: 4px; border-end-end-radius: 4px; }
+.lg-market { width: 2px; height: 14px; margin-inline-start: 8px; background: var(--series-market); box-shadow: 0 0 0 2px var(--surface); }
+.play-scroll { overflow-x: auto; min-width: 0; }
+.play-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+.play-table th, .play-table td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: start; vertical-align: middle; }
+.play-table thead th { padding-top: 0; font: 500 .6875rem/1.4 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.play-table tbody th { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.play-table tbody tr:hover { background: var(--paper); }
+.play-table td:nth-child(2) { width: 46%; min-width: 120px; }
+.pbar { position: relative; height: 12px; background: var(--paper); border-radius: 3px; }
+.pbar-model { position: absolute; inset-block: 1px; inset-inline-start: 0; background: var(--series-model); border-start-end-radius: 4px; border-end-end-radius: 4px; }
+.pbar-ask { position: absolute; top: -5px; bottom: -5px; width: 2px; margin-inline-start: -1px; background: var(--series-market); box-shadow: 0 0 0 2px var(--surface); }
+.pvals { display: block; margin-top: 7px; font: 400 .75rem var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.pvals b { font-weight: 500; color: var(--ink-2); }
+.pedge { font: 600 .875rem/1.3 var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pedge small { display: block; font-weight: 400; font-size: .6875rem; color: var(--muted); }
+.call { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line-strong); font: 600 .75rem/1 var(--f-body); color: var(--muted); white-space: nowrap; }
+.call-buy { background: var(--gold-soft); border-color: var(--gold); color: var(--ink); }
+.play-sum { font-weight: 600; color: var(--ink); }
+.play-fine { font-size: .8125rem; line-height: 1.55; color: var(--muted); max-width: 80ch; }
+@media (max-width: 560px) {
+  .play-table th, .play-table td { padding: 9px 5px; }
+  .play-table td:nth-child(2) { min-width: 78px; width: auto; }
+  .play-table tbody th, .pedge { white-space: normal; }
+  .pedge { font-size: .8125rem; }
+  .pvals { font-size: .6875rem; }
+  .call { width: 28px; height: 28px; padding: 0; justify-content: center; }
+  .call-text { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .play-table thead th:last-child { width: 28px; }
+  .th-long { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+@media (min-width: 561px) { .th-short { display: none; } }
+
+/* Kalshi pipeline: a vertical list on phones */
+@media (max-width: 560px) {
+  .pipe { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; gap: 18px; }
+  .pipe li:nth-child(n) { grid-column: auto; grid-row: auto; flex-direction: row; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .pipe li:nth-child(n)::before { content: none; }
+  .pipe li:nth-child(n):not(:last-child)::after { content: "↓"; position: absolute; inset-inline: auto; left: 50%; right: auto; top: auto; bottom: -19px; transform: translateX(-50%); color: var(--gold-ink); font: 500 .9rem var(--f-mono); }
+  .pipe li span { text-align: end; }
+}
+
+/* Contact: a closing band */
+.band { background: var(--band-bg); color: var(--band-fg); border-top: 0; }
+.band .section-head h2, .band .big-email { color: var(--band-fg); }
+.band .contact-intro { color: var(--band-muted); }
+.band .big-email { text-decoration-color: var(--band-link); }
+.band .btn { background: transparent; color: var(--band-fg); border-color: var(--band-line); }
+.band .btn:hover { border-color: var(--band-fg); }
+.band .btn-gold { background: var(--band-link); border-color: var(--band-link); color: #0B1530; }
+.band .channels { border-top-color: var(--band-line); }
+.band .channels dt, .band .channels dd { border-bottom-color: var(--band-line); }
+.band .channels dt { color: var(--band-muted); }
+.band .channels dd a { color: var(--band-fg); }
+.band .channels dd a:hover { color: var(--band-link); }
+.band .copy { color: var(--band-muted); border-color: var(--band-line); }
+.band .copy:hover { background: transparent; color: var(--band-fg); }
+.band .copy[data-done] { color: var(--band-link); border-color: var(--band-link); }
+.band :focus-visible { outline-color: var(--band-link); }
+.band + .site-footer { border-top: 0; }
+
+/* Hebrew: no letter-spacing on labels, and Latin-only mono runs stay readable */
+[dir="rtl"] .eyebrow, [dir="rtl"] .label, [dir="rtl"] .orbit-id .k, [dir="rtl"] .play-table thead th,
+[dir="rtl"] .rule dt, [dir="rtl"] .orbit-shots figcaption { letter-spacing: 0; }
+[dir="rtl"] .code, [dir="rtl"] .rule, [dir="rtl"] .mail { text-align: left; }
+
+/* Screenshot viewer */
+.lightbox { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; overflow: hidden; }
+.lightbox::backdrop { background: rgba(10, 8, 6, .86); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.lightbox[open] { display: grid; place-items: center; }
+.lb-figure { margin: 0; display: grid; justify-items: center; gap: 12px; padding: calc(env(safe-area-inset-top, 0px) + 56px) 16px calc(env(safe-area-inset-bottom, 0px) + 24px); }
+.lb-figure img { width: auto; max-width: min(92vw, 420px); max-height: calc(100vh - 150px); border-radius: 28px; border: 1px solid var(--orbit-line); background: var(--orbit-elev); }
+.lb-figure figcaption { font: 400 .8125rem var(--f-mono); color: var(--orbit-ink); text-align: center; }
+.lb-btn {
+  position: fixed; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 999px;
+  border: 1px solid var(--orbit-line); background: rgba(37, 28, 20, .8); color: var(--orbit-ink); cursor: pointer; font: 400 1.5rem/1 var(--f-body);
+}
+.lb-btn:hover { background: var(--orbit-elev); }
+.lb-prev::before { content: var(--prev-glyph); }
+.lb-next::before { content: var(--next-glyph); }
+.lb-btn:focus-visible { outline: 2px solid var(--orbit-accent); outline-offset: 2px; }
+.lb-close { top: calc(env(safe-area-inset-top, 0px) + 14px); inset-inline-end: max(14px, env(safe-area-inset-right, 0px)); }
+.lb-prev { inset-inline-start: max(14px, env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); }
+.lb-next { inset-inline-end: max(14px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); }
+@media (max-width: 560px) { .lb-prev, .lb-next { top: auto; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); transform: none; } .lb-figure { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 84px); } .lb-figure img { max-height: calc(100vh - 200px); } }
+
+@media (prefers-reduced-motion: reduce) { .btn, .site-header, .orbit-shots img { transition: none; } .btn:hover, .shot:hover img { transform: none; } }
+
+/* Print: one clean column, light ink, links spelled out */
+@media print {
+  :root, :root[data-theme] { --paper: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --muted: #555; --line: #ccc; --line-strong: #999; --accent: #000; --gold: #a07000; --gold-ink: #7a5500; color-scheme: light; }
+  body { font-size: 10.5pt; }
+  body::before, .site-header, .skip, .globe-box, .globe-hint, .cta-row, .orbit-shots, .card-visual, .copy, .contact .row, .lightbox, .chips { display: none !important; }
+  .hero { display: block; padding-block: 0 12pt; }
+  .name { font-size: 40pt; margin: 6pt 0 10pt; }
+  .stops { margin: 10pt 0 0; width: 100%; }
+  .stop { padding: 2pt 0; }
+  .section { padding-block: 16pt; }
+  .orbit { display: block; background: #fff; color: #000; box-shadow: none; border: 1px solid #ccc; }
+  .orbit *, .orbit-features dt { color: #000 !important; }
+  .orbit-cta { padding: 0; background: none; }
+  .wide, .grid { display: block; }
+  .card, .xp > li, .courses li, .orbit-features div { break-inside: avoid; }
+  .section-head, h3 { break-after: avoid; }
+  .card { margin-top: 10pt; }
+  .wide .card-visual { display: none; }
+  main a[href^="http"]::after { content: " (" attr(href) ")"; font: 400 8pt var(--f-mono); color: #555; overflow-wrap: anywhere; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Roni Kriger",
+  "jobTitle": "Software Engineer",
+  "url": "https://www.ocf.berkeley.edu/~rkriger/",
+  "description": "Software engineer and UC Berkeley EECS graduate who builds iOS apps, AI tools and trading systems.",
+  "image": "https://www.ocf.berkeley.edu/~rkriger/og.jpg",
+  "email": "mailto:krigerroni@gmail.com",
+  "telephone": "+972-50-644-4947",
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of California, Berkeley", "sameAs": "https://www.berkeley.edu/" },
+  "knowsAbout": ["iOS development", "Swift", "SwiftUI", "Python", "Machine learning", "Quantitative trading", "AI agents"],
+  "knowsLanguage": ["English", "Portuguese", "Hebrew", "Spanish"],
+  "sameAs": ["https://www.linkedin.com/in/roni-kriger/", "https://github.com/ronikriger", "https://apps.apple.com/us/app/relationship-orbit/id6775461355"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">דילוג לתוכן</a>
+
+<header class="site-header" id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Roni Kriger, חזרה לראש העמוד">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--ink)"/><path d="M4.2 15.6C7 9.4 13 6.4 19.6 7.4" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/><circle cx="19.4" cy="7.4" r="2.1" fill="var(--gold)"/></svg>
+      Roni Kriger
+    </a>
+    <nav class="nav" aria-label="חלקי העמוד">
+      <ul>
+        <li><a href="#work">עבודות</a></li>
+        <li><a href="#experience">ניסיון</a></li>
+        <li><a href="#education">השכלה</a></li>
+        <li><a href="#contact">יצירת קשר</a></li>
+      </ul>
+    </nav>
+    <a class="lang-link" href="../" hreflang="en" lang="en" title="English version">English</a>
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="מעבר בין מצב בהיר למצב כהה">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    </button>
+    <a class="btn btn-sm" href="../resume.pdf?v=fa05ed04" target="_blank" rel="noopener">קורות חיים</a>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="תפריט">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <nav class="wrap mobile-nav" id="mobileNav" aria-label="חלקי העמוד" hidden>
+    <ul>
+      <li><a href="#work">עבודות</a></li>
+      <li><a href="#experience">ניסיון</a></li>
+      <li><a href="#education">השכלה</a></li>
+      <li><a href="#contact">יצירת קשר</a></li>
+      <li><a href="../resume.pdf?v=fa05ed04" target="_blank" rel="noopener">קורות חיים (PDF, באנגלית)</a></li>
+      <li><a href="../" hreflang="en" lang="en">English</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <section class="hero" aria-labelledby="hero-name">
+      <div>
+        <p class="eyebrow">הנדסת תוכנה · B.S. EECS, UC Berkeley</p>
+        <h1 class="name" id="hero-name"><span>Roni</span><span>Kriger</span></h1>
+        <p class="lede">אני בונה תוכנה שאנשים משתמשים בה, מהסקיצה הראשונה ועד ה‑App Store. הפרויקט האחרון שלי הוא <a href="#orbit">Orbit</a>, אפליקציית iPhone לזוגות בקשר רחוק, שעיצבתי, בניתי והשקתי לבד.</p>
+        <p class="hero-sub">לפני כן בניתי מערכות מסחר אוטומטיות ב‑AQCTech בניו יורק, מודלי המלצה בסטארט-אפ Stylis AI, וכלי דיבאגינג ב‑Lightrun בתל אביב.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:krigerroni@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>
+            שליחת מייל
+          </a>
+          <a class="btn" href="../resume.pdf?v=fa05ed04" target="_blank" rel="noopener">קורות חיים (PDF, באנגלית)</a>
+          <a class="btn" href="https://github.com/ronikriger" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          <a class="btn" href="https://www.linkedin.com/in/roni-kriger/" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </div>
+        <p class="langs"><b>שפות</b> <span>עברית</span> <span lang="en">English</span> <span lang="pt">Português</span> <span lang="es">Español</span></p>
+      </div>
+
+      <figure class="globe-fig">
+        <div class="globe-box" id="globe" tabindex="0" aria-describedby="globeHint">
+          <canvas role="img" aria-label="גלובוס עם קשתות מסאו פאולו לתל אביב, לברקלי ולניו יורק, לפי הסדר שברשימה למטה."></canvas>
+        </div>
+        <ol class="stops" aria-label="איפה עבדתי ולמדתי, לפי הסדר">
+          <li><button class="stop" type="button" data-city="0" aria-pressed="false"><span class="n" aria-hidden="true">1</span><span class="place">סאו פאולו <span dir="ltr">2019–22</span></span><span class="what">הוראת מתמטיקה בהתנדבות</span><span class="coord" dir="ltr">23.55° S, 46.63° W</span></button></li>
+          <li><button class="stop" type="button" data-city="1" aria-pressed="false"><span class="n" aria-hidden="true">2</span><span class="place">תל אביב <span dir="ltr">2023</span></span><span class="what">Lightrun, התמחות בהנדסה</span><span class="coord" dir="ltr">32.09° N, 34.78° E</span></button></li>
+          <li><button class="stop" type="button" data-city="2" aria-pressed="false"><span class="n" aria-hidden="true">3</span><span class="place">ברקלי <span dir="ltr">2023–26</span></span><span class="what">UC Berkeley EECS, Stylis AI</span><span class="coord" dir="ltr">37.87° N, 122.27° W</span></button></li>
+          <li><button class="stop" type="button" data-city="3" aria-pressed="false"><span class="n" aria-hidden="true">4</span><span class="place">ניו יורק <span dir="ltr">2025</span></span><span class="what">AQCTech, התמחות בהנדסה</span><span class="coord" dir="ltr">40.71° N, 74.01° W</span></button></li>
+        </ol>
+        <figcaption class="globe-hint" id="globeHint">בחרו מקום כדי לעוף אליו. כדי לסובב את הגלובוס אפשר לגרור אותו, או להתמקד בו ולהשתמש במקשי החצים.</figcaption>
+      </figure>
+    </section>
+  </div>
+
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="work-title">עבודות נבחרות</h2>
+        <p class="section-note">אפליקציות, כלים ומחקר שעיצבתי ובניתי, רובם לבד.</p>
+      </div>
+      <nav class="jump" aria-label="הפרויקטים בעמוד">
+        <a href="#orbit">Orbit</a>
+        <a href="#kalshi">ארביטראז' מזג אוויר ב‑Kalshi</a>
+        <a href="#bjc">BJC Teacher Tracker</a>
+        <a href="#briefing">Daily Briefing</a>
+        <a href="#skill-lift">skill-lift</a>
+        <a href="#limud">Limud</a>
+        <a href="#more-work">עוד עבודות</a>
+      </nav>
+
+      <article class="orbit" id="orbit" aria-labelledby="orbit-title">
+        <div class="orbit-copy">
+          <div class="orbit-id">
+            <img src="../assets/orbit-icon.webp?v=b2345121" width="56" height="56" alt="האייקון של Orbit">
+            <div class="k">אפליקציית iOS<br><span class="live">זמינה ב‑App Store</span></div>
+          </div>
+          <div>
+            <h3 id="orbit-title">Orbit</h3>
+          </div>
+          <p class="tagline">מקום אחד לנוכחות, לזיכרונות ולספירה לאחור עד שתהיו שוב יחד.</p>
+          <p class="body">Orbit נועדה לזוגות ולחברים קרובים שגרים רחוק זה מזה. בניתי את כולה לבד: עיצוב המוצר, אפליקציית ה‑SwiftUI והווידג׳ט שלה, ה‑backend ב‑Supabase וכל גרסה שעלתה ל‑App Store.</p>
+          <dl class="orbit-features">
+            <div><dt>Orbit</dt><dd>האנשים שלכם על גלובוס חי, עם השעה ומזג האוויר אצלם.</dd></div>
+            <div><dt>Today</dt><dd>שאלה משותפת אחת ביום. עונים כדי לראות את התשובה של הצד השני ולשמור על הרצף.</dd></div>
+            <div><dt>Trail</dt><dd>ציר זמן משותף של הודעות, הקלטות קוליות ותמונות.</dd></div>
+            <div><dt>Horizon</dt><dd>מתכננים את הביקור הבא וסופרים אליו לאחור ביחד.</dd></div>
+          </dl>
+          <ul class="orbit-stats" aria-label="Orbit במספרים">
+            <li><b>76k</b><span>שורות Swift</span></li>
+            <li><b>392</b><span>קובצי קוד Swift</span></li>
+            <li><b>27</b><span>מיגרציות Postgres</span></li>
+            <li><b>v1.4</b><span>גרסה נוכחית</span></li>
+          </ul>
+          <ul class="chips" aria-label="נבנה עם">
+            <li>SwiftUI</li><li>SwiftData</li><li>Supabase</li><li>Postgres + RLS</li><li>Realtime</li><li>Sign in with Apple</li><li>WidgetKit</li><li>StoreKit 2</li>
+          </ul>
+          <a class="orbit-cta" href="https://apps.apple.com/us/app/relationship-orbit/id6775461355" target="_blank" rel="noopener">
+            לצפייה ב‑App Store
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+        <div class="orbit-shots" role="group" aria-label="צילומי מסך של Orbit">
+          <figure><button class="shot" type="button" data-shot="0" aria-label="הגדלת צילום המסך: orbit"><img src="../assets/orbit-globe-300.webp?v=ec886f64" srcset="../assets/orbit-globe-300.webp?v=ec886f64 300w, ../assets/orbit-globe-450.webp?v=b7bcb47c 450w, ../assets/orbit-globe-600.webp?v=ef479730 600w" sizes="(max-width: 560px) 46vw, (max-width: 1000px) 30vw, 220px" width="300" height="650" decoding="async" data-full="../assets/orbit-globe-600.webp?v=ef479730" alt="מסך הגלובוס של Orbit: האנשים שלכם כנקודות על גלובוס מנוקד."></button><figcaption>orbit</figcaption></figure>
+          <figure><button class="shot" type="button" data-shot="1" aria-label="הגדלת צילום המסך: today"><img src="../assets/orbit-today-300.webp?v=a4469f84" srcset="../assets/orbit-today-300.webp?v=a4469f84 300w, ../assets/orbit-today-450.webp?v=18e0f09c 450w, ../assets/orbit-today-600.webp?v=88274255 600w" sizes="(max-width: 560px) 46vw, (max-width: 1000px) 30vw, 220px" width="300" height="650" decoding="async" data-full="../assets/orbit-today-600.webp?v=88274255" alt="מסך Today עם שאלה יומית שעונים עליה ביחד."></button><figcaption>today</figcaption></figure>
+          <figure><button class="shot" type="button" data-shot="2" aria-label="הגדלת צילום המסך: trail"><img src="../assets/orbit-trail-300.webp?v=2b86d040" srcset="../assets/orbit-trail-300.webp?v=2b86d040 300w, ../assets/orbit-trail-450.webp?v=59bd0623 450w, ../assets/orbit-trail-600.webp?v=55cb1953 600w" sizes="(max-width: 560px) 46vw, (max-width: 1000px) 30vw, 220px" width="300" height="650" decoding="async" data-full="../assets/orbit-trail-600.webp?v=55cb1953" alt="מסך Trail: ציר זמן משותף של הודעות, הקלטות קוליות ותמונות."></button><figcaption>trail</figcaption></figure>
+          <figure><button class="shot" type="button" data-shot="3" aria-label="הגדלת צילום המסך: horizon"><img src="../assets/orbit-horizon-300.webp?v=cc6e1eda" srcset="../assets/orbit-horizon-300.webp?v=cc6e1eda 300w, ../assets/orbit-horizon-450.webp?v=12ebae9b 450w, ../assets/orbit-horizon-600.webp?v=7444eea4 600w" sizes="(max-width: 560px) 46vw, (max-width: 1000px) 30vw, 220px" width="300" height="650" decoding="async" data-full="../assets/orbit-horizon-600.webp?v=7444eea4" alt="מסך Horizon שסופר לאחור חודשים, ימים, שעות ודקות עד הביקור הבא."></button><figcaption>horizon</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="card wide" id="kalshi" aria-labelledby="kalshi-title">
+        <div class="card-body">
+          <p class="label">מחקר כמותי · פרויקט משותף · 2026</p>
+          <h3 id="kalshi-title">ארביטראז' מזג אוויר ב‑Kalshi</h3>
+          <p>אלגוריתם שסוחר בשווקים של Kalshi על הטמפרטורה המקסימלית היומית. הוא הופך תחזיות של שירות מזג האוויר האמריקאי (NWS) להסתברות לכל טווח טמפרטורות, מתקן את ההטיה של כל תחנה מול קריאות ה‑ASOS הרשמיות בשדה התעופה, ומגיש הצעה רק כשהמחיר ההוגן שלו עדיף על מחיר המכירה בשוק בפער שנקבע מראש.</p>
+          <p>בדקנו אותו כמו שדסק מסחר היה בודק: כללי הצלחה וכישלון שנכתבו מראש, ואחריהם שבועיים של מסחר על הנייר בזמן אמת. התחזיות היו מכוילות היטב (מבחן KS, p = 0.70), אבל היתרון לא שרד את העמלות, ולכן הכללים עצרו את האסטרטגיה ופרסמנו ניתוח מסכם מלא.</p>
+          <ul class="facts"><li>18.5k שורות Python</li><li>238 בדיקות</li><li>6 משימות GitHub Actions</li><li>20 תחנות ממופות</li><li>מתג השבתה ורצפת הון</li></ul>
+          <ul class="chips" aria-label="נבנה עם"><li>Python</li><li>Kalshi API</li><li>NWS NDFD</li><li>ASOS</li><li>SciPy stats</li><li>GitHub Actions</li></ul>
+          <div class="card-links"><span class="private">מאגר פרטי · ניתוח מלא לפי בקשה</span></div>
+        </div>
+        <div class="card-visual">
+          <div class="wide-visual">
+          <ol class="pipe" aria-label="איך מתקבלת החלטת מסחר, לפי הסדר">
+            <li><b>תחזית</b><span>NWS NDFD</span></li>
+            <li><b>תיקון הטיה</b><span>לכל תחנה מול ASOS</span></li>
+            <li><b>תמחור טווחים</b><span dir="ltr">Normal(μ, σ)</span></li>
+            <li><b>השוואה</b><span>מחיר ב‑Kalshi + עמלות</span></li>
+            <li><b>מסחר</b><span>סף יתרון, מתג השבתה</span></li>
+            <li><b>סגירה</b><span>דוח האקלים של NWS</span></li>
+          </ol>
+          <dl class="rule" dir="ltr">
+            <dt dir="rtl">כלל עצירה, נקבע לפני הריצה</dt>
+            <dd>n ≥ 20 and (P&amp;L &lt; 0 or KS p ≤ 0.10)</dd>
+            <dt dir="rtl">תוצאה, <bdi dir="ltr">4–17</bdi> במאי 2026</dt>
+            <dd>n = 20 · KS p = 0.70 · P&amp;L &lt; 0 after fees <span class="halt">→ halted (נעצר)</span></dd>
+          </dl>
+          </div>
+        </div>
+        <section class="play" id="kalshiPlay" aria-labelledby="play-title">
+          <div class="play-head">
+            <h4 id="play-title">נסו את מודל התמחור</h4>
+            <p>אותה מתמטיקה שהבוט מריץ: התפלגות נורמלית סביב התחזית המתוקנת, מתומחרת טווח אחר טווח מול ספר פקודות לדוגמה.</p>
+          </div>
+          <div class="play-controls">
+            <fieldset class="play-stations">
+              <legend>תחנה, עם ה-σ המכויל שלה</legend>
+              <div class="seg">
+                <button type="button" class="seg-btn" data-st="0" aria-pressed="true">ניו יורק <span dir="ltr">2.22°</span></button>
+                <button type="button" class="seg-btn" data-st="1" aria-pressed="false">בוסטון <span dir="ltr">3.06°</span></button>
+                <button type="button" class="seg-btn" data-st="2" aria-pressed="false">לאס וגאס <span dir="ltr">0.77°</span></button>
+                <button type="button" class="seg-btn" data-st="3" aria-pressed="false">פיניקס <span dir="ltr">0.87°</span></button>
+              </div>
+            </fieldset>
+            <div class="play-slider">
+              <label for="pFc">תחזית המקסימום של NWS</label>
+              <output id="pFcOut" for="pFc" dir="ltr">77°F</output>
+              <input type="range" id="pFc" min="60" max="100" step="0.5" value="77">
+            </div>
+            <div class="play-slider">
+              <label for="pSig">אי-ודאות התחזית (σ)</label>
+              <output id="pSigOut" for="pSig" dir="ltr">2.22°F</output>
+              <input type="range" id="pSig" min="0.5" max="5" step="0.01" value="2.22">
+            </div>
+            <div class="play-slider">
+              <label for="pMkt">ציפיית השוק</label>
+              <output id="pMktOut" for="pMkt" dir="ltr">75°F</output>
+              <input type="range" id="pMkt" min="60" max="100" step="0.5" value="75">
+            </div>
+          </div>
+          <div class="play-meta">
+            <p class="play-mu" id="pMu"></p>
+            <p class="play-legend" aria-hidden="true"><span class="lg lg-model"></span>הסתברות המודל <span class="lg lg-market"></span>מחיר YES בשוק</p>
+          </div>
+          <div class="play-scroll">
+            <table class="play-table">
+              <caption class="visually-hidden">לכל טווח: הסתברות המודל, מחיר ה‑YES בשוק, היתרון בצד העדיף ומה הבוט היה עושה</caption>
+              <thead><tr><th scope="col">טווח</th><th scope="col">מודל מול שוק</th><th scope="col">היתרון הטוב ביותר</th><th scope="col"><span class="th-long">ההחלטה של הבוט</span><span class="th-short" aria-hidden="true">החלטה</span></th></tr></thead>
+              <tbody id="pRows"></tbody>
+            </table>
+          </div>
+          <p class="play-sum" id="pSum" aria-live="polite"></p>
+          <p class="play-fine">הבוט סוחר רק כשהיתרון הוא לפחות 12¢, ההגדרה השמרנית מהריצה של מאי 2026. העמלה לחוזה היא הגבוהה מבין 1¢ לבין 7% מהמחיר. ספר הפקודות לדוגמה מתמחר כל טווח כאילו הסוחרים מצפים לערך של "ציפיית השוק" עם σ = 2.5°F, ועוד מרווח של 2¢. כמו בבוט, שני טווחי הקצה משתמשים בסף כפי שהוא כתוב, ולכן סכום שש ההסתברויות יכול לעלות מעט על 100%.</p>
+        </section>
+      </article>
+
+      <div class="grid">
+        <article class="card" id="bjc" aria-labelledby="bjc-title">
+          <div class="card-visual">
+            <pre class="code" dir="ltr" tabindex="0" aria-label="קטע מהקובץ school_datatable.rb, הקוד של הטבלה בצד השרת"><code><span class="k">class</span> <span class="c">SchoolDatatable</span> &lt; <span class="c">AjaxDatatablesRails</span>::<span class="c">ActiveRecord</span>
+  <span class="c">DEFAULT_PAGE_LENGTH</span> = <span class="n">100</span>
+  <span class="c">MAX_PAGE_LENGTH</span> = <span class="n">1000</span>
+  <span class="c">SEARCHABLE_COLUMNS</span> = <span class="s">%w[name city state country website]</span>
+
+  <span class="k">def</span> data
+    records.map <span class="k">do</span> |record|
+      <span class="m"># DataTables writes cell data as HTML, so every</span>
+      <span class="m"># free-text field must be escaped here.</span>
+      location: <span class="c">ERB</span>::<span class="c">Util</span>.html_escape(record.location),
+      …</code></pre>
+          </div>
+          <div class="card-body">
+            <p class="label">קוד פתוח · Ruby on Rails · CS 169L</p>
+            <h3 id="bjc-title">BJC Teacher Tracker</h3>
+            <p>אפליקציית ה‑Rails שבה צוות Beauty and Joy of Computing של ברקלי מנהל את המורים ובתי הספר שמלמדים את תוכנית הלימודים שלו. העברתי את רשימת בתי הספר לחיפוש, מיון ודפדוף בצד השרת, כך שהעמוד כבר לא טוען את כל בתי הספר בבת אחת.</p>
+            <p>נקודת הקצה החדשה מבצעת escaping לכל שדה שמשתמשים שולחים לפני שהוא מגיע לטבלה. בנוסף הפכתי את האתר האישי של המורה לשדה חובה, עם בדיקות RSpec ו‑Cucumber לכל שינוי.</p>
+            <ul class="facts"><li>מוזג לאפליקציה בפרודקשן</li><li>RSpec</li><li>Cucumber</li><li>RuboCop CI</li></ul>
+            <div class="card-links">
+              <a href="https://github.com/cs169/BJC-Teacher-Tracker" target="_blank" rel="noopener" aria-label="הקוד של BJC Teacher Tracker ב‑GitHub">קוד <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" id="briefing" aria-labelledby="brief-title">
+          <div class="card-visual">
+            <div class="mail" dir="ltr" aria-hidden="true">
+              <div class="mail-card">
+                <div class="mail-top"><span class="mail-from">Daily Briefing</span><span class="mail-time">06:23</span></div>
+                <p class="mail-subject">[Elevated] Chrome 0-day exploited · 15 items</p>
+                <div class="mail-row"><span class="mail-tag">Cybersecurity</span><span class="mail-line" style="width:72%"></span><span class="mail-vote">▲</span><span class="mail-vote">▼</span></div>
+                <div class="mail-row"><span class="mail-tag">Software</span><span class="mail-line" style="width:58%"></span><span class="mail-vote">▲</span><span class="mail-vote">▼</span></div>
+                <div class="mail-row"><span class="mail-tag">AI</span><span class="mail-line" style="width:66%"></span><span class="mail-vote">▲</span><span class="mail-vote">▼</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="label">Python · דירוג לומד · רץ כל יום</p>
+            <h3 id="brief-title">Daily Briefing</h3>
+            <p>תקציר חדשות בוקר שלומד מה אני רוצה לקרוא. ב‑06:23 משימת GitHub Actions מושכת פידים של RSS, את Hacker News ואת הרשימה של CISA של חולשות שמנוצלות בפועל, מסירה כפילויות, מדרגת את הכתבות ושולחת את התקציר במייל. נגיעה אחת על Up או Down רושמת הצבעה.</p>
+            <p>המדרג נותן לכל כתבה ציון לפי הדמיון שלה לכתבות שהצבעתי עליהן, מעכב משקלים חדשים לכל מקור עד שמצטברות מספיק הצבעות, ושומר כמה מקומות לכתבות ששונות מכל מה שדורג עד עכשיו.</p>
+            <ul class="facts"><li>38.6k שורות Python</li><li>762 בדיקות</li><li>Supabase</li><li>עלות הפעלה: $0</li></ul>
+            <div class="card-links"><span class="private">מאגר פרטי</span></div>
+          </div>
+        </article>
+
+        <article class="card" id="skill-lift" aria-labelledby="skilllift-title">
+          <div class="card-visual">
+            <figure class="chart">
+              <figcaption class="chart-title">ריצות שבהן הסוכן באמת קרא skill</figcaption>
+              <div class="chart-rows">
+                <div class="chart-row"><span class="who">Claude Haiku 4.5</span><span class="track"><span class="fill" style="width:77.8%"></span></span><span class="val">39%<small>7 מתוך 18</small></span></div>
+                <div class="chart-row"><span class="who">Gemini 3.1 Flash Lite</span><span class="track"><span class="fill" style="width:42.4%"></span></span><span class="val">21%<small>7 מתוך 33</small></span></div>
+                <div class="chart-row"><span class="who">המונה של הבנצ'מרק עצמו</span><span class="track"><span class="zero"></span></span><span class="val">0%<small>0 מתוך 51</small></span></div>
+              </div>
+              <div class="chart-axis" aria-hidden="true"><span></span><span class="ticks"><span>0</span><span>25%</span><span>50%</span></span><span></span></div>
+            </figure>
+          </div>
+          <div class="card-body">
+            <p class="label">סוכני AI · מחקר בהאקתון</p>
+            <h3 id="skilllift-title">skill-lift</h3>
+            <p>ההגשה שלי להאקתון SkillsBench: חמישה skills פרוצדורליים לסוכני AI, ועוד שלושה meta-skills לכתיבה, לאימות ולסקירת בטיחות של skills חדשים, שנמדדו בהשוואה מזווגת על פני שתי משפחות מודלים.</p>
+            <p>הממצא החד ביותר היה באג מדידה. הבנצ'מרק ספר אפס שימושים ב‑skills בכל 51 הריצות עם skills, בזמן שהמסלולים של הסוכנים עצמם הראו שהם כן קוראים אותם.</p>
+            <ul class="facts"><li>102 ריצות מזווגות</li><li>2 משפחות מודלים</li><li>רווחי סמך ב‑bootstrap</li></ul>
+            <div class="card-links">
+              <a href="https://github.com/ronikriger/skill-lift" target="_blank" rel="noopener" aria-label="הקוד של skill-lift ב‑GitHub">קוד <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <a href="https://github.com/ronikriger/skill-lift/blob/main/01-WRITEUP-track1.md" target="_blank" rel="noopener" aria-label="הניתוח של skill-lift ב‑GitHub">הניתוח <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" id="limud" aria-labelledby="limud-title">
+          <div class="card-visual">
+            <div class="peek"><img src="../assets/limud.webp?v=647e052f" width="480" height="817" loading="lazy" decoding="async" alt="מסך ההגדרה של Limud: ש״ס משניות בשנה, עם תאריך התחלה, קצב שבת של פי 3.5 מיום חול ותאריך סיום משוער."></div>
+          </div>
+          <div class="card-body">
+            <p class="label">אפליקציית ווב · עובדת בלי חיבור</p>
+            <h3 id="limud-title">Limud</h3>
+            <p>תוכנית יומית ללימוד כל 4,192 המשניות בשנה אחת. היא קובעת קצב שונה לימי חול ולשבת, מסדרת מחדש את התוכנית סביב ימי חופש, ולעולם לא משנה יום שכבר למדתם.</p>
+            <ul class="facts"><li>PWA שאפשר להתקין</li><li>service worker</li><li>לוח שנה עברי</li><li>בלי צורך בחשבון</li></ul>
+            <div class="card-links">
+              <a href="https://ronikriger.github.io/repo1/" target="_blank" rel="noopener" aria-label="פתיחת האפליקציה: Limud">פתיחת האפליקציה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <a href="https://github.com/ronikriger/repo1" target="_blank" rel="noopener" aria-label="הקוד של Limud ב‑GitHub">קוד <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="label more-head" id="more-work">עוד עבודות</h3>
+      <ul class="more">
+        <li>
+          <span class="t">Bank Statement Analyzer<span>2025</span></span>
+          <p>קורא דפי חשבון בנק ב‑PDF, מסמן עסקאות חריגות בעזרת Isolation Forest, וחוזה תזרים מזומנים בהחלקת Holt-Winters בדשבורד של Streamlit.</p>
+          <span class="l"><a href="https://github.com/ronikriger/bank-statement-analyzer" target="_blank" rel="noopener" aria-label="הקוד של Bank Statement Analyzer ב‑GitHub">קוד ↗</a></span>
+        </li>
+        <li>
+          <span class="t">RepRight<span>2025</span></span>
+          <p>משוב על טכניקת אימון ממצלמת הטלפון: אפליקציית Expo שמריצה זיהוי תנוחה ב‑TensorFlow.js, עם backend ב‑FastAPI ו‑SQLAlchemy.</p>
+          <span class="l"><a href="https://github.com/ronikriger/workout" target="_blank" rel="noopener" aria-label="הקוד של RepRight ב‑GitHub">קוד ↗</a></span>
+        </li>
+        <li>
+          <span class="t">JobFlow<span>2026</span></span>
+          <p>מעקב אחרי הגשות מועמדות שעובד מקומית: Next.js 15 ו‑TypeScript, לוח שלבים עם גרירה ושחרור, וניתוח של שיעורי התגובה והראיונות, כשכל המידע נשמר בדפדפן.</p>
+          <span class="l"><span class="private">פרטי</span></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="experience" aria-labelledby="xp-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="xp-title">ניסיון</h2>
+        <p class="section-note">התמחויות, סטארט-אפ וארבע שנים של הוראה.</p>
+      </div>
+      <ol class="xp" reversed>
+        <li>
+          <p class="when">קיץ 2025<span>ניו יורק</span></p>
+          <div class="role">
+            <h3>Software Engineer Intern</h3>
+            <p class="org">AQCTech</p>
+            <ul class="bullets">
+              <li>בניתי אלגוריתמי מסחר אוטומטיים והפעלתי אותם בכמה בורסות קריפטו, עם תשואה יומית ממוצעת של כ‑1.5% לאורך כמה חודשים של מסחר אמיתי.</li>
+              <li>תכננתי אסטרטגיות גידור ששמרו על חשיפת היעד לפוזיציות הליבה.</li>
+              <li>עבדתי על אסטרטגיות funding rate בין בורסות בחוזים עתידיים פרפטואליים, עם מעבר אוטומטי בין WebSocket ל‑REST, זיהוי ספרי פקודות לא מעודכנים ומפסקי זרם.</li>
+            </ul>
+            <ul class="chips" aria-label="כלים"><li>Python</li><li>Rust</li><li>WebSockets</li><li>REST APIs</li></ul>
+          </div>
+        </li>
+        <li>
+          <p class="when">סתיו 2023 – אביב 2024<span>ברקלי</span></p>
+          <div class="role">
+            <h3>Software Engineer</h3>
+            <p class="org">Stylis AI, סטארט-אפ</p>
+            <ul class="bullets">
+              <li>עזרתי לעצב, לבנות, לבדוק ולהשיק את ה‑MVP.</li>
+              <li>בניתי וכיווננתי מודלים של למידת מכונה להמלצות לבוש אישיות, עם דיוק של יותר מ‑85% בסקרי משתמשים.</li>
+              <li>עבדתי בצוות מהיר ואג׳ילי ולמדתי טכנולוגיות חדשות במהירות.</li>
+            </ul>
+            <ul class="chips" aria-label="כלים"><li>Python</li><li>React Native</li><li>למידת מכונה</li></ul>
+          </div>
+        </li>
+        <li>
+          <p class="when">אביב – סתיו 2023<span>תל אביב</span></p>
+          <div class="role">
+            <h3>Software Engineer Intern</h3>
+            <p class="org">Lightrun</p>
+            <ul class="bullets">
+              <li>תרמתי לפרויקטי קוד פתוח לדיבאגינג ולניתוח ביצועים.</li>
+              <li>השקתי פיצ׳ר שקיצר את זמן הדיבאגינג בכ‑3%.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <p class="when"><bdi dir="ltr">2019 – 2022</bdi><span>סאו פאולו</span></p>
+          <div class="role">
+            <h3>התנדבות בהוראה</h3>
+            <p class="org">חינוך למבוגרים צעירים</p>
+            <ul class="bullets">
+              <li>העברתי מפגשים דו-שבועיים לקבוצות של 20 עד 25 תלמידים מבוגרים מרקע מוחלש.</li>
+              <li>נתתי שיעורים פרטיים במתמטיקה, עם תמיכה מותאמת לכל אחד ואחת.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="education" aria-labelledby="edu-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="edu-title">השכלה</h2>
+      </div>
+      <div class="edu">
+        <div class="school">
+          <h3>University of California, Berkeley</h3>
+          <p>B.S. בהנדסת חשמל ומדעי המחשב, הפקולטה להנדסה</p>
+          <p class="when">סיום הלימודים: מאי 2026</p>
+        </div>
+        <div>
+          <p class="label">קורסים נבחרים</p>
+          <ul class="courses">
+            <li><code>CS 61A</code><span>מבנה ופרשנות של תוכניות מחשב</span></li>
+            <li><code>CS 61B</code><span>מבני נתונים</span></li>
+            <li><code>CS 61C</code><span>מבנה המחשב</span></li>
+            <li><code>CS 70</code><span>מתמטיקה בדידה והסתברות</span></li>
+            <li><code>CS 161</code><span>אבטחת מחשבים</span></li>
+            <li><code>CS 164</code><span>שפות תכנות וקומפיילרים</span></li>
+            <li><code>CS 169A</code><span>הנדסת תוכנה</span></li>
+            <li><code>CS 169L</code><span>פרויקט בהנדסת תוכנה</span></li>
+            <li><code>CS 188</code><span>בינה מלאכותית</span></li>
+            <li><code>EECS 16A/B</code><span>תכנון התקנים ומערכות מידע</span></li>
+            <li><code>EPS 109</code><span>סימולציות מחשב ב‑Jupyter</span></li>
+            <li><code>Math 53</code><span>חשבון דיפרנציאלי ואינטגרלי רב-משתני</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <dl class="skills" aria-label="מיומנויות">
+        <dt>שפות תכנות</dt><dd>Swift, Python, JavaScript, TypeScript, Java, SQL, C, Scheme, PHP</dd>
+        <dt>פלטפורמות Apple</dt><dd>SwiftUI, SwiftData, WidgetKit, StoreKit, HealthKit, Game Center, Foundation Models</dd>
+        <dt>ווב ו‑backend</dt><dd>React, Node.js, Express, FastAPI, Supabase, PostgreSQL, MongoDB</dd>
+        <dt>דאטה ולמידת מכונה</dt><dd>pandas, scikit-learn, statsmodels, TensorFlow.js, Streamlit, Jupyter</dd>
+        <dt>כלים</dt><dd>Git, GitHub Actions, Docker, AWS, Kubernetes, Xcode</dd>
+        <dt>שפות מדוברות</dt><dd>אנגלית (שפת אם), פורטוגזית (שפת אם), עברית (שליטה טובה), ספרדית (שיחה)</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section band" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="contact-title">יצירת קשר</h2>
+      </div>
+      <div class="contact">
+        <div>
+          <p class="contact-intro">הדרך המהירה ביותר להשיג אותי היא במייל.</p>
+          <a class="big-email" href="mailto:krigerroni@gmail.com" id="emailText">krigerroni@gmail.com</a>
+          <div class="row">
+            <a class="btn btn-gold" href="mailto:krigerroni@gmail.com">שליחת מייל</a>
+            <button class="btn" type="button" data-copy="krigerroni@gmail.com" id="copyEmail">העתקת כתובת המייל</button>
+            <a class="btn" href="../resume.pdf?v=fa05ed04" target="_blank" rel="noopener">קורות חיים (PDF, באנגלית)</a>
+          </div>
+        </div>
+        <dl class="channels">
+          <dt>טלפון</dt>
+          <dd><a href="tel:+972506444947" dir="ltr">+972 50-644-4947</a><button class="copy" type="button" data-copy="+972506444947">העתקה</button></dd>
+          <dt>LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/roni-kriger/" target="_blank" rel="noopener">in/roni-kriger</a></dd>
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/ronikriger" target="_blank" rel="noopener">ronikriger</a></dd>
+          <dt>App Store</dt>
+          <dd><a href="https://apps.apple.com/us/app/relationship-orbit/id6775461355" target="_blank" rel="noopener">Relationship Orbit</a></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span><span>© <span id="year">2026</span> Roni Kriger</span><span>עודכן בנובמבר 2026</span></span>
+    <span><span>האתר מתארח ב-<a href="https://www.ocf.berkeley.edu/" target="_blank" rel="noopener">Open Computing Facility</a> של UC Berkeley</span><a href="https://github.com/ronikriger/portfolio-/tree/ocf-site" target="_blank" rel="noopener">קוד המקור</a></span>
+  </div>
+</footer>
+
+<p class="visually-hidden" aria-live="polite" id="live"></p>
+
+<dialog class="lightbox" id="lightbox" aria-label="צילום מסך של Orbit">
+  <figure class="lb-figure"><img id="lbImg" src="data:," alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="lb-btn lb-close" type="button" id="lbClose" aria-label="סגירה">×</button>
+  <button class="lb-btn lb-prev" type="button" id="lbPrev" aria-label="צילום המסך הקודם"></button>
+  <button class="lb-btn lb-next" type="button" id="lbNext" aria-label="צילום המסך הבא"></button>
+</dialog>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var darkMQ = window.matchMedia("(prefers-color-scheme: dark)");
+
+  /* ---------- Theme toggle ---------- */
+  function currentTheme() {
+    var t = root.getAttribute("data-theme");
+    if (t === "dark" || t === "light") return t;
+    return darkMQ.matches ? "dark" : "light";
+  }
+  document.getElementById("themeToggle").addEventListener("click", function () {
+    var next = currentTheme() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("rk-theme", next); } catch (e) {}
+  });
+
+  /* ---------- Header border + current section ---------- */
+  var header = document.querySelector(".site-header");
+  function onScroll() { header.classList.toggle("scrolled", window.scrollY > 8); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
+  if ("IntersectionObserver" in window) {
+    var visible = {};
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+      var current = null;
+      navLinks.forEach(function (a) { var id = a.getAttribute("href").slice(1); if (!current && visible[id]) current = id; });
+      navLinks.forEach(function (a) { a.setAttribute("aria-current", a.getAttribute("href") === "#" + current ? "true" : "false"); });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    navLinks.forEach(function (a) { var s = document.querySelector(a.getAttribute("href")); if (s) io.observe(s); });
+  }
+
+  /* ---------- Copy buttons ---------- */
+  var live = document.getElementById("live");
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    var original = btn.textContent;
+    btn.addEventListener("click", function () {
+      var text = btn.getAttribute("data-copy");
+      function done(msg) {
+        btn.textContent = msg; btn.setAttribute("data-done", "");
+        live.textContent = msg;
+        setTimeout(function () { btn.textContent = original; btn.removeAttribute("data-done"); }, 1800);
+      }
+      function fallback() {
+        var target = btn.id === "copyEmail" ? document.getElementById("emailText") : btn.previousElementSibling;
+        if (target) { var r = document.createRange(); r.selectNodeContents(target); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+        done("נבחר. אפשר להעתיק עם Ctrl+C או ⌘C");
+      }
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () { done("הועתק"); }, fallback);
+        } else { fallback(); }
+      } catch (e) { fallback(); }
+    });
+  });
+
+  /* ---------- Phone menu ---------- */
+  var menuBtn = document.getElementById("menuBtn"), mobileNav = document.getElementById("mobileNav");
+  function setMenu(open) { menuBtn.setAttribute("aria-expanded", open ? "true" : "false"); mobileNav.hidden = !open; }
+  menuBtn.addEventListener("click", function () { setMenu(menuBtn.getAttribute("aria-expanded") !== "true"); });
+  mobileNav.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !mobileNav.hidden) { setMenu(false); menuBtn.focus(); } });
+
+  /* ---------- Screenshot viewer ---------- */
+  var lb = document.getElementById("lightbox"), lbImg = document.getElementById("lbImg"), lbCap = document.getElementById("lbCap");
+  var shotBtns = Array.prototype.slice.call(document.querySelectorAll(".shot")), lbIndex = 0;
+  function showShot(i) {
+    lbIndex = (i + shotBtns.length) % shotBtns.length;
+    var img = shotBtns[lbIndex].querySelector("img");
+    lbImg.src = img.getAttribute("data-full"); lbImg.alt = img.alt;
+    lbCap.textContent = shotBtns[lbIndex].parentNode.querySelector("figcaption").textContent + " · " + (lbIndex + 1) + " מתוך " + shotBtns.length;
+    lbCap.setAttribute("dir", root.dir || "ltr");
+  }
+  shotBtns.forEach(function (b, i) {
+    b.addEventListener("click", function () {
+      if (lb && typeof lb.showModal === "function") { showShot(i); lb.showModal(); }
+      else window.open(b.querySelector("img").getAttribute("data-full"), "_blank", "noopener");
+    });
+  });
+  if (lb) {
+    document.getElementById("lbClose").addEventListener("click", function () { lb.close(); });
+    document.getElementById("lbPrev").addEventListener("click", function () { showShot(lbIndex - 1); });
+    document.getElementById("lbNext").addEventListener("click", function () { showShot(lbIndex + 1); });
+    lb.addEventListener("click", function (e) { if (e.target === lb || e.target.classList.contains("lb-figure")) lb.close(); });
+    lb.addEventListener("keydown", function (e) {
+      var rtl = document.documentElement.dir === "rtl";
+      if (e.key === "ArrowLeft") { e.preventDefault(); showShot(lbIndex + (rtl ? 1 : -1)); }
+      if (e.key === "ArrowRight") { e.preventDefault(); showShot(lbIndex + (rtl ? -1 : 1)); }
+    });
+    lb.addEventListener("close", function () { var b = shotBtns[lbIndex]; if (b) b.focus(); });
+  }
+
+  /* ---------- Kalshi pricing playground ---------- */
+  // Mirrors weather_arb/pricing.py: daily high ~ Normal(mu, sigma); "between" brackets get a
+  // ±0.5° continuity correction; the edge is fair price minus the ask on the better side.
+  (function () {
+    var box = document.getElementById("kalshiPlay");
+    if (!box) return;
+    var PT = {
+      below: "מתחת ל-{t}°",
+      above: "מעל {t}°",
+      range: "{a}–{b}°",
+      buyYes: "קנייה: YES",
+      buyNo: "קנייה: NO",
+      pass: "דילוג",
+      yes: "YES",
+      no: "NO",
+      vals: "מודל {p}% · מחיר {a}¢",
+      net: "אחרי עמלה {n}",
+      mu: "תחזית מתוקנת: μ = {mu}°F (הטיה מכוילת {b})",
+      none: "אף טווח לא עובר את סף היתרון של 12¢, אז הבוט היה מוותר על היום הזה.",
+      one: "טווח אחד מתוך 6 עובר את סף היתרון של 12¢. תוחלת אחרי עמלות: {ev} לחוזה.",
+      some: "{n} מתוך 6 טווחים עוברים את סף היתרון של 12¢. תוחלת אחרי עמלות: {ev} לחוזה, בסך הכול."
+    };
+    // Calibration v2.1 (NDFD forecast vs ASOS readings, 30 days through 3 May 2026)
+    var STATIONS = [
+      { sigma: 2.22, bias: -0.0525 },  // New York
+      { sigma: 3.059, bias: -0.7608 }, // Boston
+      { sigma: 0.7655, bias: 1.5083 }, // Las Vegas
+      { sigma: 0.8714, bias: 0.3417 }  // Phoenix
+    ];
+    var GATE = 12, MARKET_SIGMA = 2.5, SPREAD = 2;
+    var fc = document.getElementById("pFc"), sg = document.getElementById("pSig"), mk = document.getElementById("pMkt");
+    var fcOut = document.getElementById("pFcOut"), sgOut = document.getElementById("pSigOut"), mkOut = document.getElementById("pMktOut");
+    var rowsEl = document.getElementById("pRows"), sumEl = document.getElementById("pSum"), muEl = document.getElementById("pMu");
+    var segBtns = Array.prototype.slice.call(box.querySelectorAll(".seg-btn")), station = 0;
+    var MINUS = "−";
+
+    function erf(x) { // Abramowitz and Stegun 7.1.26, error under 1.5e-7
+      var sign = x < 0 ? -1 : 1; x = Math.abs(x);
+      var t = 1 / (1 + 0.3275911 * x);
+      var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
+      return sign * y;
+    }
+    function cdf(z) { return 0.5 * (1 + erf(z / Math.SQRT2)); }
+    function fairYes(b, mu, s) {
+      if (b.type === "less") return cdf((b.t - mu) / s);
+      if (b.type === "greater") return 1 - cdf((b.t - mu) / s);
+      return cdf((b.hi + 0.5 - mu) / s) - cdf((b.lo - 0.5 - mu) / s);
+    }
+    function brackets(c) {
+      return [
+        { type: "less", t: c - 3 }, { type: "between", lo: c - 3, hi: c - 2 }, { type: "between", lo: c - 1, hi: c },
+        { type: "between", lo: c + 1, hi: c + 2 }, { type: "between", lo: c + 3, hi: c + 4 }, { type: "greater", t: c + 4 }
+      ];
+    }
+    function fill(str, map) { return str.replace(/\{(\w+)\}/g, function (_, k) { return map[k]; }); }
+    // Wrapped in invisible left-to-right isolates so the sign stays put inside right-to-left text
+    function signed(v, digits, unit) { var r = Math.abs(v).toFixed(digits); return "\u2066" + (v < 0 && +r !== 0 ? MINUS : "+") + r + (unit || "") + "\u2069"; }
+    function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+    function label(b) {
+      if (b.type === "less") return fill(PT.below, { t: b.t });
+      if (b.type === "greater") return fill(PT.above, { t: b.t });
+      return fill(PT.range, { a: b.lo, b: b.hi });
+    }
+
+    function render() {
+      var st = STATIONS[station], raw = +fc.value, sigma = +sg.value, market = +mk.value;
+      var mu = raw - st.bias; // corrected μ = raw μ − correction (bias.py)
+      fcOut.textContent = raw.toFixed(1).replace(/\.0$/, "") + "°F";
+      sgOut.textContent = sigma.toFixed(2) + "°F";
+      mkOut.textContent = market.toFixed(1).replace(/\.0$/, "") + "°F";
+      muEl.textContent = fill(PT.mu, { mu: mu.toFixed(1), b: signed(st.bias, 2, "°F") });
+      var html = "", trades = 0, ev = 0;
+      brackets(Math.round(market)).forEach(function (b) {
+        var p = fairYes(b, mu, sigma) * 100, pm = fairYes(b, market, MARKET_SIGMA) * 100;
+        var yesAsk = clamp(Math.round(pm) + SPREAD, 1, 99), noAsk = clamp(Math.round(100 - pm) + SPREAD, 1, 99);
+        var eYes = p - yesAsk, eNo = (100 - p) - noAsk;
+        var yes = eYes >= eNo, edge = yes ? eYes : eNo, ask = yes ? yesAsk : noAsk;
+        var fee = Math.max(1, 0.07 * ask), net = edge - fee, buy = edge >= GATE;
+        if (buy) { trades++; ev += net; }
+        var call = buy ? '<span class="call call-buy"><span aria-hidden="true">' + (yes ? "↑" : "↓") + '</span><span class="call-text">' + (yes ? PT.buyYes : PT.buyNo) + "</span></span>"
+                       : '<span class="call"><span aria-hidden="true">–</span><span class="call-text">' + PT.pass + "</span></span>";
+        html += '<tr' + (buy ? ' class="is-buy"' : "") + '>' +
+          '<th scope="row"><bdi>' + label(b) + "</bdi></th>" +
+          '<td><div class="pbar" aria-hidden="true"><span class="pbar-model" style="width:' + clamp(p, 0, 100).toFixed(1) + '%"></span>' +
+          '<span class="pbar-ask" style="inset-inline-start:' + yesAsk + '%"></span></div>' +
+          '<span class="pvals">' + fill(PT.vals, { p: "<b>" + Math.round(p) + "</b>", a: "<b>" + yesAsk + "</b>" }) + "</span></td>" +
+          '<td class="pedge"><bdi>' + signed(edge, 0, "¢") + " " + (yes ? PT.yes : PT.no) + "</bdi><small><bdi>" + fill(PT.net, { n: signed(net, 1, "¢") }) + "</bdi></small></td>" +
+          "<td>" + call + "</td></tr>";
+      });
+      rowsEl.innerHTML = html;
+      sumEl.textContent = trades === 0 ? PT.none : fill(trades === 1 ? PT.one : PT.some, { n: trades, ev: signed(ev, 1, "¢") });
+    }
+    segBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        station = +b.getAttribute("data-st");
+        segBtns.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        sg.value = STATIONS[station].sigma;
+        render();
+      });
+    });
+    [fc, sg, mk].forEach(function (el) { el.addEventListener("input", render); });
+    render();
+  })();
+
+  var y = document.getElementById("year");
+  if (y) y.textContent = String(new Date().getFullYear());
+
+  /* ---------- Globe ---------- */
+  var box = document.getElementById("globe");
+  var canvas = box && box.querySelector("canvas");
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext("2d");
+
+  // 360x180 land mask (1° cells, row 0 = 90°N), from Natural Earth 1:110m land via world-atlas.
+  var MASK = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg/wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg//8/AOD//z8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+///j//////9/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPD//3////////8PAAAAgD8AADwAAAAAAH8AAAAAAAAAAAAAAAAAAAAAAAAAAPD//wf+//////8BAACA/z8AAAAAAAAAAP4AAAAAAAAAAAAAAAAAAAAAAAAQ+M7///j///////8AAAAAfwIAAAAAAAAAAAAfAAAAAAAAAAAAAAAAAAAAAPAYABDwP+D///////8BAAAAPAwAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAHzAgPP5H8D///////8AAAAAAAAAAAAA8AEAAID/DwAAAAAAAAAAAAAAAAAAAID/g7P/DwAA/v////8AAAAAAAAAAADgDwAA4P//PwAA4B8AAAAAAAAAAAAAAAAYACD8BwAA+P////8AAAAAAAAAAAB4AAAA/P//BwAAAAAAAAAAAAAAAAAAgP8Ahvc5ewAA8P///38AAAAAAAAAAAAcAADg/////4cHAAcAAAAAAAAAAAAAgP9/x3f8/wAA4P///z8AAAAAAAAAAAAPAJ7w//////8fgD8AAAAAAwAAAAAAgO//B3f8/wsA4P///z8AAAAAAAAAAAAPgO////////8f//8HAAAAAAD4fwAAEMD/H/j4//8A4P///zcAAAAAAPgHAAAAgN//////////////DwAAAAD+///h/4//f+7Bh/8BwP7//w8AAAAAwP8/AAAAj9///////////////89/A+D///////+LB+zPB/8AgP///wEAAAAA8P//BwH7/77/////////////////H4D/////////////h/kPwP//BwAAAAAA/P//H/P//9///////////////////4H+////////////Afw/wP//AwAYAAAA/v//X/////////////////////////H///////////9/AP4YgP8fAPA/AAAA/+N/8P//////////////////////YMD////////////Pw/8HAP8HAOA/AADA//F//v////////////////////9/AAT+///////////DBPAHAP8HAAADAADw//z///////////////////////9/AID///////////8Aw8ADAPwDAAAAAAD8P/7///////////////////////9/AMD//////////z8AwB8AAPgDAAAAAAD+H/7/////////////////////e/8DAID///z//////z8AwH8AAMABAAAAAAD+P/z///////////////////9/wH8AAAD8NwD//////x8AwH8MAAAAAAAAAAD+P/D///////////////////978AAAAADAAwD8/////38AwP8eAAAAAAAAgAGcH/D//////////////////wEAeAAAAADADgDA//////8AgP8/AAAAAAAAwAMAH/T//////////////////wAAfgAAAAAwAACA//////8PgP9/AAAAAAAAwANwD/7/////////////////PwAAfwAAAAAOAAAA//////9/wP//AAAAAAAAgAOwA/7/////////////////HwCAPwAAAAAAAAAA/v//////4///BwAAAAAAOAdw8f//////////////////HwCAHwAAAAAAAACA/P//////4///DwAAAAAAPA/8/////////////////////wUADwAAAAAAAAAA+P//////5///DwAAAAAAnD///////////////////////wcABwAAAAAAAAAA8P//////////DwAAAAAAgJ///////////////////////wUAAwAAAAAAAAAA8P//////////DQAAAAAAgOP//////////////////////w0AAAAAAAAAAAAA4P////////8xPAAAAAAAAPz//////////////////////x0AAAAAAAAAAAAAgP7///////8PfgAAAAAAgP///////////////////////wQAAAAAAAAAAAAAgP////////8HdgAAAAAAAP7/////////////////////fwQAAAAAAAAAAAAAAP////////+fAAAAAAAAAPz//////D/+////////////PwwAAAAAAAAAAAAAAP//////////AAAAAAAAAPj////j/g/+////////////HwAAAAAAAAAAAAAAAP////////8dAAAAAAAAAPz/+f9B/If/////////////Dw4AAAAAAAAAAAAAAP///////z8EAAAAAAAA+P/H8/8A8I//////////////Bz4AAAAAAAAAAAAAgP///////x8AAAAAAAAA+H+gx/8A4A////////////9/AA8AAAAAAAAAAAAAAP///////z8AAAAAAAAA+H8Aj//x4R/8//////////8/AAEAAAAAAAAAAAAAAP///////wMAAAAAAAAA+B8wvM///z/+/////////98fAAMAAAAAAAAAAAAAAP///////wMAAAAAAAAA+A8wEMf//x/+/////////2cOAAMAAAAAAAAAAAAAAP7//////wEAAAAAAAAA/A8AEM7//x/8/////////wMegAEAAAAAAAAAAAAAAP7//////wAAAAAAAAAA+AcABob//z/8/////////zccwAEAAAAAAAAAAAAAAPz//////wAAAAAAAAAAwOB/AAT+/////////////x888AEAAAAAAAAAAAAAAPj//////wAAAAAAAAAAwPx/AAAA/////////////w8c/gEAAAAAAAAAAAAAAPD/////fwAAAAAAAAAA4P9/AAAA/////////////w+MPwAAAAAAAAAAAAAAAMD/////HwAAAAAAAAAA8P9/AACA/////////////x/ADwAAAAAAAAAAAAAAAID/////DwAAAAAAAAAA+P//BweA/////////////x/AAAAAAAAAAAAAAAAAAID/////BwAAAAAAAAAA/P//D3/M/////////////z9AAAAAAAAAAAAAAAAAAAD5////BwAAAAAAAAAA/P///////////////////z8AAAAAAAAAAAAAAAAAAAD7/z8HBgAAAAAAAAAA/P///////8///////////z8AAAAAAAAAAAAAAAAAAAD0/w8ADgAAAAAAAAAA/////////5///////////z8AAAAAAAAAAAAAAAAAAADu/wcADgAAAAAAAACA//////+//x///////////x8AAAAAAAAAAAAAAAAAAADY/wcATAAAAAAAAADA//////8//z/k/////////w8AAAAAAAAAAAAAAAAAAACQ/wcACAAAAAAAAADg//////9//v/Y/////////w8AAAAAAAAAAAAAAAAAAAAw/wcAQAAAAAAAAADg//////9//v8cgP///////ycAAAAAAAAAAAAAAAAAAABg/gMAAAAAAAAAAADw/////////P9/AP///////zEAAAAAAAAAAAAAAAAAAAAA/AMAPwAAAAAAAAD4////////+P//AP7/////fxAAAAAAAAAAAAAAAAAAAAAA/AcYYAAAAAAAAAD4////////+f9/APz/D///DgAAAAAAAAAAAAAAAAAAAAAA/AcewAMAAAAAAAD4////////8f9/AOD/B/9/BAAAAAAAAAAAAAAAAQAAAAAA+A8eADgAAAAAAAD4////////4f8/AOD/Af4/BgAAAAAAAAAAAAAAAAAAAAAA8N8PQPwCAAAAAADw////////4/8fAOD/APw/AiAAAAAAAAAAAAAAAAAAAAAAwP8PAAAAAAAAAADw////////x/8PAOB/APx/ADAAAAAAAAAAAAAAAAAAAAAAAP4PAAAAAAAAAAD4////////h/8BAOA/APz/ADAAAAAAAAAAAAAAAAAAAAAAAID/AAAAAAAAAAD4////////j/8AAMAPAMD/ATAAAAAAAAAAAAAAAAAAAAAAAAD/AQAAAAAAAAD4////////nz8AAMAPAMD/ATAAAAAAAAAAAAAAAAAAAAAAAAD8AQAAAAAAAAD4////////vwcAAMAPAMD/AfAAAAAAAAAAAAAAAAAAAAAAAADgAQAAAAAAAAD4/////////wAAAIAPAMD8AQABAAAAAAAAAAAAAAAAAAAAAADAAHgAAAAAAADw////////f3AAAIAPAID4AUADAAAAAAAAAAAAAAAAAAAAAADAAf97AAAAAADg/////////38AAAAPAMDwAMgAAAAAAAAAAAAAAAAAAAAAAACAM/9/AAAAAADA/////////38AAAAXAMBgAEQCAAAAAAAAAAAAAAAAAAAAAAAA7///AAAAAACA/////////z8AAAASAMAAAIAHAAAAAAAAAAAAAAAAAAAAAAAAyP//AQAAAACA/////////z8AAAAwAIABAMAHAAAAAAAAAAAAAAAAAAAAAAAAwP//AwAAAAAA/v///////x8AAAAwAAADAAMDAAAAAAAAAAAAAAAAAAAAAAAAwP//fwAAAAAA/A/+/////x8AAAAAAAAHgAcAAAAAAAAAAAAAAAAAAAAAAAAAwP///wAAAAAAGAD8/////w8AAAAAADAPwAMAAAAAAAAAAAAAAAAAAAAAAAAAwP///wEAAAAAAADg/////wcAAAAAAGAO4AMAAAAAAAAAAAAAAAAAAAAAAAAA4P///wEAAAAAAADA/////wMAAAAAAMAM+AMAAAAAAAAAAAAAAAAAAAAAAAAA4P///wMAAAAAAADg/////wEAAAAAAIAP/gMYAAAAAAAAAAAAAAAAAAAAAAAA8P///wMAAAAAAADg/////wAAAAAAAIAH/vMZAAAAAAAAAAAAAAAAAAAAAAAA+P///w8AAAAAAADg////fwAAAAAAAAAP/gsAAQAAAAAAAAAAAAAAAAAAAAAA+P///38AAAAAAADg////PwAAAAAAAAAf/HmAAwAAAAAAAAAAAAAAAAAAAAAA+P////8BAAAAAADA////HwAAAAAAAAA+/DkA9wEAAAAAAAAAAAAAAAAAAAAA+P////8fAAAAAADA////DwAAAAAAAAA8wHhU/g8QAAAAAAAAAAAAAAAAAAAA+P////9/AAAAAACA////DwAAAAAAAAA4AHgA+D8YAAAAAAAAAAAAAAAAAAAA+P//////AQAAAAAA////BwAAAAAAAAAwAEgAwD8OAAAAAAAAAAAAAAAAAAAA+P//////AQAAAAAA////BwAAAAAAAADAAQAAxP+AAAAAAAAAAAAAAAAAAAAA8P//////AQAAAAAA/v//BwAAAAAAAACAHwAAwP8AAAAAAAAAAAAAAAAAAAAA4P//////AQAAAAAA/v//BwAAAAAAAAAAYHYGQM8AAAAAAAAAAAAAAAAAAAAA4P//////AQAAAAAA/v//DwAAAAAAAAAAAAgBAIADAAAAAAAAAAAAAAAAAAAAwP//////AAAAAAAA/v//DwAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAwP////9/AAAAAAAA/P//HwAAAAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAAAgP////8/AAAAAAAA/v//HyAAAAAAAAAAAACAHwQAAAAAAAAAAAAAAAAAAAAAgP////8fAAAAAAAA////HzAAAAAAAAAAAADADw4AAAAAAAAAAAAAAAAAAAAAAP////8fAAAAAAAA////HzAAAAAAAAAAAADuDx4AAAAAAAAAAAAAAAAAAAAAAP7///8fAAAAAAAA////H3wAAAAAAAAAAAD/Hx4AAAAAAAAAAAAAAAAAAAAAAPj///8fAAAAAAAA////Dz8AAAAAAAAAAID/Pz4AAACAAAAAAAAAAAAAAAAAAPD///8fAAAAAAAA////Az8AAAAAAAAAAMD//z8AAABAAAAAAAAAAAAAAAAAAOD///8fAAAAAAAA////AR8AAAAAAAAAAMD//z8AAAAAAAAAAAAAAAAAAAAAAMD///8PAAAAAAAA/v9/AB8AAAAAAAAAAOD///8AAAAAAAAAAAAAAAAAAAAAAMD///8PAAAAAAAA/v9/AB8AAAAAAAAAAP7///8BAAEAAAAAAAAAAAAAAAAAAMD///8HAAAAAAAA/P9/gA8AAAAAAAAAgP////8DAAYAAAAAAAAAAAAAAAAAAMD///8DAAAAAAAA/P//gA8AAAAAAAAAwP////8HAAAAAAAAAAAAAAAAAAAAAOD//38AAAAAAAAA/P//gA8AAAAAAAAAwP////8HAAAAAAAAAAAAAAAAAAAAAOD//x8AAAAAAAAA/P9/AAcAAAAAAAAA4P////8PAAAAAAAAAAAAAAAAAAAAAOD//w8AAAAAAAAA+P8fAAIAAAAAAAAAwP////8fAAAAAAAAAAAAAAAAAAAAAOD//w8AAAAAAAAA+P8fAAAAAAAAAAAA4P////8fAAAAAAAAAAAAAAAAAAAAAOD//w8AAAAAAAAA+P8fAAAAAAAAAAAAwP////8fAAAAAAAAAAAAAAAAAAAAAOD//wcAAAAAAAAA8P8PAAAAAAAAAAAAwP////8/AAAAAAAAAAAAAAAAAAAAAPD//wMAAAAAAAAA4P8HAAAAAAAAAAAAgP////8fAAAAAAAAAAAAAAAAAAAAAPD//wMAAAAAAAAA4P8HAAAAAAAAAAAAgP////8fAAAAAAAAAAAAAAAAAAAAAPD//wEAAAAAAAAAwP8DAAAAAAAAAAAAgP////8fAAAAAAAAAAAAAAAAAAAAAPD//wAAAAAAAAAAwP8BAAAAAAAAAAAAAP8D/P8fAAAAAAAAAAAAAAAAAAAAAPD/fwAAAAAAAAAAwH8AAAAAAAAAAAAAgP8A+P8PAAAAAAAAAAAAAAAAAAAAAPD/PwAAAAAAAAAAgAEAAAAAAAAAAAAAgAcA6P8HAAAAAAAAAAAAAAAAAAAAAPj/BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwP8HAAACAAAAAAAAAAAAAAAAAPj/BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8DAAAEAAAAAAAAAAAAAAAAAPz/BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8DAAAMAAAAAAAAAAAAAAAAAPz/AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGwAAAA8AAAAAAAAAAAAAAAAAPw/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAPw/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAPwHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAALAAAAAAAAAAAAAAAAAPwPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAIADAAAAAAAAAAAAAAAAAPgHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAMABAAAAAAAAAAAAAAAAAP4HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAAAAAP4BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHgAAAAAAAAAAAAAAAAAAP4BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAP4DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8BAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH6AAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAIAfAAAAEAA+/MDEDwAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAAAPj/EADg/////////z8AAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAAwP///wP4//////////8HAAAAAAAAAAAAAAAAAAAAAPAfAAAAAAAAAAAAAADw+////wP/////////////BwAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAB+/////////+H/////////////PwAAAAAAAAAAAAAAAAAAAP5/AAAAAAAA/v////////////H//////////////38AAAAAAAAAAAAAwAcAADB/AAAAAACA/////////////////////////////38AAAAAAAAAAAQA4P//ePx/AAAAAADw/////////////////////////////z8AAAAAAAD4//8fgP////8/AAAAAADw/////////////////////////////wMAAAAAAPz///////////8HAAAAAAD//////////////////////////////wAAAAAAAP///////////z8AAAAAgP///////////////////////////////wAAAADA/////////////wMAAAAA8P///////////////////////////////wAAAACO////////////fwAAAPwA/////////////////////////////////wcAAAAMgP//////////fwAAAP4Bx///////////////////////////////HwAAAAAAAP7//////////w/4wH8AwP//////////////////////////////HwAAAAAA/v////////////8PAAD8////////////////////////////////PwAAAAAA+P//////////////8f///////////////////////////////////wEAAAAA+P///////////////////////////////////////////////////x8A/x8AgP//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////";
+  var bin = atob(MASK), bits = new Uint8Array(bin.length);
+  for (var i = 0; i < bin.length; i++) bits[i] = bin.charCodeAt(i);
+  function isLand(lat, lon) {
+    var x = Math.floor(lon + 180), yy = Math.floor(90 - lat);
+    x = ((x % 360) + 360) % 360; yy = Math.min(179, Math.max(0, yy));
+    var k = yy * 360 + x;
+    return (bits[k >> 3] >> (k & 7)) & 1;
+  }
+  var DEG = Math.PI / 180;
+  function vec(lat, lon) { return [Math.cos(lat * DEG) * Math.sin(lon * DEG), Math.sin(lat * DEG), Math.cos(lat * DEG) * Math.cos(lon * DEG)]; }
+
+  // Evenly spaced points (Fibonacci sphere), kept where there is land.
+  var N = 11000, golden = Math.PI * (3 - Math.sqrt(5)), pts = [];
+  for (var j = 0; j < N; j++) {
+    var py = 1 - (j + 0.5) / N * 2, rr = Math.sqrt(1 - py * py), th = golden * j;
+    var px = Math.sin(th) * rr, pz = Math.cos(th) * rr;
+    if (isLand(Math.asin(py) / DEG, Math.atan2(px, pz) / DEG)) pts.push(px, py, pz);
+  }
+  var P = new Float32Array(pts);
+
+  var cities = [
+    { n: "1", name: "סאו פאולו", lat: -23.55, lon: -46.63, dx: 10, dy: 4, align: "left" },
+    { n: "2", name: "תל אביב", lat: 32.09, lon: 34.78, dx: 0, dy: -12, align: "center" },
+    { n: "3", name: "ברקלי", lat: 37.87, lon: -122.27, dx: 0, dy: -12, align: "center" },
+    { n: "4", name: "ניו יורק", lat: 40.71, lon: -74.01, dx: 10, dy: 4, align: "left" }
+  ];
+  cities.forEach(function (c) { c.v = vec(c.lat, c.lon); });
+
+  // Great-circle arcs between consecutive stops, lifted off the surface.
+  var arcs = [];
+  for (var a = 0; a < cities.length - 1; a++) {
+    var A = cities[a].v, B = cities[a + 1].v;
+    var dot = A[0] * B[0] + A[1] * B[1] + A[2] * B[2];
+    var om = Math.acos(Math.max(-1, Math.min(1, dot))), so = Math.sin(om), samples = [];
+    for (var s = 0; s <= 72; s++) {
+      var t = s / 72, w1 = Math.sin((1 - t) * om) / so, w2 = Math.sin(t * om) / so;
+      var lift = 1 + 0.26 * Math.sin(Math.PI * t) * (om / Math.PI);
+      samples.push([(A[0] * w1 + B[0] * w2) * lift, (A[1] * w1 + B[1] * w2) * lift, (A[2] * w1 + B[2] * w2) * lift]);
+    }
+    arcs.push(samples);
+  }
+
+  var colors = {};
+  function readColors() {
+    var cs = getComputedStyle(root);
+    ["--globe-dot", "--globe-fill", "--globe-rim", "--globe-halo", "--globe-shade", "--gold", "--gold-ink", "--gold-soft", "--ink", "--paper"].forEach(function (k) { colors[k] = cs.getPropertyValue(k).trim(); });
+  }
+  readColors();
+
+  var W = 0, H = 0, dpr = 1, R = 0, cx = 0, cy = 0;
+  function resize() {
+    var rect = box.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = Math.max(1, Math.round(rect.width)); H = Math.max(1, Math.round(rect.height));
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    R = Math.min(W, H) * 0.4; cx = W / 2; cy = H / 2;
+    redraw();
+  }
+
+  // View: viewLon/viewLat is the point facing the viewer. A gentle sway rides on top
+  // until someone takes control by dragging, pressing a key or picking a place.
+  var HOME_LON = -44, HOME_LAT = 16;
+  var viewLon = HOME_LON, viewLat = HOME_LAT, velLon = 0;
+  var swayOn = !reduceMotion.matches, swayT0 = performance.now();
+  var lon0 = viewLon, lat0 = viewLat, cosL, sinL, cosP, sinP;
+  var fly = null, active = -1, hover = -1;
+  function clampLat(v) { return Math.max(-60, Math.min(70, v)); }
+  function swayAt(now) { return swayOn ? 26 * Math.sin((now - swayT0) / 9000) : 0; }
+  function takeControl(now) { if (swayOn) { viewLon += swayAt(now); swayOn = false; } fly = null; }
+  function setView() {
+    cosL = Math.cos(lon0 * DEG); sinL = Math.sin(lon0 * DEG);
+    cosP = Math.cos(lat0 * DEG); sinP = Math.sin(lat0 * DEG);
+  }
+  function project(x, y, z, out) {
+    var x1 = x * cosL - z * sinL, z1 = x * sinL + z * cosL;
+    var y2 = y * cosP - z1 * sinP, z2 = y * sinP + z1 * cosP;
+    out[0] = cx + R * x1; out[1] = cy - R * y2; out[2] = z2; out[3] = x1 * x1 + y2 * y2;
+    return out;
+  }
+
+  var start = 0, progress = reduceMotion.matches ? [1, 1, 1] : [0, 0, 0];
+  function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  var tmp = [0, 0, 0, 0];
+
+  function draw() {
+    if (!W) return;
+    setView();
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+
+    // Atmosphere glow, then the disc lit from the upper left
+    var halo = ctx.createRadialGradient(cx, cy, R * 0.92, cx, cy, R * 1.16);
+    halo.addColorStop(0, colors["--globe-halo"]); halo.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.beginPath(); ctx.arc(cx, cy, R * 1.16, 0, Math.PI * 2); ctx.fillStyle = halo; ctx.fill();
+    var shade = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.4, R * 0.1, cx, cy, R);
+    shade.addColorStop(0, colors["--globe-fill"]); shade.addColorStop(0.65, colors["--globe-fill"]); shade.addColorStop(1, colors["--globe-shade"]);
+    ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.fillStyle = shade; ctx.fill();
+    ctx.lineWidth = 1; ctx.strokeStyle = colors["--globe-rim"]; ctx.stroke();
+
+    // Land dots in three depth bands
+    var size = Math.max(1.4, R / 150);
+    var bands = [[0, 0.3, 0.35], [0.3, 0.65, 0.65], [0.65, 1.01, 1]];
+    ctx.fillStyle = colors["--globe-dot"];
+    for (var b = 0; b < 3; b++) {
+      ctx.globalAlpha = bands[b][2];
+      ctx.beginPath();
+      for (var k = 0; k < P.length; k += 3) {
+        project(P[k], P[k + 1], P[k + 2], tmp);
+        var z = tmp[2];
+        if (z <= bands[b][0] || z > bands[b][1]) continue;
+        var sz = size * (0.55 + 0.45 * z);
+        ctx.rect(tmp[0] - sz / 2, tmp[1] - sz / 2, sz, sz);
+      }
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    // Arcs
+    ctx.lineCap = "round"; ctx.lineJoin = "round";
+    ctx.strokeStyle = colors["--gold"]; ctx.lineWidth = Math.max(1.6, R / 120);
+    for (var q = 0; q < arcs.length; q++) {
+      var pr = progress[q]; if (pr <= 0) continue;
+      var smp = arcs[q], last = Math.max(1, Math.round(pr * (smp.length - 1))), pen = false;
+      ctx.beginPath();
+      for (var m = 0; m <= last; m++) {
+        project(smp[m][0], smp[m][1], smp[m][2], tmp);
+        var vis = tmp[2] > 0 || tmp[3] > 1;
+        if (vis) { if (pen) ctx.lineTo(tmp[0], tmp[1]); else ctx.moveTo(tmp[0], tmp[1]); pen = true; } else pen = false;
+      }
+      ctx.stroke();
+      if (pr < 1) {
+        project(smp[last][0], smp[last][1], smp[last][2], tmp);
+        if (tmp[2] > 0 || tmp[3] > 1) { ctx.beginPath(); ctx.arc(tmp[0], tmp[1], ctx.lineWidth * 1.6, 0, Math.PI * 2); ctx.fillStyle = colors["--gold"]; ctx.fill(); }
+      }
+    }
+
+    // Cities; the one picked or hovered in the list gets a halo
+    var fs = Math.max(11, Math.min(13, R / 17)), rtl = root.dir === "rtl";
+    ctx.textBaseline = "middle";
+    ctx.direction = rtl ? "rtl" : "ltr";
+    for (var c = 0; c < cities.length; c++) {
+      var city = cities[c], lit = c === active || c === hover;
+      var reached = c === 0 ? progress[0] > 0 : progress[c - 1] >= 1;
+      project(city.v[0], city.v[1], city.v[2], tmp);
+      city.sx = tmp[0]; city.sy = tmp[1]; city.front = tmp[2] > 0.04;
+      if (!city.front) continue;
+      var x = tmp[0], yv = tmp[1], fade = Math.min(1, (tmp[2] - 0.04) / 0.2);
+      ctx.globalAlpha = fade * (reached || lit ? 1 : 0.55);
+      if (lit) { ctx.beginPath(); ctx.arc(x, yv, 14, 0, Math.PI * 2); ctx.fillStyle = colors["--gold-soft"]; ctx.fill(); }
+      ctx.beginPath(); ctx.arc(x, yv, 7, 0, Math.PI * 2); ctx.fillStyle = colors["--paper"]; ctx.fill();
+      ctx.lineWidth = 2; ctx.strokeStyle = colors["--gold"]; ctx.stroke();
+      ctx.beginPath(); ctx.arc(x, yv, 3, 0, Math.PI * 2); ctx.fillStyle = colors["--gold"]; ctx.fill();
+      var label = city.n + " " + city.name, lx = x + city.dx * (lit ? 1.4 : 1) * (rtl ? -1 : 1), ly = yv + city.dy * (lit ? 1.4 : 1);
+      ctx.font = (lit ? "600 " : "500 ") + fs + "px 'Geist Mono', 'Heebo', ui-monospace, Menlo, monospace";
+      ctx.textAlign = rtl ? ({ left: "right", right: "left" }[city.align] || city.align) : city.align;
+      ctx.lineWidth = 4; ctx.strokeStyle = colors["--paper"]; ctx.strokeText(label, lx, ly);
+      ctx.fillStyle = colors["--ink"]; ctx.fillText(label, lx, ly);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  // Animation loop. Arcs draw in once after the page loads, the globe sways at 30 fps,
+  // and the loop stops entirely once nothing is moving.
+  var running = false, started = false, visibleOnScreen = true, dragging = false, lastT = 0, lastDraw = 0;
+  function frame(now) {
+    running = false;
+    var dt = lastT ? Math.min(64, now - lastT) : 16; lastT = now;
+    if (!reduceMotion.matches) {
+      for (var q = 0; q < 3; q++) progress[q] = ease(Math.min(1, Math.max(0, (now - start - 250 - q * 950) / 1100)));
+    }
+    var arcsDone = progress[2] >= 1;
+    if (fly) {
+      var t = Math.min(1, (now - fly.t0) / fly.dur), e = ease(t);
+      viewLon = fly.lon + fly.dLon * e; viewLat = fly.lat + fly.dLat * e;
+      if (t >= 1) fly = null;
+    } else if (!dragging && velLon) {
+      viewLon += velLon * dt; velLon *= Math.pow(0.94, dt / 16);
+      if (Math.abs(velLon) < 0.0004) velLon = 0;
+    }
+    var busy = dragging || !!fly || velLon !== 0 || !arcsDone;
+    lon0 = viewLon + swayAt(now); lat0 = clampLat(viewLat);
+    if (busy || now - lastDraw > 32) { draw(); lastDraw = now; }
+    if (visibleOnScreen && !document.hidden && (busy || swayOn)) schedule();
+  }
+  function schedule() { if (started && !running) { running = true; lastT = 0; requestAnimationFrame(frame); } }
+  function redraw() { lon0 = viewLon + swayAt(performance.now()); lat0 = clampLat(viewLat); draw(); }
+
+  // Pick a place: fly the globe to it
+  var stopBtns = Array.prototype.slice.call(document.querySelectorAll(".stop"));
+  function setActive(i) {
+    active = i;
+    stopBtns.forEach(function (b, j) { b.setAttribute("aria-pressed", j === i ? "true" : "false"); });
+    if (i >= 0) live.textContent = "על הגלובוס: " + cities[i].name;
+  }
+  function flyTo(i) {
+    var c = cities[i], now = performance.now();
+    takeControl(now); velLon = 0; setActive(i);
+    var dLon = ((c.lon - viewLon) % 360 + 540) % 360 - 180, dLat = clampLat(c.lat) - viewLat;
+    if (reduceMotion.matches || !started) { viewLon += dLon; viewLat += dLat; redraw(); return; }
+    fly = { lon: viewLon, lat: viewLat, dLon: dLon, dLat: dLat, t0: now, dur: 950 };
+    schedule();
+  }
+  stopBtns.forEach(function (b) {
+    var i = +b.getAttribute("data-city");
+    b.addEventListener("click", function () { flyTo(i); });
+    b.addEventListener("mouseenter", function () { hover = i; redraw(); });
+    b.addEventListener("mouseleave", function () { hover = -1; redraw(); });
+    b.addEventListener("focus", function () { hover = i; redraw(); });
+    b.addEventListener("blur", function () { hover = -1; redraw(); });
+  });
+
+  // Drag to turn; a tap on a city flies to it
+  var lastX = 0, lastY = 0, lastMoveT = 0, downX = 0, downY = 0;
+  box.addEventListener("pointerdown", function (e) {
+    dragging = true; lastX = downX = e.clientX; lastY = downY = e.clientY; lastMoveT = performance.now(); velLon = 0;
+    takeControl(lastMoveT);
+    box.setPointerCapture(e.pointerId);
+    schedule();
+  });
+  box.addEventListener("pointermove", function (e) {
+    if (!dragging) return;
+    var k = 180 / (Math.PI * R), now = performance.now();
+    var dLon = -(e.clientX - lastX) * k, dLat = (e.clientY - lastY) * k;
+    viewLon += dLon; viewLat = clampLat(viewLat + dLat);
+    velLon = reduceMotion.matches ? 0 : dLon / Math.max(8, now - lastMoveT);
+    lastX = e.clientX; lastY = e.clientY; lastMoveT = now;
+    if (reduceMotion.matches || !started) redraw(); else schedule();
+  });
+  function endDrag(e) {
+    dragging = false;
+    if (e && e.type === "pointerup" && Math.abs(e.clientX - downX) + Math.abs(e.clientY - downY) < 6) {
+      var rect = box.getBoundingClientRect(), px = e.clientX - rect.left, py = e.clientY - rect.top;
+      for (var i = 0; i < cities.length; i++) {
+        var c = cities[i];
+        if (c.front && Math.hypot(c.sx - px, c.sy - py) < 16) { flyTo(i); return; }
+      }
+    }
+    if (performance.now() - lastMoveT > 80) velLon = 0;
+    schedule();
+  }
+  box.addEventListener("pointerup", endDrag);
+  box.addEventListener("pointercancel", endDrag);
+
+  // Keyboard: arrows turn the globe (Shift for bigger steps), Home goes back to the start view
+  box.addEventListener("keydown", function (e) {
+    var step = e.shiftKey ? 30 : 12, now = performance.now();
+    var d = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] }[e.key];
+    if (e.key === "Home") { d = [HOME_LON - viewLon, HOME_LAT - viewLat]; setActive(-1); live.textContent = "חזרה לתצוגת הפתיחה"; }
+    if (!d) return;
+    e.preventDefault(); takeControl(now); velLon = 0;
+    viewLon += d[0]; viewLat = clampLat(viewLat + d[1]);
+    redraw();
+  });
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (en) { visibleOnScreen = en[0].isIntersecting; if (visibleOnScreen) schedule(); }).observe(box);
+  }
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) schedule(); });
+  function retheme() { readColors(); redraw(); }
+  if (darkMQ.addEventListener) darkMQ.addEventListener("change", retheme);
+  new MutationObserver(retheme).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+  if (reduceMotion.addEventListener) reduceMotion.addEventListener("change", function () {
+    if (reduceMotion.matches) { takeControl(performance.now()); progress = [1, 1, 1]; }
+    redraw();
+  });
+  if ("ResizeObserver" in window) new ResizeObserver(resize).observe(box); else window.addEventListener("resize", resize);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(redraw);
+  resize();
+
+  // Start animating once the page has loaded, so the globe never competes with the first paint.
+  function begin() { if (started) return; started = true; start = swayT0 = performance.now(); schedule(); }
+  if (document.readyState === "complete") setTimeout(begin, 120);
+  else window.addEventListener("load", function () { setTimeout(begin, 120); });
+})();
+</script>
+</body>
+</html>

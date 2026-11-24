@@ -7,6 +7,7 @@ public/ is exactly what deploy.sh copies into ~/public_html on OCF.
 """
 import datetime
 import hashlib
+import json
 import pathlib
 import re
 import sys
@@ -58,19 +59,46 @@ ErrorDocument 404 /~rkriger/404.html
 ASSET_RE = re.compile(r"(?<![\w/~.-])((?:fonts|assets)/[\w.-]+\.(?:woff2|webp|png|jpg|svg)|resume\.pdf|favicon\.svg|favicon-32\.png|apple-touch-icon\.png)(?![\w?])")
 
 
-def version_assets(html: str) -> str:
+def version_assets(html: str, prefix: str = "") -> str:
+    """Add ?v=<hash> to local asset links; prefix them (e.g. "../") for pages in subfolders."""
     cache = {}
 
     def sub(m):
         rel = m.group(1)
         f = PUBLIC / rel
         if not f.exists():
-            return rel
+            return prefix + rel
         if rel not in cache:
             cache[rel] = hashlib.sha1(f.read_bytes()).hexdigest()[:8]
-        return f"{rel}?v={cache[rel]}"
+        return f"{prefix}{rel}?v={cache[rel]}"
 
     return ASSET_RE.sub(sub, html)
+
+
+HE_MONTHS = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"]
+HE_FONT_STACKS = """:root:lang(he) {  /* outranks the base :root tokens wherever it sits */
+  --f-display: "Archivo", "Heebo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Geist", "Heebo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "Geist Mono", "Heebo", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --f-orbit: "Newsreader", "Frank Ruhl Libre", ui-serif, "New York", Georgia, serif;
+}"""
+
+
+def translate(template: str, lang: str) -> str:
+    """Apply tools/i18n/<lang>.json: exact English snippets to their translations, longest first."""
+    data = json.loads((TOOLS / "i18n" / f"{lang}.json").read_text())
+    out, problems = template, []
+    for pair in sorted(data["pairs"], key=lambda p: -len(p[0])):
+        en, tr = pair[0], pair[1]
+        found = out.count(en)
+        want = pair[2] if len(pair) > 2 else None
+        if found == 0 or (want is not None and found != want):
+            problems.append(f"  {found} found{'' if want is None else f', expected {want}'}: {en[:90]!r}")
+            continue
+        out = out.replace(en, tr)
+    if problems:
+        raise SystemExit(f"{lang}.json is out of date with template.html:\n" + "\n".join(problems))
+    return out
 
 
 def main() -> None:
@@ -88,6 +116,20 @@ def main() -> None:
     live = version_assets(html)
     (PUBLIC / "index.html").write_text(live)
 
+    # Hebrew page at /he/: translated from the same template, right to left, Hebrew fonts added
+    he = translate((TOOLS / "template.html").read_text(), "he")
+    # Keep Hebrew prefixes (ב-, ל-, ה-...) on the same line as the word they attach to
+    he = re.sub(r"(?<=[\u05D0-\u05EA])-(?=[A-Za-z0-9$])", "\u2011", he)
+    he = he.replace("%%MASK%%", mask).replace("%%UPDATED_HE%%", f"{HE_MONTHS[now.month - 1]} {now.year}")
+    he = he.replace("/*FONTS*/", fonts_css + "\n" + (TOOLS / "fonts-he.css").read_text().strip() + "\n" + HE_FONT_STACKS)
+    he = he.replace('<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>',
+                    '<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>\n'
+                    '<link rel="preload" href="fonts/heebo-hebrew.woff2" as="font" type="font/woff2" crossorigin>')
+    assert "%%" not in he, "unfilled placeholder in the Hebrew page"
+    (PUBLIC / "he").mkdir(exist_ok=True)
+    (PUBLIC / "he" / "index.html").write_text(version_assets(he, prefix="../"))
+    print("wrote", PUBLIC / "he" / "index.html")
+
     page404 = (TOOLS / "404.html").read_text().replace("/*FONTS*/", fonts_css.replace("url(fonts/", "url(/~rkriger/fonts/"))
     (PUBLIC / "404.html").write_text(page404)
     (PUBLIC / ".htaccess").write_text(HTACCESS)
@@ -97,6 +139,7 @@ def main() -> None:
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         f"  <url><loc>{SITE_URL}</loc><lastmod>{now.isoformat()}</lastmod></url>\n"
+        f"  <url><loc>{SITE_URL}he/</loc><lastmod>{now.isoformat()}</lastmod></url>\n"
         f"  <url><loc>{SITE_URL}resume.pdf</loc><lastmod>{now.isoformat()}</lastmod></url>\n"
         "</urlset>\n"
     )

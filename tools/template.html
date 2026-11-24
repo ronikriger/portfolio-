@@ -8,6 +8,9 @@
 <meta name="description" content="Roni Kriger is a software engineer and UC Berkeley EECS graduate who designs, builds and ships iOS apps, AI tools and trading systems.">
 <meta name="author" content="Roni Kriger">
 <link rel="canonical" href="https://www.ocf.berkeley.edu/~rkriger/">
+<link rel="alternate" hreflang="en" href="https://www.ocf.berkeley.edu/~rkriger/">
+<link rel="alternate" hreflang="he" href="https://www.ocf.berkeley.edu/~rkriger/he/">
+<link rel="alternate" hreflang="x-default" href="https://www.ocf.berkeley.edu/~rkriger/">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Roni Kriger · Software engineer">
 <meta property="og:description" content="Berkeley EECS graduate. Builder of Orbit, an iPhone app for long-distance couples, plus AI agent research, trading systems and more.">
@@ -17,7 +20,7 @@
 <meta property="og:image" content="https://www.ocf.berkeley.edu/~rkriger/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Roni Kriger's site: his name beside a globe tracing São Paulo, Tel Aviv, Berkeley and New York.">
+<meta property="og:image:alt" content="Roni Kriger's portfolio: the name in large type beside a globe tracing São Paulo, Tel Aviv, Berkeley and New York.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Roni Kriger · Software engineer">
 <meta name="twitter:description" content="Berkeley EECS graduate. Builder of Orbit, an iPhone app for long-distance couples, plus AI agent research, trading systems and more.">
@@ -54,6 +57,12 @@
   --globe-fill: #E7EBF3;
   --globe-rim: #C8D0E0;
   --bar: #1F3FBF;
+  --series-model: #1F3FBF;   /* validated pair, light: L-band, CVD and contrast pass */
+  --series-market: #B57A00;
+  --globe-halo: rgba(31, 63, 191, .10);
+  --globe-shade: #D9DFEB;
+  --band-bg: #0B1530; --band-fg: #F3F5F9; --band-muted: #A9B3CB; --band-line: rgba(243, 245, 249, .16); --band-link: #FDB515;
+  --fwd: "→"; --back: "←"; --prev-glyph: "‹"; --next-glyph: "›";
 
   /* Fixed looks that belong to the projects themselves, the same in both themes */
   --term-bg: #0A0E0B;
@@ -78,7 +87,9 @@
     --paper: #070B17; --surface: #0E1426; --ink: #E8EDF8; --ink-2: #C0C9DC; --muted: #8F9AB4;
     --line: #1D2740; --line-strong: #2E3A5A; --accent: #9DB4FF; --gold: #FDB515; --gold-ink: #FDB515;
     --gold-soft: rgba(253, 181, 21, .16); --globe-dot: #5C6C9E; --globe-fill: #0C1428; --globe-rim: #25314F;
-    --bar: #7F9BFF;
+    --bar: #7F9BFF; --series-model: #6E8BF7; --series-market: #BC8500;
+    --globe-halo: rgba(127, 155, 255, .13); --globe-shade: #060B19;
+    --band-bg: #101935; --band-fg: #E8EDF8; --band-muted: #9AA5BF; --band-line: rgba(232, 237, 248, .14); --band-link: #FDB515;
     color-scheme: dark;
   }
 }
@@ -86,9 +97,12 @@
   --paper: #070B17; --surface: #0E1426; --ink: #E8EDF8; --ink-2: #C0C9DC; --muted: #8F9AB4;
   --line: #1D2740; --line-strong: #2E3A5A; --accent: #9DB4FF; --gold: #FDB515; --gold-ink: #FDB515;
   --gold-soft: rgba(253, 181, 21, .16); --globe-dot: #5C6C9E; --globe-fill: #0C1428; --globe-rim: #25314F;
-  --bar: #7F9BFF;
+  --bar: #7F9BFF; --series-model: #6E8BF7; --series-market: #BC8500;
+  --globe-halo: rgba(127, 155, 255, .13); --globe-shade: #060B19;
+  --band-bg: #101935; --band-fg: #E8EDF8; --band-muted: #9AA5BF; --band-line: rgba(232, 237, 248, .14); --band-link: #FDB515;
   color-scheme: dark;
 }
+[dir="rtl"] { --fwd: "←"; --back: "→"; --prev-glyph: "›"; --next-glyph: "‹"; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 80px); -webkit-text-size-adjust: 100%; }
@@ -118,7 +132,7 @@ p { margin: 0; text-wrap: pretty; }
   padding-left: max(20px, env(safe-area-inset-left, 0px));
   padding-right: max(20px, env(safe-area-inset-right, 0px));
 }
-.skip { position: absolute; left: 12px; top: -60px; z-index: 50; background: var(--ink); color: var(--paper); padding: 10px 14px; border-radius: 8px; }
+.skip { position: absolute; inset-inline-start: 12px; top: -60px; z-index: 50; background: var(--ink); color: var(--paper); padding: 10px 14px; border-radius: 8px; }
 .skip:focus { top: calc(env(safe-area-inset-top, 0px) + 12px); }
 
 /* ---------- Header ---------- */
@@ -131,7 +145,7 @@ p { margin: 0; text-wrap: pretty; }
 .site-header.scrolled { border-bottom-color: var(--line); }
 .bar { display: flex; align-items: center; gap: 12px; min-height: 64px; }
 .brand {
-  display: flex; align-items: center; gap: 10px; margin-right: auto;
+  display: flex; align-items: center; gap: 10px; margin-inline-end: auto;
   font-family: var(--f-display); font-stretch: 125%; font-weight: 800; font-size: 1.0625rem;
   letter-spacing: -.01em; color: var(--ink); text-decoration: none; white-space: nowrap;
 }
@@ -173,7 +187,7 @@ p { margin: 0; text-wrap: pretty; }
 .mobile-nav { border-top: 1px solid var(--line); padding-block: 8px 16px; }
 .mobile-nav ul { list-style: none; margin: 0; padding: 0; display: grid; }
 .mobile-nav a { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 0 4px; font-family: var(--f-display); font-stretch: 110%; font-weight: 700; font-size: 1.25rem; letter-spacing: -.01em; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
-.mobile-nav a::after { content: "→"; font: 500 1rem var(--f-mono); color: var(--gold-ink); }
+.mobile-nav a::after { content: var(--fwd); font: 500 1rem var(--f-mono); color: var(--gold-ink); }
 @media (max-width: 820px) { .nav { display: none; } .menu-btn { display: inline-grid; } }
 @media (min-width: 821px) { .mobile-nav { display: none; } }
 @media (max-width: 380px) { .bar > .btn-sm { display: none; } }
@@ -215,7 +229,7 @@ p { margin: 0; text-wrap: pretty; }
 .stop {
   display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 0 10px; align-items: start; width: 100%;
   margin: 0; padding: 8px 10px; border: 1px solid transparent; border-radius: 12px; background: none;
-  color: inherit; font: inherit; text-align: left; cursor: pointer;
+  color: inherit; font: inherit; text-align: start; cursor: pointer;
 }
 .stop:hover { background: var(--surface); border-color: var(--line); }
 .stop[aria-pressed="true"] { background: var(--surface); border-color: var(--gold); }
@@ -225,7 +239,7 @@ p { margin: 0; text-wrap: pretty; }
   font: 600 .75rem/24px var(--f-mono); text-align: center;
 }
 .stops .place { font-weight: 600; font-size: .9375rem; line-height: 1.5; }
-.stops .place span { font: 400 .8125rem var(--f-mono); color: var(--muted); margin-left: 6px; }
+.stops .place span { font: 400 .8125rem var(--f-mono); color: var(--muted); margin-inline-start: 6px; }
 .stops .what { font-size: .875rem; color: var(--ink-2); line-height: 1.45; }
 .stops .coord { font: 400 .75rem/1.6 var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
 .globe-hint { font: 400 .75rem/1.5 var(--f-mono); color: var(--muted); margin-top: -10px; text-align: center; max-width: 500px; }
@@ -319,17 +333,18 @@ p { margin: 0; text-wrap: pretty; }
 .rule dd:last-child { margin-bottom: 0; }
 .rule .halt { color: var(--gold-ink); font-weight: 600; white-space: nowrap; }
 .wide { flex-direction: row; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); margin-top: 20px; }
-.wide .card-visual { height: auto; min-height: 260px; border-bottom: 0; border-left: 1px solid var(--line); display: flex; }
+.wide .card-visual { height: auto; min-height: 260px; border-bottom: 0; border-inline-start: 1px solid var(--line); display: flex; }
 
-@media (max-width: 860px) { .wide { grid-template-columns: minmax(0, 1fr); } .wide .card-visual { order: -1; border-left: 0; border-bottom: 1px solid var(--line); min-height: 236px; } }
+@media (max-width: 860px) { .wide { grid-template-columns: minmax(0, 1fr); } .wide .card-visual { order: -1; border-inline-start: 0; border-bottom: 1px solid var(--line); min-height: 236px; } }
 
 /* BJC: an excerpt of the real code */
-.code { margin: 0; height: 100%; overflow: auto; padding: 20px 22px; background: var(--paper); font: 400 .75rem/1.65 var(--f-mono); color: var(--ink-2); tab-size: 2; }
+.code { margin: 0; height: 100%; overflow: auto; padding: 20px 22px; white-space: pre; background: var(--paper); font: 400 .75rem/1.65 var(--f-mono); color: var(--ink-2); tab-size: 2; }
 .code .k { color: var(--accent); font-weight: 500; }
 .code .c { color: var(--ink); font-weight: 500; }
 .code .n { color: var(--gold-ink); }
 .code .s { color: var(--gold-ink); }
 .code .m { color: var(--muted); font-style: italic; }
+@media (max-width: 560px) { .code { font-size: .6875rem; padding: 16px; } }
 
 /* Daily Briefing: what lands in the inbox */
 .mail { height: 100%; display: grid; place-items: center; padding: 20px; background: var(--paper); }
@@ -348,15 +363,13 @@ p { margin: 0; text-wrap: pretty; }
 .chart-rows { display: grid; gap: 12px; }
 .chart-row { display: grid; grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr) 4.6em; gap: 10px; align-items: center; font-size: .8125rem; }
 .chart-row .who { color: var(--ink-2); line-height: 1.25; }
-.chart-row .track { position: relative; height: 14px; border-left: 1px solid var(--line-strong); background-image: linear-gradient(to right, transparent calc(50% - .5px), var(--line) calc(50% - .5px), var(--line) calc(50% + .5px), transparent calc(50% + .5px)); }
-.chart-row .fill { position: absolute; inset: 0 auto 0 0; background: var(--bar); border-radius: 0 4px 4px 0; }
-.chart-row .zero { position: absolute; left: -1px; top: -3px; bottom: -3px; width: 3px; background: var(--gold); border-radius: 2px; }
-.chart-row .val { font: 500 .8125rem var(--f-mono); color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+.chart-row .track { position: relative; height: 14px; border-inline-start: 1px solid var(--line-strong); background-image: linear-gradient(to right, transparent calc(50% - .5px), var(--line) calc(50% - .5px), var(--line) calc(50% + .5px), transparent calc(50% + .5px)); }
+.chart-row .fill { position: absolute; inset-block: 0; inset-inline-start: 0; background: var(--bar); border-start-end-radius: 4px; border-end-end-radius: 4px; }
+.chart-row .zero { position: absolute; inset-inline-start: -1px; top: -3px; bottom: -3px; width: 3px; background: var(--gold); border-radius: 2px; }
+.chart-row .val { font: 500 .8125rem var(--f-mono); color: var(--ink); text-align: end; font-variant-numeric: tabular-nums; }
 .chart-row .val small { display: block; font-size: .6875rem; font-weight: 400; color: var(--muted); }
 .chart-axis { display: grid; grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr) 4.6em; gap: 10px; font: 400 .6875rem var(--f-mono); color: var(--muted); }
 .chart-axis .ticks { display: flex; justify-content: space-between; }
-.chart-axis .ticks span:first-child { transform: translateX(-2px); }
-.chart-axis .ticks span:last-child { transform: translateX(8px); }
 
 /* Limud: the live app peeking up from the bottom edge */
 .peek { height: 100%; display: flex; justify-content: center; align-items: flex-start; padding-top: 22px; background: linear-gradient(180deg, var(--paper), var(--surface)); }
@@ -367,14 +380,13 @@ p { margin: 0; text-wrap: pretty; }
 .pipe li { position: relative; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--surface); padding: 10px 12px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
 .pipe li b { font-size: .8125rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
 .pipe li span { font: 400 .72rem/1.35 var(--f-mono); color: var(--muted); }
-.pipe li:not(:nth-child(3n)):not(:last-child)::after { content: "→"; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: var(--gold-ink); font: 500 .9rem var(--f-mono); }
+.pipe li:not(:nth-child(3n)):not(:last-child)::after { content: var(--fwd); position: absolute; inset-inline-end: -20px; top: 50%; transform: translateY(-50%); color: var(--gold-ink); font: 500 .9rem var(--f-mono); }
 .pipe li:nth-child(3)::before { content: "↓"; position: absolute; left: 50%; bottom: -19px; transform: translateX(-50%); color: var(--gold-ink); font: 500 .9rem var(--f-mono); }
-.pipe li:nth-child(4)::after, .pipe li:nth-child(5)::after { content: "←"; position: absolute; right: auto; left: -20px; top: 50%; transform: translateY(-50%); color: var(--gold-ink); font: 500 .9rem var(--f-mono); }
+.pipe li:nth-child(4)::after, .pipe li:nth-child(5)::after { content: var(--back); position: absolute; inset-inline-end: auto; inset-inline-start: -20px; top: 50%; transform: translateY(-50%); color: var(--gold-ink); font: 500 .9rem var(--f-mono); }
 .pipe li:nth-child(4) { grid-column: 3; grid-row: 2; }
 .pipe li:nth-child(5) { grid-column: 2; grid-row: 2; }
 .pipe li:nth-child(6) { grid-column: 1; grid-row: 2; }
 @media (max-width: 420px) { .pipe { padding: 16px; gap: 10px 20px; } .pipe li { padding: 8px; } .pipe li b { font-size: .75rem; } .pipe li span { font-size: .66rem; } .pipe li:not(:nth-child(3n)):not(:last-child)::after, .pipe li:nth-child(4)::after, .pipe li:nth-child(5)::after { font-size: .8rem; } }
-.pipe li:nth-child(4)::after { right: auto; }
 
 /* More work */
 .more-head { margin-top: clamp(44px, 6vw, 64px); }
@@ -383,11 +395,11 @@ p { margin: 0; text-wrap: pretty; }
 .more .t { font-weight: 600; }
 .more .t span { display: block; font: 400 .8125rem var(--f-mono); color: var(--muted); }
 .more p { color: var(--ink-2); font-size: .9688rem; }
-.more .l { text-align: right; font-size: .9375rem; font-weight: 600; }
+.more .l { text-align: end; font-size: .9375rem; font-weight: 600; }
 .more .l a { text-decoration: none; }
 .more .l a:hover { text-decoration: underline; }
 .more .l .private { font: 400 .8125rem var(--f-mono); color: var(--muted); font-weight: 400; }
-@media (max-width: 680px) { .more li { grid-template-columns: minmax(0, 1fr); } .more .l { text-align: left; } }
+@media (max-width: 680px) { .more li { grid-template-columns: minmax(0, 1fr); } .more .l { text-align: start; } }
 
 /* ---------- Experience ---------- */
 .xp { list-style: none; margin: 0; padding: 0; }
@@ -398,8 +410,8 @@ p { margin: 0; text-wrap: pretty; }
 .role h3 { margin: 0; font-family: var(--f-display); font-stretch: 108%; font-weight: 750; font-size: 1.375rem; line-height: 1.2; letter-spacing: -.015em; }
 .role .org { color: var(--ink-2); margin-top: 2px; }
 .role .bullets { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; max-width: 64ch; }
-.role .bullets li { position: relative; padding-left: 20px; color: var(--ink-2); }
-.role .bullets li::before { content: ""; position: absolute; left: 0; top: .78em; width: 9px; height: 2px; background: var(--gold); }
+.role .bullets li { position: relative; padding-inline-start: 20px; color: var(--ink-2); }
+.role .bullets li::before { content: ""; position: absolute; inset-inline-start: 0; top: .78em; width: 9px; height: 2px; background: var(--gold); }
 .role .chips { margin-top: 16px; }
 @media (max-width: 700px) { .xp > li { grid-template-columns: minmax(0, 1fr); } }
 
@@ -448,6 +460,125 @@ p { margin: 0; text-wrap: pretty; }
 .site-footer .wrap > span { display: flex; flex-wrap: wrap; gap: 0 14px; }
 .site-footer a { color: inherit; }
 
+/* Language switch */
+.lang-link {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 12px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: .9375rem; font-weight: 600; white-space: nowrap;
+}
+.lang-link:hover { background: var(--surface); }
+@media (max-width: 560px) { .bar > .btn-sm { display: none; } }
+
+/* Project jump links */
+.jump { display: flex; flex-wrap: wrap; gap: 8px; margin: -12px 0 28px; }
+.jump a {
+  display: inline-flex; align-items: center; min-height: 36px; padding: 6px 14px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); text-decoration: none; font-size: .875rem; font-weight: 500;
+}
+.jump a:hover { color: var(--ink); border-color: var(--line-strong); }
+@media (max-width: 640px) {
+  .jump { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(-1 * max(20px, env(safe-area-inset-left, 0px))); padding-inline: max(20px, env(safe-area-inset-left, 0px)); padding-block: 2px 6px; scrollbar-width: none; }
+  .jump::-webkit-scrollbar { display: none; }
+  .jump a { flex: none; }
+}
+
+/* Cards respond to the pointer; links get full-size tap targets */
+.card { transition: border-color .2s ease, box-shadow .2s ease; scroll-margin-top: 96px; }
+.card:hover { border-color: var(--line-strong); box-shadow: 0 22px 44px -30px rgba(11, 21, 48, .35); }
+.card-links a { min-height: 44px; }
+#orbit, #more-work { scroll-margin-top: 96px; }
+
+/* Kalshi playground */
+.wide .play { grid-column: 1 / -1; }
+.play { display: grid; gap: 18px; padding: clamp(20px, 3vw, 28px); border-top: 1px solid var(--line); background: var(--surface); min-width: 0; }
+.play-head h4 { margin: 0; font-family: var(--f-display); font-stretch: 108%; font-weight: 750; font-size: 1.25rem; line-height: 1.2; letter-spacing: -.015em; }
+.play-head p { margin-top: 4px; color: var(--ink-2); font-size: .9375rem; max-width: 62ch; }
+.play-controls { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 18px 24px; align-items: end; }
+@media (max-width: 1080px) { .play-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); } .play-stations { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .play-controls { grid-template-columns: minmax(0, 1fr); } }
+.play-stations { border: 0; margin: 0; padding: 0; min-width: 0; }
+.play-stations legend { padding: 0; margin-bottom: 8px; font-size: .8125rem; color: var(--ink-2); }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg-btn {
+  min-height: 38px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--paper);
+  color: var(--ink-2); font: 500 .8125rem/1 var(--f-body); cursor: pointer;
+}
+.seg-btn span { font-family: var(--f-mono); color: var(--muted); margin-inline-start: 4px; }
+.seg-btn[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.seg-btn[aria-pressed="true"] span { color: inherit; opacity: .75; }
+.play-slider { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; align-items: baseline; min-width: 0; }
+.play-slider label { font-size: .8125rem; color: var(--ink-2); }
+.play-slider output { font: 600 .9375rem var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+.play-slider input { grid-column: 1 / -1; width: 100%; margin: 4px 0 0; accent-color: var(--series-model); min-height: 28px; }
+.play-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; align-items: baseline; }
+.play-mu { font: 400 .8125rem/1.5 var(--f-mono); color: var(--ink-2); }
+.play-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: .8125rem; color: var(--ink-2); }
+.lg { display: inline-block; vertical-align: middle; }
+.lg-model { width: 18px; height: 8px; background: var(--series-model); border-start-end-radius: 4px; border-end-end-radius: 4px; }
+.lg-market { width: 2px; height: 14px; margin-inline-start: 8px; background: var(--series-market); box-shadow: 0 0 0 2px var(--surface); }
+.play-scroll { overflow-x: auto; min-width: 0; }
+.play-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+.play-table th, .play-table td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: start; vertical-align: middle; }
+.play-table thead th { padding-top: 0; font: 500 .6875rem/1.4 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.play-table tbody th { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.play-table tbody tr:hover { background: var(--paper); }
+.play-table td:nth-child(2) { width: 46%; min-width: 120px; }
+.pbar { position: relative; height: 12px; background: var(--paper); border-radius: 3px; }
+.pbar-model { position: absolute; inset-block: 1px; inset-inline-start: 0; background: var(--series-model); border-start-end-radius: 4px; border-end-end-radius: 4px; }
+.pbar-ask { position: absolute; top: -5px; bottom: -5px; width: 2px; margin-inline-start: -1px; background: var(--series-market); box-shadow: 0 0 0 2px var(--surface); }
+.pvals { display: block; margin-top: 7px; font: 400 .75rem var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.pvals b { font-weight: 500; color: var(--ink-2); }
+.pedge { font: 600 .875rem/1.3 var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pedge small { display: block; font-weight: 400; font-size: .6875rem; color: var(--muted); }
+.call { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line-strong); font: 600 .75rem/1 var(--f-body); color: var(--muted); white-space: nowrap; }
+.call-buy { background: var(--gold-soft); border-color: var(--gold); color: var(--ink); }
+.play-sum { font-weight: 600; color: var(--ink); }
+.play-fine { font-size: .8125rem; line-height: 1.55; color: var(--muted); max-width: 80ch; }
+@media (max-width: 560px) {
+  .play-table th, .play-table td { padding: 9px 5px; }
+  .play-table td:nth-child(2) { min-width: 78px; width: auto; }
+  .play-table tbody th, .pedge { white-space: normal; }
+  .pedge { font-size: .8125rem; }
+  .pvals { font-size: .6875rem; }
+  .call { width: 28px; height: 28px; padding: 0; justify-content: center; }
+  .call-text { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .play-table thead th:last-child { width: 28px; }
+  .th-long { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+@media (min-width: 561px) { .th-short { display: none; } }
+
+/* Kalshi pipeline: a vertical list on phones */
+@media (max-width: 560px) {
+  .pipe { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; gap: 18px; }
+  .pipe li:nth-child(n) { grid-column: auto; grid-row: auto; flex-direction: row; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .pipe li:nth-child(n)::before { content: none; }
+  .pipe li:nth-child(n):not(:last-child)::after { content: "↓"; position: absolute; inset-inline: auto; left: 50%; right: auto; top: auto; bottom: -19px; transform: translateX(-50%); color: var(--gold-ink); font: 500 .9rem var(--f-mono); }
+  .pipe li span { text-align: end; }
+}
+
+/* Contact: a closing band */
+.band { background: var(--band-bg); color: var(--band-fg); border-top: 0; }
+.band .section-head h2, .band .big-email { color: var(--band-fg); }
+.band .contact-intro { color: var(--band-muted); }
+.band .big-email { text-decoration-color: var(--band-link); }
+.band .btn { background: transparent; color: var(--band-fg); border-color: var(--band-line); }
+.band .btn:hover { border-color: var(--band-fg); }
+.band .btn-gold { background: var(--band-link); border-color: var(--band-link); color: #0B1530; }
+.band .channels { border-top-color: var(--band-line); }
+.band .channels dt, .band .channels dd { border-bottom-color: var(--band-line); }
+.band .channels dt { color: var(--band-muted); }
+.band .channels dd a { color: var(--band-fg); }
+.band .channels dd a:hover { color: var(--band-link); }
+.band .copy { color: var(--band-muted); border-color: var(--band-line); }
+.band .copy:hover { background: transparent; color: var(--band-fg); }
+.band .copy[data-done] { color: var(--band-link); border-color: var(--band-link); }
+.band :focus-visible { outline-color: var(--band-link); }
+.band + .site-footer { border-top: 0; }
+
+/* Hebrew: no letter-spacing on labels, and Latin-only mono runs stay readable */
+[dir="rtl"] .eyebrow, [dir="rtl"] .label, [dir="rtl"] .orbit-id .k, [dir="rtl"] .play-table thead th,
+[dir="rtl"] .rule dt, [dir="rtl"] .orbit-shots figcaption { letter-spacing: 0; }
+[dir="rtl"] .code, [dir="rtl"] .rule, [dir="rtl"] .mail { text-align: left; }
+
 /* Screenshot viewer */
 .lightbox { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; overflow: hidden; }
 .lightbox::backdrop { background: rgba(10, 8, 6, .86); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
@@ -460,10 +591,12 @@ p { margin: 0; text-wrap: pretty; }
   border: 1px solid var(--orbit-line); background: rgba(37, 28, 20, .8); color: var(--orbit-ink); cursor: pointer; font: 400 1.5rem/1 var(--f-body);
 }
 .lb-btn:hover { background: var(--orbit-elev); }
+.lb-prev::before { content: var(--prev-glyph); }
+.lb-next::before { content: var(--next-glyph); }
 .lb-btn:focus-visible { outline: 2px solid var(--orbit-accent); outline-offset: 2px; }
-.lb-close { top: calc(env(safe-area-inset-top, 0px) + 14px); right: max(14px, env(safe-area-inset-right, 0px)); }
-.lb-prev { left: max(14px, env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); }
-.lb-next { right: max(14px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); }
+.lb-close { top: calc(env(safe-area-inset-top, 0px) + 14px); inset-inline-end: max(14px, env(safe-area-inset-right, 0px)); }
+.lb-prev { inset-inline-start: max(14px, env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); }
+.lb-next { inset-inline-end: max(14px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); }
 @media (max-width: 560px) { .lb-prev, .lb-next { top: auto; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); transform: none; } .lb-figure { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 84px); } .lb-figure img { max-height: calc(100vh - 200px); } }
 
 @media (prefers-reduced-motion: reduce) { .btn, .site-header, .orbit-shots img { transition: none; } .btn:hover, .shot:hover img { transform: none; } }
@@ -524,6 +657,7 @@ p { margin: 0; text-wrap: pretty; }
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <a class="lang-link" href="he/" hreflang="he" lang="he" title="Hebrew version">עברית</a>
     <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch between light and dark theme">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
@@ -541,6 +675,7 @@ p { margin: 0; text-wrap: pretty; }
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
+      <li><a href="he/" hreflang="he" lang="he">עברית</a></li>
     </ul>
   </nav>
 </header>
@@ -559,8 +694,8 @@ p { margin: 0; text-wrap: pretty; }
             Email me
           </a>
           <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
-          <a class="btn" href="https://github.com/ronikriger" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/roni-kriger/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/ronikriger" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          <a class="btn" href="https://www.linkedin.com/in/roni-kriger/" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         </div>
         <p class="langs"><b>Languages</b> <span>English</span> <span>Português</span> <span lang="he" dir="rtl">עברית</span> <span lang="es">Español</span></p>
       </div>
@@ -570,10 +705,10 @@ p { margin: 0; text-wrap: pretty; }
           <canvas role="img" aria-label="A globe with arcs from São Paulo to Tel Aviv to Berkeley to New York, in the order listed below."></canvas>
         </div>
         <ol class="stops" aria-label="Where I have worked and studied, in order">
-          <li><button class="stop" type="button" data-city="0" aria-pressed="false"><span class="n" aria-hidden="true">1</span><span class="place">São Paulo <span>2019–22</span></span><span class="what">Volunteer math teacher</span><span class="coord">23.55° S, 46.63° W</span></button></li>
-          <li><button class="stop" type="button" data-city="1" aria-pressed="false"><span class="n" aria-hidden="true">2</span><span class="place">Tel Aviv <span>2023</span></span><span class="what">Lightrun, engineering intern</span><span class="coord">32.09° N, 34.78° E</span></button></li>
-          <li><button class="stop" type="button" data-city="2" aria-pressed="false"><span class="n" aria-hidden="true">3</span><span class="place">Berkeley <span>2023–26</span></span><span class="what">UC Berkeley EECS, Stylis AI</span><span class="coord">37.87° N, 122.27° W</span></button></li>
-          <li><button class="stop" type="button" data-city="3" aria-pressed="false"><span class="n" aria-hidden="true">4</span><span class="place">New York <span>2025</span></span><span class="what">AQCTech, engineering intern</span><span class="coord">40.71° N, 74.01° W</span></button></li>
+          <li><button class="stop" type="button" data-city="0" aria-pressed="false"><span class="n" aria-hidden="true">1</span><span class="place">São Paulo <span dir="ltr">2019–22</span></span><span class="what">Volunteer math teacher</span><span class="coord" dir="ltr">23.55° S, 46.63° W</span></button></li>
+          <li><button class="stop" type="button" data-city="1" aria-pressed="false"><span class="n" aria-hidden="true">2</span><span class="place">Tel Aviv <span dir="ltr">2023</span></span><span class="what">Lightrun, engineering intern</span><span class="coord" dir="ltr">32.09° N, 34.78° E</span></button></li>
+          <li><button class="stop" type="button" data-city="2" aria-pressed="false"><span class="n" aria-hidden="true">3</span><span class="place">Berkeley <span dir="ltr">2023–26</span></span><span class="what">UC Berkeley EECS, Stylis AI</span><span class="coord" dir="ltr">37.87° N, 122.27° W</span></button></li>
+          <li><button class="stop" type="button" data-city="3" aria-pressed="false"><span class="n" aria-hidden="true">4</span><span class="place">New York <span dir="ltr">2025</span></span><span class="what">AQCTech, engineering intern</span><span class="coord" dir="ltr">40.71° N, 74.01° W</span></button></li>
         </ol>
         <figcaption class="globe-hint" id="globeHint">Pick a place to fly there. Drag the globe, or focus it and use the arrow keys, to turn it.</figcaption>
       </figure>
@@ -586,6 +721,15 @@ p { margin: 0; text-wrap: pretty; }
         <h2 id="work-title">Selected work</h2>
         <p class="section-note">Apps, tools and research I designed and built, most of them on my own.</p>
       </div>
+      <nav class="jump" aria-label="Projects on this page">
+        <a href="#orbit">Orbit</a>
+        <a href="#kalshi">Kalshi weather arbitrage</a>
+        <a href="#bjc">BJC Teacher Tracker</a>
+        <a href="#briefing">Daily Briefing</a>
+        <a href="#skill-lift">skill-lift</a>
+        <a href="#limud">Limud</a>
+        <a href="#more-work">More work</a>
+      </nav>
 
       <article class="orbit" id="orbit" aria-labelledby="orbit-title">
         <div class="orbit-copy">
@@ -626,7 +770,7 @@ p { margin: 0; text-wrap: pretty; }
         </div>
       </article>
 
-      <article class="card wide" aria-labelledby="kalshi-title">
+      <article class="card wide" id="kalshi" aria-labelledby="kalshi-title">
         <div class="card-body">
           <p class="label">Quant research · Built with a partner · 2026</p>
           <h3 id="kalshi-title">Kalshi weather arbitrage</h3>
@@ -646,7 +790,7 @@ p { margin: 0; text-wrap: pretty; }
             <li><b>Trade</b><span>edge gate, kill switch</span></li>
             <li><b>Settle</b><span>NWS climate report</span></li>
           </ol>
-          <dl class="rule">
+          <dl class="rule" dir="ltr">
             <dt>Halt rule, fixed before the run</dt>
             <dd>n ≥ 20 and (P&amp;L &lt; 0 or KS p ≤ 0.10)</dd>
             <dt>Result, May 4–17, 2026</dt>
@@ -654,12 +798,57 @@ p { margin: 0; text-wrap: pretty; }
           </dl>
           </div>
         </div>
+        <section class="play" id="kalshiPlay" aria-labelledby="play-title">
+          <div class="play-head">
+            <h4 id="play-title">Try the pricing model</h4>
+            <p>The same math the bot runs: a normal distribution around the bias-corrected forecast, priced bracket by bracket against an example order book.</p>
+          </div>
+          <div class="play-controls">
+            <fieldset class="play-stations">
+              <legend>Station, with its calibrated σ</legend>
+              <div class="seg">
+                <button type="button" class="seg-btn" data-st="0" aria-pressed="true">New York <span dir="ltr">2.22°</span></button>
+                <button type="button" class="seg-btn" data-st="1" aria-pressed="false">Boston <span dir="ltr">3.06°</span></button>
+                <button type="button" class="seg-btn" data-st="2" aria-pressed="false">Las Vegas <span dir="ltr">0.77°</span></button>
+                <button type="button" class="seg-btn" data-st="3" aria-pressed="false">Phoenix <span dir="ltr">0.87°</span></button>
+              </div>
+            </fieldset>
+            <div class="play-slider">
+              <label for="pFc">NWS forecast high</label>
+              <output id="pFcOut" for="pFc" dir="ltr">77°F</output>
+              <input type="range" id="pFc" min="60" max="100" step="0.5" value="77">
+            </div>
+            <div class="play-slider">
+              <label for="pSig">Forecast uncertainty (σ)</label>
+              <output id="pSigOut" for="pSig" dir="ltr">2.22°F</output>
+              <input type="range" id="pSig" min="0.5" max="5" step="0.01" value="2.22">
+            </div>
+            <div class="play-slider">
+              <label for="pMkt">Market expects</label>
+              <output id="pMktOut" for="pMkt" dir="ltr">75°F</output>
+              <input type="range" id="pMkt" min="60" max="100" step="0.5" value="75">
+            </div>
+          </div>
+          <div class="play-meta">
+            <p class="play-mu" id="pMu"></p>
+            <p class="play-legend" aria-hidden="true"><span class="lg lg-model"></span>Model probability <span class="lg lg-market"></span>Market YES ask</p>
+          </div>
+          <div class="play-scroll">
+            <table class="play-table">
+              <caption class="visually-hidden">Each bracket's model probability, the market's YES ask, the better side's edge, and what the bot would do</caption>
+              <thead><tr><th scope="col">Bracket</th><th scope="col">Model vs market</th><th scope="col">Best edge</th><th scope="col"><span class="th-long">Bot's call</span><span class="th-short" aria-hidden="true">Call</span></th></tr></thead>
+              <tbody id="pRows"></tbody>
+            </table>
+          </div>
+          <p class="play-sum" id="pSum" aria-live="polite"></p>
+          <p class="play-fine">The bot trades only when the edge is at least 12¢, the conservative setting from the May 2026 run. Fee per contract is the larger of 1¢ or 7% of the price. The example book prices each bracket as if traders expect the "market expects" value with σ = 2.5°F, plus a 2¢ spread. Like the bot, the two end brackets use their threshold as written, so the six probabilities can add up to slightly more than 100%.</p>
+        </section>
       </article>
 
       <div class="grid">
-        <article class="card" aria-labelledby="bjc-title">
+        <article class="card" id="bjc" aria-labelledby="bjc-title">
           <div class="card-visual">
-            <pre class="code" tabindex="0" aria-label="Excerpt from school_datatable.rb, the server-side table code"><code><span class="k">class</span> <span class="c">SchoolDatatable</span> &lt; <span class="c">AjaxDatatablesRails</span>::<span class="c">ActiveRecord</span>
+            <pre class="code" dir="ltr" tabindex="0" aria-label="Excerpt from school_datatable.rb, the server-side table code"><code><span class="k">class</span> <span class="c">SchoolDatatable</span> &lt; <span class="c">AjaxDatatablesRails</span>::<span class="c">ActiveRecord</span>
   <span class="c">DEFAULT_PAGE_LENGTH</span> = <span class="n">100</span>
   <span class="c">MAX_PAGE_LENGTH</span> = <span class="n">1000</span>
   <span class="c">SEARCHABLE_COLUMNS</span> = <span class="s">%w[name city state country website]</span>
@@ -683,9 +872,9 @@ p { margin: 0; text-wrap: pretty; }
           </div>
         </article>
 
-        <article class="card" aria-labelledby="brief-title">
+        <article class="card" id="briefing" aria-labelledby="brief-title">
           <div class="card-visual">
-            <div class="mail" aria-hidden="true">
+            <div class="mail" dir="ltr" aria-hidden="true">
               <div class="mail-card">
                 <div class="mail-top"><span class="mail-from">Daily Briefing</span><span class="mail-time">06:23</span></div>
                 <p class="mail-subject">[Elevated] Chrome 0-day exploited · 15 items</p>
@@ -705,7 +894,7 @@ p { margin: 0; text-wrap: pretty; }
           </div>
         </article>
 
-        <article class="card" aria-labelledby="skilllift-title">
+        <article class="card" id="skill-lift" aria-labelledby="skilllift-title">
           <div class="card-visual">
             <figure class="chart">
               <figcaption class="chart-title">Runs where the agent actually read a skill</figcaption>
@@ -730,7 +919,7 @@ p { margin: 0; text-wrap: pretty; }
           </div>
         </article>
 
-        <article class="card" aria-labelledby="limud-title">
+        <article class="card" id="limud" aria-labelledby="limud-title">
           <div class="card-visual">
             <div class="peek"><img src="assets/limud.webp" width="480" height="817" loading="lazy" decoding="async" alt="Limud's setup screen: Shas Mishnah in a year, with a start date, a Shabbat pace of 3.5 times a weekday, and a projected finish date."></div>
           </div>
@@ -747,7 +936,7 @@ p { margin: 0; text-wrap: pretty; }
         </article>
       </div>
 
-      <h3 class="label more-head">More work</h3>
+      <h3 class="label more-head" id="more-work">More work</h3>
       <ul class="more">
         <li>
           <span class="t">Bank Statement Analyzer<span>2025</span></span>
@@ -813,7 +1002,7 @@ p { margin: 0; text-wrap: pretty; }
           </div>
         </li>
         <li>
-          <p class="when">2019 – 2022<span>São Paulo</span></p>
+          <p class="when"><bdi dir="ltr">2019 – 2022</bdi><span>São Paulo</span></p>
           <div class="role">
             <h3>Volunteer Teaching Assistant</h3>
             <p class="org">Education for young adults</p>
@@ -868,7 +1057,7 @@ p { margin: 0; text-wrap: pretty; }
     </div>
   </section>
 
-  <section class="section" id="contact" aria-labelledby="contact-title">
+  <section class="section band" id="contact" aria-labelledby="contact-title">
     <div class="wrap">
       <div class="section-head">
         <h2 id="contact-title">Get in touch</h2>
@@ -878,13 +1067,14 @@ p { margin: 0; text-wrap: pretty; }
           <p class="contact-intro">Email is the fastest way to reach me.</p>
           <a class="big-email" href="mailto:krigerroni@gmail.com" id="emailText">krigerroni@gmail.com</a>
           <div class="row">
+            <a class="btn btn-gold" href="mailto:krigerroni@gmail.com">Email me</a>
             <button class="btn" type="button" data-copy="krigerroni@gmail.com" id="copyEmail">Copy email address</button>
             <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
           </div>
         </div>
         <dl class="channels">
           <dt>Phone</dt>
-          <dd><a href="tel:+972506444947">+972 50-644-4947</a><button class="copy" type="button" data-copy="+972506444947">Copy</button></dd>
+          <dd><a href="tel:+972506444947" dir="ltr">+972 50-644-4947</a><button class="copy" type="button" data-copy="+972506444947">Copy</button></dd>
           <dt>LinkedIn</dt>
           <dd><a href="https://www.linkedin.com/in/roni-kriger/" target="_blank" rel="noopener">in/roni-kriger</a></dd>
           <dt>GitHub</dt>
@@ -909,8 +1099,8 @@ p { margin: 0; text-wrap: pretty; }
 <dialog class="lightbox" id="lightbox" aria-label="Orbit screenshot">
   <figure class="lb-figure"><img id="lbImg" src="data:," alt=""><figcaption id="lbCap"></figcaption></figure>
   <button class="lb-btn lb-close" type="button" id="lbClose" aria-label="Close">×</button>
-  <button class="lb-btn lb-prev" type="button" id="lbPrev" aria-label="Previous screenshot">‹</button>
-  <button class="lb-btn lb-next" type="button" id="lbNext" aria-label="Next screenshot">›</button>
+  <button class="lb-btn lb-prev" type="button" id="lbPrev" aria-label="Previous screenshot"></button>
+  <button class="lb-btn lb-next" type="button" id="lbNext" aria-label="Next screenshot"></button>
 </dialog>
 
 <script>
@@ -989,6 +1179,7 @@ p { margin: 0; text-wrap: pretty; }
     var img = shotBtns[lbIndex].querySelector("img");
     lbImg.src = img.getAttribute("data-full"); lbImg.alt = img.alt;
     lbCap.textContent = shotBtns[lbIndex].parentNode.querySelector("figcaption").textContent + " · " + (lbIndex + 1) + " of " + shotBtns.length;
+    lbCap.setAttribute("dir", root.dir || "ltr");
   }
   shotBtns.forEach(function (b, i) {
     b.addEventListener("click", function () {
@@ -1002,11 +1193,116 @@ p { margin: 0; text-wrap: pretty; }
     document.getElementById("lbNext").addEventListener("click", function () { showShot(lbIndex + 1); });
     lb.addEventListener("click", function (e) { if (e.target === lb || e.target.classList.contains("lb-figure")) lb.close(); });
     lb.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowLeft") { e.preventDefault(); showShot(lbIndex - 1); }
-      if (e.key === "ArrowRight") { e.preventDefault(); showShot(lbIndex + 1); }
+      var rtl = document.documentElement.dir === "rtl";
+      if (e.key === "ArrowLeft") { e.preventDefault(); showShot(lbIndex + (rtl ? 1 : -1)); }
+      if (e.key === "ArrowRight") { e.preventDefault(); showShot(lbIndex + (rtl ? -1 : 1)); }
     });
     lb.addEventListener("close", function () { var b = shotBtns[lbIndex]; if (b) b.focus(); });
   }
+
+  /* ---------- Kalshi pricing playground ---------- */
+  // Mirrors weather_arb/pricing.py: daily high ~ Normal(mu, sigma); "between" brackets get a
+  // ±0.5° continuity correction; the edge is fair price minus the ask on the better side.
+  (function () {
+    var box = document.getElementById("kalshiPlay");
+    if (!box) return;
+    var PT = {
+      below: "below {t}°",
+      above: "above {t}°",
+      range: "{a}–{b}°",
+      buyYes: "Buy YES",
+      buyNo: "Buy NO",
+      pass: "Pass",
+      yes: "YES",
+      no: "NO",
+      vals: "model {p}% · ask {a}¢",
+      net: "after fee {n}",
+      mu: "Bias-corrected forecast: μ = {mu}°F (calibrated bias {b})",
+      none: "No bracket clears the 12¢ edge gate, so the bot would sit this day out.",
+      one: "1 of 6 brackets clears the 12¢ edge gate. Expected value after fees: {ev} per contract.",
+      some: "{n} of 6 brackets clear the 12¢ edge gate. Expected value after fees: {ev} per contract, summed across them."
+    };
+    // Calibration v2.1 (NDFD forecast vs ASOS readings, 30 days through 3 May 2026)
+    var STATIONS = [
+      { sigma: 2.22, bias: -0.0525 },  // New York
+      { sigma: 3.059, bias: -0.7608 }, // Boston
+      { sigma: 0.7655, bias: 1.5083 }, // Las Vegas
+      { sigma: 0.8714, bias: 0.3417 }  // Phoenix
+    ];
+    var GATE = 12, MARKET_SIGMA = 2.5, SPREAD = 2;
+    var fc = document.getElementById("pFc"), sg = document.getElementById("pSig"), mk = document.getElementById("pMkt");
+    var fcOut = document.getElementById("pFcOut"), sgOut = document.getElementById("pSigOut"), mkOut = document.getElementById("pMktOut");
+    var rowsEl = document.getElementById("pRows"), sumEl = document.getElementById("pSum"), muEl = document.getElementById("pMu");
+    var segBtns = Array.prototype.slice.call(box.querySelectorAll(".seg-btn")), station = 0;
+    var MINUS = "−";
+
+    function erf(x) { // Abramowitz and Stegun 7.1.26, error under 1.5e-7
+      var sign = x < 0 ? -1 : 1; x = Math.abs(x);
+      var t = 1 / (1 + 0.3275911 * x);
+      var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
+      return sign * y;
+    }
+    function cdf(z) { return 0.5 * (1 + erf(z / Math.SQRT2)); }
+    function fairYes(b, mu, s) {
+      if (b.type === "less") return cdf((b.t - mu) / s);
+      if (b.type === "greater") return 1 - cdf((b.t - mu) / s);
+      return cdf((b.hi + 0.5 - mu) / s) - cdf((b.lo - 0.5 - mu) / s);
+    }
+    function brackets(c) {
+      return [
+        { type: "less", t: c - 3 }, { type: "between", lo: c - 3, hi: c - 2 }, { type: "between", lo: c - 1, hi: c },
+        { type: "between", lo: c + 1, hi: c + 2 }, { type: "between", lo: c + 3, hi: c + 4 }, { type: "greater", t: c + 4 }
+      ];
+    }
+    function fill(str, map) { return str.replace(/\{(\w+)\}/g, function (_, k) { return map[k]; }); }
+    // Wrapped in invisible left-to-right isolates so the sign stays put inside right-to-left text
+    function signed(v, digits, unit) { var r = Math.abs(v).toFixed(digits); return "\u2066" + (v < 0 && +r !== 0 ? MINUS : "+") + r + (unit || "") + "\u2069"; }
+    function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+    function label(b) {
+      if (b.type === "less") return fill(PT.below, { t: b.t });
+      if (b.type === "greater") return fill(PT.above, { t: b.t });
+      return fill(PT.range, { a: b.lo, b: b.hi });
+    }
+
+    function render() {
+      var st = STATIONS[station], raw = +fc.value, sigma = +sg.value, market = +mk.value;
+      var mu = raw - st.bias; // corrected μ = raw μ − correction (bias.py)
+      fcOut.textContent = raw.toFixed(1).replace(/\.0$/, "") + "°F";
+      sgOut.textContent = sigma.toFixed(2) + "°F";
+      mkOut.textContent = market.toFixed(1).replace(/\.0$/, "") + "°F";
+      muEl.textContent = fill(PT.mu, { mu: mu.toFixed(1), b: signed(st.bias, 2, "°F") });
+      var html = "", trades = 0, ev = 0;
+      brackets(Math.round(market)).forEach(function (b) {
+        var p = fairYes(b, mu, sigma) * 100, pm = fairYes(b, market, MARKET_SIGMA) * 100;
+        var yesAsk = clamp(Math.round(pm) + SPREAD, 1, 99), noAsk = clamp(Math.round(100 - pm) + SPREAD, 1, 99);
+        var eYes = p - yesAsk, eNo = (100 - p) - noAsk;
+        var yes = eYes >= eNo, edge = yes ? eYes : eNo, ask = yes ? yesAsk : noAsk;
+        var fee = Math.max(1, 0.07 * ask), net = edge - fee, buy = edge >= GATE;
+        if (buy) { trades++; ev += net; }
+        var call = buy ? '<span class="call call-buy"><span aria-hidden="true">' + (yes ? "↑" : "↓") + '</span><span class="call-text">' + (yes ? PT.buyYes : PT.buyNo) + "</span></span>"
+                       : '<span class="call"><span aria-hidden="true">–</span><span class="call-text">' + PT.pass + "</span></span>";
+        html += '<tr' + (buy ? ' class="is-buy"' : "") + '>' +
+          '<th scope="row"><bdi>' + label(b) + "</bdi></th>" +
+          '<td><div class="pbar" aria-hidden="true"><span class="pbar-model" style="width:' + clamp(p, 0, 100).toFixed(1) + '%"></span>' +
+          '<span class="pbar-ask" style="inset-inline-start:' + yesAsk + '%"></span></div>' +
+          '<span class="pvals">' + fill(PT.vals, { p: "<b>" + Math.round(p) + "</b>", a: "<b>" + yesAsk + "</b>" }) + "</span></td>" +
+          '<td class="pedge"><bdi>' + signed(edge, 0, "¢") + " " + (yes ? PT.yes : PT.no) + "</bdi><small><bdi>" + fill(PT.net, { n: signed(net, 1, "¢") }) + "</bdi></small></td>" +
+          "<td>" + call + "</td></tr>";
+      });
+      rowsEl.innerHTML = html;
+      sumEl.textContent = trades === 0 ? PT.none : fill(trades === 1 ? PT.one : PT.some, { n: trades, ev: signed(ev, 1, "¢") });
+    }
+    segBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        station = +b.getAttribute("data-st");
+        segBtns.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        sg.value = STATIONS[station].sigma;
+        render();
+      });
+    });
+    [fc, sg, mk].forEach(function (el) { el.addEventListener("input", render); });
+    render();
+  })();
 
   var y = document.getElementById("year");
   if (y) y.textContent = String(new Date().getFullYear());
@@ -1064,7 +1360,7 @@ p { margin: 0; text-wrap: pretty; }
   var colors = {};
   function readColors() {
     var cs = getComputedStyle(root);
-    ["--globe-dot", "--globe-fill", "--globe-rim", "--gold", "--gold-ink", "--gold-soft", "--ink", "--paper"].forEach(function (k) { colors[k] = cs.getPropertyValue(k).trim(); });
+    ["--globe-dot", "--globe-fill", "--globe-rim", "--globe-halo", "--globe-shade", "--gold", "--gold-ink", "--gold-soft", "--ink", "--paper"].forEach(function (k) { colors[k] = cs.getPropertyValue(k).trim(); });
   }
   readColors();
 
@@ -1109,9 +1405,14 @@ p { margin: 0; text-wrap: pretty; }
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, W, H);
 
-    // Disc
+    // Atmosphere glow, then the disc lit from the upper left
+    var halo = ctx.createRadialGradient(cx, cy, R * 0.92, cx, cy, R * 1.16);
+    halo.addColorStop(0, colors["--globe-halo"]); halo.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.beginPath(); ctx.arc(cx, cy, R * 1.16, 0, Math.PI * 2); ctx.fillStyle = halo; ctx.fill();
+    var shade = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.4, R * 0.1, cx, cy, R);
+    shade.addColorStop(0, colors["--globe-fill"]); shade.addColorStop(0.65, colors["--globe-fill"]); shade.addColorStop(1, colors["--globe-shade"]);
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
-    ctx.fillStyle = colors["--globe-fill"]; ctx.fill();
+    ctx.fillStyle = shade; ctx.fill();
     ctx.lineWidth = 1; ctx.strokeStyle = colors["--globe-rim"]; ctx.stroke();
 
     // Land dots in three depth bands
@@ -1152,8 +1453,9 @@ p { margin: 0; text-wrap: pretty; }
     }
 
     // Cities; the one picked or hovered in the list gets a halo
-    var fs = Math.max(11, Math.min(13, R / 17));
+    var fs = Math.max(11, Math.min(13, R / 17)), rtl = root.dir === "rtl";
     ctx.textBaseline = "middle";
+    ctx.direction = rtl ? "rtl" : "ltr";
     for (var c = 0; c < cities.length; c++) {
       var city = cities[c], lit = c === active || c === hover;
       var reached = c === 0 ? progress[0] > 0 : progress[c - 1] >= 1;
@@ -1166,9 +1468,9 @@ p { margin: 0; text-wrap: pretty; }
       ctx.beginPath(); ctx.arc(x, yv, 7, 0, Math.PI * 2); ctx.fillStyle = colors["--paper"]; ctx.fill();
       ctx.lineWidth = 2; ctx.strokeStyle = colors["--gold"]; ctx.stroke();
       ctx.beginPath(); ctx.arc(x, yv, 3, 0, Math.PI * 2); ctx.fillStyle = colors["--gold"]; ctx.fill();
-      var label = city.n + " " + city.name, lx = x + city.dx * (lit ? 1.4 : 1), ly = yv + city.dy * (lit ? 1.4 : 1);
-      ctx.font = (lit ? "600 " : "500 ") + fs + "px 'Geist Mono', ui-monospace, Menlo, monospace";
-      ctx.textAlign = city.align;
+      var label = city.n + " " + city.name, lx = x + city.dx * (lit ? 1.4 : 1) * (rtl ? -1 : 1), ly = yv + city.dy * (lit ? 1.4 : 1);
+      ctx.font = (lit ? "600 " : "500 ") + fs + "px 'Geist Mono', 'Heebo', ui-monospace, Menlo, monospace";
+      ctx.textAlign = rtl ? ({ left: "right", right: "left" }[city.align] || city.align) : city.align;
       ctx.lineWidth = 4; ctx.strokeStyle = colors["--paper"]; ctx.strokeText(label, lx, ly);
       ctx.fillStyle = colors["--ink"]; ctx.fillText(label, lx, ly);
     }
